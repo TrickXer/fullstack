@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Button from '../components/ui/button'
 import Ticket from '../components/ticket'
 import { useDispatch, useSelector } from 'react-redux'
 import { useMyNavigate } from 'simple-react-router-x'
 import { update } from '../state/tickets/checkoutslice'
+import { calculateBill, calculateServicefee, calculateSubtotal } from '../utils/ticketsutil'
 
 export default function BuyTickets(props) {
     const eventRef = useRef(null)
@@ -14,8 +15,6 @@ export default function BuyTickets(props) {
 
     const event = useSelector(state => state.tickets.event)
     const [tickets, setTickets] = useState(event?.tickets)
-
-
 
     useEffect(() => {
         if (eventRef.current) {
@@ -34,10 +33,6 @@ export default function BuyTickets(props) {
             ticketRef.current.scrollIntoView({ behavior: "smooth" })
         }
     }
-
-    const calculateSubtotal = () => tickets.reduce((sum, ticket) => sum + (ticket?.quantity * ticket?.price), 0)
-    const calculateServicefee = () => tickets.reduce((sum, ticket) => sum + (ticket?.quantity * ticket?.service_fee), 0)
-    const calculateBill = () => tickets.reduce((sum, ticket) => sum + (ticket?.quantity * (ticket?.price + ticket?.service_fee)), 0)
 
 
     return (
@@ -88,23 +83,23 @@ export default function BuyTickets(props) {
                     <div className='w-full flex justify-end'>
                         <div className='w-2/5 flex flex-col space-y-6 justify-between'>
                             {
-                                calculateBill() > 0 &&
+                                calculateBill(tickets) > 0 &&
                                     <div className='w-full flex flex-col justify-between space-y-3'>
                                         <div className='flex justify-between text-xl'>
                                             <span>Subtotal</span>
-                                            <span>{`$${Number(calculateSubtotal()).toFixed(2)}`}</span>
+                                            <span>{`$${Number(calculateSubtotal(tickets)).toFixed(2)}`}</span>
                                         </div>
                                         <div className='flex justify-between text-xl'>
                                             <span>Service Fee</span>
-                                            <span>{`$${Number(calculateServicefee()).toFixed(2)}`}</span>
+                                            <span>{`$${Number(calculateServicefee(tickets)).toFixed(2)}`}</span>
                                         </div>
                                     </div>
                             }
                             <div className='flex justify-between text-xl'>
                                 <span>Total</span>
-                                <span>{`$${Number(calculateBill()).toFixed(2)}`}</span>
+                                <span>{`$${Number(calculateBill(tickets)).toFixed(2)}`}</span>
                             </div>
-                            <Button onClick={navigateToCheckout} disabled={calculateBill() === 0} color="bg-[#dd5d5a]">checkout</Button>
+                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} color="bg-[#dd5d5a]">checkout</Button>
                         </div>
                     </div>
                 </div>

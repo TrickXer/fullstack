@@ -11,7 +11,7 @@ import checkoutReducer from './tickets/checkoutslice'
 const persistConfig = {
     key: "root",
     version: 1,
-    storage
+    storage,
 }
 
 // explicit reducer combining
