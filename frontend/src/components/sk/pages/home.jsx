@@ -23,7 +23,7 @@ export default function Home(props) {
                 </h1>
 
                 <div className='mt-8'>
-                    <Button color="bg-[#dd5d5a]" onClick={navigatoToEvents}>upcoming events</Button>
+                    <Button className="bg-[#dd5d5a] hover:bg-transparent hover:text-black hover:border-2" onClick={navigatoToEvents}>upcoming events</Button>
                 </div>
             </div>
         </div>

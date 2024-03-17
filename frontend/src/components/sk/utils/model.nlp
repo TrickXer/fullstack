@@ -1,0 +1,6797 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "hello": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hey": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "hey,you": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "yo": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "good,morn": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "afternoon,good": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "even,good": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "howdi": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "greet": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "is,up,what": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "is,new,what": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "wassup": {
+            "intent": "greeting",
+            "domain": "default"
+          },
+          "book,for,parti,venu": {
+            "intent": "booking",
+            "domain": "default"
+          },
+          "parti,type": {
+            "intent": "party.type",
+            "domain": "default"
+          },
+          "of,parti,type": {
+            "intent": "party.type",
+            "domain": "default"
+          },
+          "advanc,book,for,parti,venu": {
+            "intent": "booking.timing",
+            "domain": "default"
+          },
+          "book,earli,for,parti,venu": {
+            "intent": "booking.timing",
+            "domain": "default"
+          },
+          "decor": {
+            "intent": "services",
+            "domain": "default"
+          },
+          "custom,decor": {
+            "intent": "services",
+            "domain": "default"
+          },
+          "cater": {
+            "intent": "catering",
+            "domain": "default"
+          },
+          "arrang,cater": {
+            "intent": "catering",
+            "domain": "default"
+          },
+          "entertain": {
+            "intent": "entertainments",
+            "domain": "default"
+          },
+          "entertain,option": {
+            "intent": "entertainments",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting": "default",
+          "booking": "default",
+          "party.type": "default",
+          "booking.timing": "default",
+          "services": "default",
+          "catering": "default",
+          "entertainments": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "hey you",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "yo",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "howdy",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "greetings",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's up?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "what's new?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "wassup?",
+            "intent": "greeting"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "book venue for party",
+            "intent": "booking"
+          },
+          {
+            "domain": "default",
+            "utterance": "advance book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "early book venue for party",
+            "intent": "booking.timing"
+          },
+          {
+            "domain": "default",
+            "utterance": "party types",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "types of parties",
+            "intent": "party.type"
+          },
+          {
+            "domain": "default",
+            "utterance": "decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "customize decorations",
+            "intent": "services"
+          },
+          {
+            "domain": "default",
+            "utterance": "catering ",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "arrange catering",
+            "intent": "catering"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment",
+            "intent": "entertainments"
+          },
+          {
+            "domain": "default",
+            "utterance": "entertainment options",
+            "intent": "entertainments"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "hello": 1,
+              "hi": 1,
+              "hey": 1,
+              "you": 1,
+              "yo": 1,
+              "good": 1,
+              "morn": 1,
+              "afternoon": 1,
+              "even": 1,
+              "howdi": 1,
+              "greet": 1,
+              "what": 1,
+              "is": 1,
+              "up": 1,
+              "new": 1,
+              "wassup": 1,
+              "book": 1,
+              "venu": 1,
+              "for": 1,
+              "parti": 1,
+              "type": 1,
+              "of": 1,
+              "advanc": 1,
+              "earli": 1,
+              "decor": 1,
+              "custom": 1,
+              "cater": 1,
+              "arrang": 1,
+              "entertain": 1,
+              "option": 1
+            },
+            "intents": {
+              "greeting": 1,
+              "booking": 1,
+              "party.type": 1,
+              "booking.timing": 1,
+              "services": 1,
+              "catering": 1,
+              "entertainments": 1
+            },
+            "intentFeatures": {
+              "greeting": {
+                "hello": 1,
+                "hi": 1,
+                "hey": 1,
+                "you": 1,
+                "yo": 1,
+                "good": 1,
+                "morn": 1,
+                "afternoon": 1,
+                "even": 1,
+                "howdi": 1,
+                "greet": 1,
+                "what": 1,
+                "is": 1,
+                "up": 1,
+                "new": 1,
+                "wassup": 1
+              },
+              "booking": {
+                "book": 1,
+                "venu": 1,
+                "for": 1,
+                "parti": 1
+              },
+              "party.type": {
+                "parti": 1,
+                "type": 1,
+                "of": 1
+              },
+              "booking.timing": {
+                "advanc": 1,
+                "book": 1,
+                "venu": 1,
+                "for": 1,
+                "parti": 1,
+                "earli": 1
+              },
+              "services": {
+                "decor": 1,
+                "custom": 1
+              },
+              "catering": {
+                "cater": 1,
+                "arrang": 1
+              },
+              "entertainments": {
+                "entertain": 1,
+                "option": 1
+              }
+            },
+            "featuresToIntent": {
+              "hello": [
+                "greeting"
+              ],
+              "hi": [
+                "greeting"
+              ],
+              "hey": [
+                "greeting"
+              ],
+              "you": [
+                "greeting"
+              ],
+              "yo": [
+                "greeting"
+              ],
+              "good": [
+                "greeting"
+              ],
+              "morn": [
+                "greeting"
+              ],
+              "afternoon": [
+                "greeting"
+              ],
+              "even": [
+                "greeting"
+              ],
+              "howdi": [
+                "greeting"
+              ],
+              "greet": [
+                "greeting"
+              ],
+              "what": [
+                "greeting"
+              ],
+              "is": [
+                "greeting"
+              ],
+              "up": [
+                "greeting"
+              ],
+              "new": [
+                "greeting"
+              ],
+              "wassup": [
+                "greeting"
+              ],
+              "book": [
+                "booking",
+                "booking.timing"
+              ],
+              "venu": [
+                "booking",
+                "booking.timing"
+              ],
+              "for": [
+                "booking",
+                "booking.timing"
+              ],
+              "parti": [
+                "booking",
+                "party.type",
+                "booking.timing"
+              ],
+              "type": [
+                "party.type"
+              ],
+              "of": [
+                "party.type"
+              ],
+              "advanc": [
+                "booking.timing"
+              ],
+              "earli": [
+                "booking.timing"
+              ],
+              "decor": [
+                "services"
+              ],
+              "custom": [
+                "services"
+              ],
+              "cater": [
+                "catering"
+              ],
+              "arrang": [
+                "catering"
+              ],
+              "entertain": [
+                "entertainments"
+              ],
+              "option": [
+                "entertainments"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "hello",
+                "hi",
+                "hey",
+                "you",
+                "yo",
+                "good",
+                "morn",
+                "afternoon",
+                "even",
+                "howdi",
+                "greet",
+                "what",
+                "is",
+                "up",
+                "new",
+                "wassup",
+                "book",
+                "venu",
+                "for",
+                "parti",
+                "type",
+                "of",
+                "advanc",
+                "earli",
+                "decor",
+                "custom",
+                "cater",
+                "arrang",
+                "entertain",
+                "option"
+              ],
+              "intents": [
+                "greeting",
+                "booking",
+                "party.type",
+                "booking.timing",
+                "services",
+                "catering",
+                "entertainments"
+              ],
+              "perceptrons": [
+                [
+                  5.748650074005127,
+                  5.745000839233398,
+                  5.600989818572998,
+                  0.22913846373558044,
+                  5.73573637008667,
+                  4.3073272705078125,
+                  1.4369627237319946,
+                  1.4364752769470215,
+                  1.4357759952545166,
+                  5.7301435470581055,
+                  5.724791526794434,
+                  2.296102523803711,
+                  2.296102523803711,
+                  1.1489018201828003,
+                  1.1477675437927246,
+                  5.718646049499512,
+                  -2.3849213123321533,
+                  -2.3849213123321533,
+                  -2.3849213123321533,
+                  -6.130757808685303,
+                  -3.455444812774658,
+                  -1.020112156867981,
+                  0,
+                  0,
+                  -8.097858428955078,
+                  -2.011328935623169,
+                  -8.095351219177246,
+                  -1.9382520914077759,
+                  -8.094030380249023,
+                  -1.852935791015625,
+                  8.095220674391205
+                ],
+                [
+                  -0.11621446162462234,
+                  -0.11551913619041443,
+                  -0.12097743153572083,
+                  -0.041031964123249054,
+                  -0.11443237960338593,
+                  -0.11183366924524307,
+                  -0.03822227194905281,
+                  -0.03595072403550148,
+                  -0.03252154216170311,
+                  -0.11396544426679611,
+                  -0.11365032941102982,
+                  -0.058735206723213196,
+                  -0.058735206723213196,
+                  -0.030022146180272102,
+                  -0.026263967156410217,
+                  -0.11328701674938202,
+                  4.070422649383545,
+                  4.070422649383545,
+                  4.070422649383545,
+                  1.878257155418396,
+                  -2.1921420097351074,
+                  -0.6641186475753784,
+                  -14.203986167907715,
+                  -14.200618743896484,
+                  -0.2095208615064621,
+                  -0.05365670844912529,
+                  -0.20782111585140228,
+                  -0.05298326164484024,
+                  -0.20621535181999207,
+                  -0.052290964871644974,
+                  0.13235434191615547
+                ],
+                [
+                  -0.2507173717021942,
+                  -0.24878527224063873,
+                  -0.28084832429885864,
+                  -0.1055290549993515,
+                  -0.24664871394634247,
+                  -0.2856300175189972,
+                  -0.09729544818401337,
+                  -0.08714839071035385,
+                  -0.07737978547811508,
+                  -0.24618861079216003,
+                  -0.24606430530548096,
+                  -0.14815358817577362,
+                  -0.14815358817577362,
+                  -0.07081590592861176,
+                  -0.05888652056455612,
+                  -0.2459077686071396,
+                  -2.159839630126953,
+                  -2.159839630126953,
+                  -2.159839630126953,
+                  5.938726902008057,
+                  8.100131034851074,
+                  0.000020453693650779314,
+                  -0.4584672749042511,
+                  -0.30021634697914124,
+                  -1.081855058670044,
+                  -0.366938978433609,
+                  -1.0773506164550781,
+                  -0.35066115856170654,
+                  -1.0724722146987915,
+                  -0.3348577320575714,
+                  0.24684442117585959
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0.5296728014945984,
+                  0.5296728014945984,
+                  0.5296728014945984,
+                  -0.740906298160553,
+                  -1.2539194822311401,
+                  -0.4905800223350525,
+                  14.205259323120117,
+                  14.201944351196289,
+                  -0.281472772359848,
+                  -0.10870649665594101,
+                  -0.2710610032081604,
+                  -0.10194071382284164,
+                  -0.2568124234676361,
+                  -0.09557286649942398,
+                  -0.7852708809214733
+                ],
+                [
+                  -0.7143359184265137,
+                  -0.7108071446418762,
+                  -0.7467209696769714,
+                  -0.2680546045303345,
+                  -0.7068605422973633,
+                  -0.709858238697052,
+                  -0.24581417441368103,
+                  -0.2211344689130783,
+                  -0.19744190573692322,
+                  -0.7053841948509216,
+                  -0.7044186592102051,
+                  -0.3710857331752777,
+                  -0.3710857331752777,
+                  -0.181398406624794,
+                  -0.16204018890857697,
+                  -0.703333854675293,
+                  -0.39105162024497986,
+                  -0.39105162024497986,
+                  -0.39105162024497986,
+                  -1.3709356784820557,
+                  -0.9738550186157227,
+                  -0.2895914316177368,
+                  -0.10187310725450516,
+                  -0.06394179165363312,
+                  13.51196002960205,
+                  0.03996242582798004,
+                  -2.2680513858795166,
+                  -0.6345334053039551,
+                  -2.2523128986358643,
+                  -0.617779552936554,
+                  0.749085536481745
+                ],
+                [
+                  -0.7150070667266846,
+                  -0.7114754319190979,
+                  -0.7474463582038879,
+                  -0.26840946078300476,
+                  -0.7075282335281372,
+                  -0.7106728553771973,
+                  -0.24613361060619354,
+                  -0.22142156958580017,
+                  -0.19769923388957977,
+                  -0.7060520648956299,
+                  -0.7050870060920715,
+                  -0.37157168984413147,
+                  -0.37157168984413147,
+                  -0.1816832423210144,
+                  -0.16223882138729095,
+                  -0.7040023803710938,
+                  -0.4119355380535126,
+                  -0.4119355380535126,
+                  -0.4119355380535126,
+                  -1.3844914436340332,
+                  -0.9686287641525269,
+                  -0.2911831736564636,
+                  -0.10864031314849854,
+                  -0.06813586503267288,
+                  -2.2317416667938232,
+                  -0.6098966002464294,
+                  13.51132869720459,
+                  0.03994283452630043,
+                  -2.26640248298645,
+                  -0.6340200304985046,
+                  0.7497284792608937
+                ],
+                [
+                  -0.715474009513855,
+                  -0.711940586566925,
+                  -0.7479532361030579,
+                  -0.26867422461509705,
+                  -0.7079935073852539,
+                  -0.7112626433372498,
+                  -0.2463710755109787,
+                  -0.22163496911525726,
+                  -0.19789062440395355,
+                  -0.7065178155899048,
+                  -0.7055531740188599,
+                  -0.3719334900379181,
+                  -0.3719334900379181,
+                  -0.1819022297859192,
+                  -0.1623847484588623,
+                  -0.7044690847396851,
+                  -0.42983874678611755,
+                  -0.42983874678611755,
+                  -0.42983874678611755,
+                  -1.4000352621078491,
+                  -0.9601802825927734,
+                  -0.3014051616191864,
+                  -0.11582818627357483,
+                  -0.06216567009687424,
+                  -2.246800422668457,
+                  -0.6262022256851196,
+                  -2.2295923233032227,
+                  -0.608902633190155,
+                  13.510904312133789,
+                  0.03992138430476189,
+                  0.7501667709170992
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "hey"
+      ],
+      [
+        "en",
+        "hey you"
+      ],
+      [
+        "en",
+        "yo"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "en",
+        "howdy"
+      ],
+      [
+        "en",
+        "greetings"
+      ],
+      [
+        "en",
+        "what's up?"
+      ],
+      [
+        "en",
+        "what's new?"
+      ],
+      [
+        "en",
+        "wassup?"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ],
+      [
+        "en",
+        "book venue for party"
+      ],
+      [
+        "en",
+        "advance book venue for party"
+      ],
+      [
+        "en",
+        "early book venue for party"
+      ],
+      [
+        "en",
+        "party types"
+      ],
+      [
+        "en",
+        "types of parties"
+      ],
+      [
+        "en",
+        "decorations"
+      ],
+      [
+        "en",
+        "customize decorations"
+      ],
+      [
+        "en",
+        "catering "
+      ],
+      [
+        "en",
+        "arrange catering"
+      ],
+      [
+        "en",
+        "entertainment"
+      ],
+      [
+        "en",
+        "entertainment options"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greeting": [
+          {
+            "answer": "Greetings!"
+          },
+          {
+            "answer": "Hey, how can I assist you today?"
+          },
+          {
+            "answer": "Hi! What can I do for you?"
+          },
+          {
+            "answer": "Hello! I'm here to help. What do you need?"
+          },
+          {
+            "answer": "Hi there! How may I be of service?"
+          },
+          {
+            "answer": "Hey! What can I do to make your day better?"
+          },
+          {
+            "answer": "Wassup? How can I assist you?"
+          },
+          {
+            "answer": "Yo! What's on your mind?"
+          }
+        ],
+        "booking": [
+          {
+            "answer": "You can book a venue by browsing through our available options on our website and selecting your preferred date and time. Alternatively, you can chat with me directly, and I can assist you in finding the perfect venue for your event."
+          }
+        ],
+        "party.type": [
+          {
+            "answer": "We cater to a wide range of parties including birthdays, anniversaries, corporate events, weddings, and more. Just let us know the type of party you're planning, and we'll help you make it a memorable one!"
+          }
+        ],
+        "booking.timing": [
+          {
+            "answer": "It's best to book your party as early as possible to secure your preferred date and venue. Popular dates tend to fill up quickly, so we recommend booking at least a few months in advance, especially for larger events."
+          }
+        ],
+        "services": [
+          {
+            "answer": "Absolutely! We offer customizable decoration packages to suit your theme and preferences. Whether you're going for a classic look or something more unique, we'll work with you to bring your vision to life."
+          }
+        ],
+        "catering": [
+          {
+            "answer": "We have a variety of catering options available, from buffet-style to plated meals, and everything in between. Simply let us know your dietary preferences and budget, and we'll handle the rest."
+          }
+        ],
+        "entertainments": [
+          {
+            "answer": "We have a range of entertainment options to choose from including DJs, live bands, magicians, photo booths, and more. Whether you want to keep it classy or get the dance floor pumping, we've got you covered!"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

@@ -44,7 +44,7 @@ export default function BuyTickets(props) {
             <p className='mt-16 w-1/3 text-center'>{event?.description}</p>
 
             <div className='mt-12'>
-                <Button color="bg-[#dd5d5a]" onClick={scrollToTickets}>buy tickets</Button>
+                <Button className="bg-[#dd5d5a]" onClick={scrollToTickets}>buy tickets</Button>
             </div>
 
             <div className='w-2/3 mb-8 mt-16 flex justify-center items-center'>
@@ -99,7 +99,7 @@ export default function BuyTickets(props) {
                                 <span>Total</span>
                                 <span>{`$${Number(calculateBill(tickets)).toFixed(2)}`}</span>
                             </div>
-                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} color="bg-[#dd5d5a]">checkout</Button>
+                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} className="bg-[#dd5d5a]">checkout</Button>
                         </div>
                     </div>
                 </div>

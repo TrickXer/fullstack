@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 
-export function Select({title, type, range, children, ...attributes}) {
+export function Select({title, defaultValue, type, range, children, ...attributes}) {
     const count = [...Array(range+1).keys()]
 
     const Icon = () => {
@@ -30,7 +30,7 @@ export function Select({title, type, range, children, ...attributes}) {
                 
                 <Icon />
                 <select {...attributes} className='w-full p-2 px-4 rounded-lg' name="cat" id="cat" title={title}>
-                    <option selected>{title}</option>
+                    <option value="none" selected hidden>{title}</option>
                     {
                         type === 'tag' ? children
                             : (

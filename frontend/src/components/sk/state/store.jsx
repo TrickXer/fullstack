@@ -10,7 +10,6 @@ import checkoutReducer from './tickets/checkoutslice'
 // configurations for redux-persist
 const persistConfig = {
     key: "root",
-    version: 1,
     storage,
 }
 
@@ -25,7 +24,7 @@ const reducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, reducer)
 
 export const store = configureStore({
-    reducer: reducer,
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false
     })

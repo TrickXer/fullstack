@@ -11,8 +11,8 @@ export default function Events(props) {
     const [showList, setShowList] = useState(false)
     const [location, setLocation] = useState("")
     const events = useSelector(state => {
-        if (location === "") return state.events.events
-        return state.events.events.filter(event => event?.location.toLowerCase().split(" ").includes(location.toLowerCase()))
+        if (location === "") return state.events
+        return state.events.filter(event => event?.location.toLowerCase().split(" ").includes(location.toLowerCase()))
     })
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function Events(props) {
                                 <div className='absolute h-96 rounded-3xl top-1/2 left-0 right-0 bg-slate-200 -z-10' />
                             </div>
                             <div className='py-12 mb-6'>
-                                <Button color='bg-black' onClick={() => setShowList(prev => !prev)}>Load more</Button>
+                                <Button className='bg-black' onClick={() => setShowList(prev => !prev)}>Load more</Button>
                             </div>
                         </div>
                     ) : (

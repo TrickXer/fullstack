@@ -28,7 +28,7 @@ export default function ListCard({event}) {
                         <span>{`${event?.time_short} | ${event?.loc_short}`}</span>
                     </div>
                 </div>
-                <Button color="bg-[#dd5d5a]" onClick={navigateToTicket}>buy tickets</Button>
+                <Button className="bg-[#dd5d5a]" onClick={navigateToTicket}>buy tickets</Button>
             </div>
         </div>
     )

@@ -28,7 +28,7 @@ export default function Ticket({id, ticket, tickets, setTickets}) {
                     <span>{`+ $${Number(ticket?.service_fee).toFixed(2)}`} service fee</span>
                 </div>
                 <div className='flex'>
-                    <Select onChange={handleQuantity} type="person" title={"Quantity"} range={10} />
+                    <Select onChange={handleQuantity} defaultValue={ticket?.quantity} type="person" title={"Quantity"} range={10} />
                 </div>
             </div>
         </div>
