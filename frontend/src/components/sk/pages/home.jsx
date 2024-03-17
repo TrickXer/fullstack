@@ -13,7 +13,7 @@ export default function Home(props) {
     
 
     return (
-        <div className='flex flex-col flex-auto'>
+        <div className='flex flex-col flex-auto text-white'>
             <div className='mt-16 text-[60px] flex flex-col justify-center items-center'>
                 <p className='text-3xl tracking-wide'>We Are Q Productions</p>
                 <h1 className='mt-8 flex flex-col text-center font-semibold'>
@@ -23,7 +23,7 @@ export default function Home(props) {
                 </h1>
 
                 <div className='mt-8'>
-                    <Button className="bg-[#dd5d5a] hover:bg-transparent hover:text-black hover:border-2" onClick={navigatoToEvents}>upcoming events</Button>
+                    <Button className="bg-[#FFF76A] transition-colors duration-500 text-black hover:bg-black hover:bg-opacity-50 hover:border-2 hover:border-[#FFF76A] hover:text-[#FFF76A]" onClick={navigatoToEvents}>upcoming events</Button>
                 </div>
             </div>
         </div>

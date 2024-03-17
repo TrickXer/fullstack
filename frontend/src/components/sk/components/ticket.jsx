@@ -5,6 +5,9 @@ import { Select } from './ui/select'
 
 export default function Ticket({id, ticket, tickets, setTickets}) {
     const handleQuantity = (e) => {
+        // e.target.size = 1
+        // e.target.blur()
+
         let quant = parseInt(e.target.value)
         if (isNaN(quant)) quant = 0
 
@@ -15,7 +18,7 @@ export default function Ticket({id, ticket, tickets, setTickets}) {
     
 
     return (
-        <div className='flex py-8 w-full border border-black justify-between divide-black divide-x-2'>
+        <div className='flex py-8 w-full text-black bg-[#FFF76A] justify-between divide-black divide-x-2'>
             <div className='px-8 py-4 flex flex-col justify-center space-y-1 w-1/2'>
                 <span>Ticket type</span>
                 <span className='uppercase text-3xl font-semibold tracking-wide'>{ticket?.type}</span>

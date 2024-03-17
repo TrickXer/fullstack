@@ -23,7 +23,7 @@ export default function Events(props) {
 
 
     return (
-        <div className='relative flex flex-col'>
+        <div className='relative flex flex-col text-white'>
             {
                 !showList ?
                     (
@@ -36,20 +36,20 @@ export default function Events(props) {
                                         <Card key={id} event={event} />
                                     ))
                                 }
-                                <div className='absolute h-96 rounded-3xl top-1/2 left-0 right-0 bg-slate-200 -z-10' />
+                                <div className='absolute h-96 rounded-3xl top-1/2 left-0 right-0 bg-black bg-opacity-60 -z-10' />
                             </div>
                             <div className='py-12 mb-6'>
-                                <Button className='bg-black' onClick={() => setShowList(prev => !prev)}>Load more</Button>
+                                <Button className='bg-white hover:bg-neutral-200 text-black' onClick={() => setShowList(prev => !prev)}>Load more</Button>
                             </div>
                         </div>
                     ) : (
-                        <div ref={eventsRef} className='flex flex-col w-full justify-center items-center'>
+                        <div ref={eventsRef} className='flex flex-col w-full bg-black px-16 pt-12 pb-6 bg-opacity-60 rounded-lg justify-center items-center'>
                             <Search onChange={(e) => setLocation(e.target.value)} placeholder='Location' autoFocus />
 
-                            <div className='my-6 p-3 rounded-lg w-full flex flex-col bg-slate-100 space-y-3'>
+                            <div className='my-6 p-3 rounded-lg w-full flex flex-col bg-neutral-700 space-y-3'>
                                 {
                                     events?.map((event, id) => (
-                                        <ListCard key={id} event={event} />
+                                        <ListCard key={id} event={event} button={"buy tickets"} />
                                     ))
                                 }
                             </div>

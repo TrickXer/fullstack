@@ -6,7 +6,7 @@ import { useMyNavigate } from 'simple-react-router-x'
 import { update } from '../state/tickets/ticketslice'
 import Button from './ui/button'
 
-export default function ListCard({event}) {
+export default function ListCard({event, button}) {
     const navigate = useMyNavigate()
     const dispatch = useDispatch()
 
@@ -17,10 +17,10 @@ export default function ListCard({event}) {
     
 
     return (
-        <div className='px-8 bg-white h-36 w-full rounded-xl flex overflow-hidden'>
-            <img className='object-contain' src={event?.img} />
-            <div className='bottom-0 p-8 w-full flex items-center justify-between bg-white'>
-                <div className='flex flex-auto justify-evenly items-center px-8 py-6'>
+        <div className='p-4 bg-neutral-800 max-h-36 rounded-xl flex flex-auto overflow-hidden'>
+            <img className='object-contain rounded-lg' src={event?.img} />
+            <div className='flex flex-auto items-center bg-neutral-800'>
+                <div className='flex flex-auto justify-evenly items-center py-6'>
                     <div className='flex py-8 w-1/4 text-2xl'>
                         <span>{event?.title}</span>
                     </div>
@@ -28,7 +28,7 @@ export default function ListCard({event}) {
                         <span>{`${event?.time_short} | ${event?.loc_short}`}</span>
                     </div>
                 </div>
-                <Button className="bg-[#dd5d5a]" onClick={navigateToTicket}>buy tickets</Button>
+                <Button className="bg-[#FFF76A] hover:bg-[#D4D056] text-black" onClick={navigateToTicket}>{button}</Button>
             </div>
         </div>
     )
