@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import Card from '../components/card'
 import Button from '../components/ui/button'
 import { useSelector } from 'react-redux'
@@ -11,8 +11,9 @@ export default function Events(props) {
     const [showList, setShowList] = useState(false)
     const [location, setLocation] = useState("")
     const events = useSelector(state => {
-        if (location === "") return state.events.events
-        return state.events.events.filter(event => event?.location.toLowerCase().split(" ").includes(location.toLowerCase()))
+        console.log(state)
+        if (location === "") return state.events.events.filter(event => event?.privacy === "public")
+        return state.events.events.filter(event => event?.location.toLowerCase().split(" ").includes(location.toLowerCase()) && event?.privacy === "public")
     })
 
     useEffect(() => {
@@ -46,13 +47,16 @@ export default function Events(props) {
                         <div ref={eventsRef} className='flex flex-col w-full bg-black px-16 pt-12 pb-6 bg-opacity-60 rounded-lg justify-center items-center'>
                             <Search onChange={(e) => setLocation(e.target.value)} placeholder='Location' autoFocus />
 
-                            <div className='my-6 p-3 rounded-lg w-full flex flex-col bg-neutral-700 space-y-3'>
-                                {
-                                    events?.map((event, id) => (
-                                        <ListCard key={id} event={event} button={"buy tickets"} />
-                                    ))
-                                }
-                            </div>
+                            {
+                                events.length > 0 &&
+                                    <div className='my-6 p-3 rounded-lg w-full flex flex-col bg-neutral-700 space-y-3'>
+                                        {
+                                            events?.map((event, id) => (
+                                                <ListCard key={id} event={event} button={"buy tickets"} />
+                                            ))
+                                        }
+                                    </div>
+                            }
                         </div>
                     )
             }

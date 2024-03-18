@@ -3,7 +3,7 @@ export function Form({children, ...attributes}) {
     
 
     return (
-        <form className="h-[600px] w-[450px] py-4 px-12 flex flex-col space-y-8 justify-center items-center bg-white rounded-lg drop-shadow-xl"
+        <form className="w-[450px] py-6 px-12 flex flex-col space-y-8 justify-center items-center bg-black bg-opacity-75 rounded-xl drop-shadow-xl"
             {...attributes}
         >
             {children}
@@ -15,7 +15,7 @@ export function TextInput({...attributes}) {
     
 
     return (
-        <input className='w-full outline-none placeholder:text-slate-400 border border-gray-400 py-2 px-4 rounded-md focus:border-sky-500'
+        <input className='w-full outline-none text-white bg-neutral-800 bg-opacity-75  placeholder:text-neutral-400 py-2 px-4 rounded-md focus:border focus:border-sky-500'
             {...attributes}
         />
     )

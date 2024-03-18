@@ -4,7 +4,8 @@ import { BRouter, MyRoute } from "simple-react-router-x";
 import Header from "./components/Yesh/header/HeaderWrapper";
 import Loader from "./components/Yesh/util/Loader";
 import { Provider } from "react-redux";
-import { store } from "./components/sk/state/store";
+import { persistor, store } from "./components/sk/state/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 export default function App() {
   return (
@@ -63,6 +64,30 @@ export default function App() {
               }
             />
             <MyRoute
+              path={"/auth/login"}
+              component={
+                <SkWrapper>
+                  <Loader path={"../sk/pages/authentication.jsx"} />
+                </SkWrapper>
+              }
+            />
+            <MyRoute
+              path={"/auth/forgot-password"}
+              component={
+                <SkWrapper>
+                  <Loader path={"../sk/pages/authentication.jsx"} />
+                </SkWrapper>
+              }
+            />
+            <MyRoute
+              path={"/auth/sign-up"}
+              component={
+                <SkWrapper>
+                  <Loader path={"../sk/pages/authentication.jsx"} />
+                </SkWrapper>
+              }
+            />
+            <MyRoute
               path={"/service"}
               component={<Loader path={"/Services/ServicesWrapper.jsx"} />}
             />
@@ -75,9 +100,11 @@ export default function App() {
 function SkWrapper({ children }) {
   return (
     <Provider store={store}>
-      <div style={{ padding: "150px 100px 0 100px", paddingTop: "110px" }}>
-        {children}
-      </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <div style={{ padding: "150px 100px 0 100px", paddingTop: "110px" }}>
+          {children}
+        </div>
+      </PersistGate>
     </Provider>
   );
 }
