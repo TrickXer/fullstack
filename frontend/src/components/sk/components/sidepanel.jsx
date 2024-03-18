@@ -6,7 +6,7 @@ import { MyLink } from 'simple-react-router-x'
 export function SidePanel({children}) {
     
     return (
-        <div className='w-full h-full py-16 pt-32 flex flex-col items-center justify-between'>
+        <div className='w-full h-full py-16 pt-48 flex flex-col items-center justify-between'>
             {children}
         </div>
     )
