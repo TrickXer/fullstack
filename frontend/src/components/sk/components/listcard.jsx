@@ -17,9 +17,9 @@ export default function ListCard({event, button}) {
     
 
     return (
-        <div className='p-4 bg-neutral-800 max-h-24 rounded-xl flex flex-auto overflow-hidden'>
+        <div className='p-4 bg-gray-900 max-h-24 rounded-xl flex flex-auto overflow-hidden'>
             <img className='w-[7em] object-contain rounded-lg' src={event?.img} />
-            <div className='flex flex-auto items-center bg-neutral-800'>
+            <div className='flex flex-auto items-center bg-gray-900'>
                 <div className='flex flex-auto justify-evenly items-center py-6'>
                     <div className='flex py-8 w-1/4 text-2xl'>
                         <span>{event?.title}</span>
@@ -28,7 +28,7 @@ export default function ListCard({event, button}) {
                         <span>{`${event?.time_short} | ${event?.loc_short}`}</span>
                     </div>
                 </div>
-                <button className=" py-2 px-6 capitalize text-xl rounded-lg bg-primary hover:bg-primary-hover text-primary-text flex space-x-3 items-center justify-center" onClick={navigateToTicket}>
+                <button className=" py-2 px-6 capitalize text-xl rounded-lg transition-colors duration-300 border-2 border-orange-800 bg-orange-800 hover:bg-black hover:bg-opacity-20 hover:text-primary text-primary-text flex space-x-3 items-center justify-center" onClick={navigateToTicket}>
                     {
                         button.toLowerCase() === 'view' &&
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mt-1">

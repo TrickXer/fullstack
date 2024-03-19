@@ -21,16 +21,16 @@ function HeaderOptions() {
       <div className="header-options-wrapper">
         <ul>
           <li>
-            <NavLink>Service</NavLink>
+            <NavLink to={"/service"}>Service</NavLink>
           </li>
           <li>
-            <NavLink>About</NavLink>
+            <NavLink to={"/#about"}>About</NavLink>
           </li>
           <li>
-            <NavLink>Contact</NavLink>
+            <NavLink to={"/#contact"}>Contact</NavLink>
           </li>
           <li>
-            <NavLink className="active:bg-primary" to={"/user/events"}>Get Tickets</NavLink>
+            <NavLink to={"/user/events"}>Get Tickets</NavLink>
           </li>
         </ul>
       </div>

@@ -23,9 +23,9 @@ export default function Events(props) {
 
     return (
         <div className='flex flex-auto p-6'>  
-            <div className='flex flex-col flex-auto h-full'>
+            <div className='flex flex-col flex-auto'>
                 <Backdrop open={open}>
-                    <div className=' pb-10 w-full mx-5 bg-neutral-900 rounded-lg'>
+                    <div className=' pb-10 w-[90em] mx-5 bg-gray-900 rounded-lg'>
                         <div className='w-full flex justify-end'>
                             <button title='close' className='p-2 text-white hover:text-primary-hover' onClick={() => setOpen(false)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -33,45 +33,45 @@ export default function Events(props) {
                                 </svg>
                             </button>
                         </div>
-                        <div className='flex w-full divide divide-x-2 divide-neutral-800'>
+                        <div className='flex w-full divide divide-x-2 divide-gray-800'>
                             <div className='flex flex-auto items-center justify-center px-8'>
                                 <form className='w-full flex flex-col space-y-6 bg-opacity-50 p-8 rounded-lg'>
                                     <div className='pt-4 flex space-x-6'>
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                             placeholder="Firstname" name='firstname' id='firstname' />
                                         
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                         placeholder="Lastname" name='lastname' id='lastname' />
                                     </div>
-                                    <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                    <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                         placeholder="Username" name='username' id='username' />
                                     
-                                    <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                    <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                         placeholder="Email" name='email' id='email' />
                                     
                                     <div className='flex space-x-6'>
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                             placeholder="Country" name='country' id='country' />
                                         
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                         placeholder="Phone No" name='phone' id='phone' />
                                     </div>
                                     
                                     <div className='pt-8 flex flex-col space-y-6'>
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                             placeholder="Current Password" name='password' id='password' />
                                         
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                             placeholder="New Password" name='password' id='password' />
                                         
-                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
+                                        <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-gray-700 py-2 px-4 rounded-md focus:border-sky-500'
                                             placeholder="Confirm Password" name='password' id='password' />
                                     </div>
                                 </form>
                             </div>
                             <div className='flex w-[600px] px-16'>
                                 <div className='pt-8 w-full'>
-                                    <Button className="w-full bg-primary hover:bg-primary-hover text-black disabled:text-neutral-500 disabled:bg-primary-disabled">Book</Button>
+                                    <Button className="w-full border-2 transition-colors duration-300 hover:text-primary border-orange-800 bg-orange-800 hover:bg-black hover:bg-opacity-20 text-white disabled:text-neutral-500 disabled:bg-primary-disabled">Book</Button>
                                 </div>
                             </div>
                         </div>

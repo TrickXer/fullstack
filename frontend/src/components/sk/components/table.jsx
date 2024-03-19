@@ -26,7 +26,7 @@ export default function Bookings({ headers, body }) {
                     <TableRow>
                         {
                             headers?.map((header, id) => (
-                                <StyledTableCell align={id == 0 ? 'left' : 'right'}>{header}</StyledTableCell>
+                                <StyledTableCell key={id} align={id == 0 ? 'left' : 'right'}>{header}</StyledTableCell>
                             ))
                         }
                     </TableRow>

@@ -41,7 +41,7 @@ export default function BuyTickets(props) {
 
 
     return (
-        <div ref={eventRef} className='h-full w-full flex flex-col bg-black bg-opacity-40 rounded-xl text-white justify-center items-center'>
+        <div ref={eventRef} className='h-full w-full flex flex-col rounded-xl text-white justify-center items-center'>
             <h1 className='flex flex-col space-y-4 mt-16 text-center text-xl'>
                 <p>{`${event?.time_short} | ${event?.loc_short}`}</p>
                 <p className='font-semibold text-7xl text-primary'>{event?.title}</p>
@@ -104,7 +104,9 @@ export default function BuyTickets(props) {
                                 <span>Total</span>
                                 <span>{`₹ ${Number(calculateBill(tickets)).toFixed(2)}`}</span>
                             </div>
-                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} className="bg-primary hover:bg-primary-hover text-primary-text disabled:text-neutral-500 disabled:bg-primary-disabled">checkout</Button>
+                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} className="bg-primary tracking-widest transition-colors duration-500 text-primary-text hover:bg-black hover:bg-opacity-10 border-2 border-transparent hover:border-2 hover:border-primary hover:text-primary disabled:text-neutral-300 disabled:bg-primary-disabled">
+                                checkout
+                            </Button>
                         </div>
                     </div>
                 </div>

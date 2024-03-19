@@ -38,7 +38,7 @@ export function UserRoutes(props) {
             {
                 user?.role === 'USER' &&
                 <>
-                    <Route path='dashboard' element={ <LazyLoad component={ <Userdb /> } /> }>
+                    <Route path='dashboard/*' element={ <LazyLoad component={ <Userdb /> } /> }>
                         <Route path='events' element={ <LazyLoad component={ <UserEvents /> } /> } />
                     </Route>
                     <Route path='events' element={<LazyLoad component={<Events />} />} />                    
@@ -57,7 +57,7 @@ export function AdminRoutes(props) {
         <ProtectedRoutes user={user}>
             {
                 user?.role === 'ADMIN' &&
-                <Route path='dashboard' element={<LazyLoad component={<Admindb />} />}>
+                <Route path='dashboard/*' element={<LazyLoad component={<Admindb />} />}>
                     <Route path='events' element={ <LazyLoad component={ <AdminEvents /> } /> } />
                     <Route path='venues' element={ <LazyLoad component={ <AdminVenues /> } /> } />
                     <Route path='bookings' element={ <LazyLoad component={ <AdminBookings /> } /> } />
