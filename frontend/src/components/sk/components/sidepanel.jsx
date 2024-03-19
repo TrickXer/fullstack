@@ -1,22 +1,22 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { MyLink } from 'simple-react-router-x'
+import { NavLink } from 'react-router-dom'
 
 export function SidePanel({children}) {
     
     return (
-        <div className='w-full h-full py-16 pt-48 flex flex-col items-center justify-between'>
+        <div className='w-full h-full py-16 flex flex-col items-center justify-between'>
             {children}
         </div>
     )
 }
 
-export function PanelItem({ to, children, ...attributes }) {
+export function PanelItem({ to, children }) {
 
     return (
         <div className={`cursor-pointer w-full p-3 capitalize tracking-widest hover:text-primary-hover text-white`}>
-            <MyLink to={to}>{children}</MyLink>
+            <NavLink className="active:text-primary" to={to}>{children}</NavLink>
         </div>
     )
 }

@@ -1,12 +1,25 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { calculateBill, calculateServicefee, calculateSubtotal } from '../utils/ticketsutil'
+import { Backdrop } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import Button from '../../components/ui/button'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { clear } from '../../state/tickets/checkoutslice'
+import { calculateBill, calculateServicefee, calculateSubtotal } from '../../utils/ticketsutil'
 
 
 export default function Checkout(props) {
+    const [payment, setPayment] = useState(null)
     const event = useSelector(state => state.checkout.event)
     const tickets = event?.tickets.filter(ticket => ticket.quantity > 0)
+    
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    
+    useEffect(() => {
+        if (Object.keys(event).length === 0) navigate('/')
+    }, [])
 
     const initializePayment = () => {
         const options = {
@@ -18,7 +31,7 @@ export default function Checkout(props) {
             description: "Test Transcations",
             image: "/frontend/src/assets/react.svg",
             handler: (response) => {
-                alert(response.razorpay_payment_id)
+                setPayment(response.razorpay_payment_id)
             },
             prefill: {
                 name: 'SK',
@@ -26,19 +39,34 @@ export default function Checkout(props) {
                 contact: 9342222407
             },
             theme: {
-                color: "#fff76a"
+                color: "#df3311"
             }
         }
 
         const rzp = new window.Razorpay(options)
         rzp.open()
+    }
 
-        // console.log(rzp)
+    const handlePostPayment = () => {
+        setPayment(null)
+        navigate('/')
+        dispatch(clear())
     }
     
 
     return (
-        <div className='w-full flex flex-col flex-auto py-16 bg-black bg-opacity-60'>
+        <div className='w-full flex flex-col flex-auto py-16 bg-black bg-opacity-40 rounded-xl'>
+            {
+                payment &&
+                    <Backdrop className='flex justify-center items-center' open={payment}>
+                        <div className='py-6 px-4 w-[28em] bg-neutral-800 flex flex-col space-y-4'>
+                            <span className='text-2xl p-6 tracking-wide text-white font-normal capitalize text-center'>Payment Successfull</span>
+                            <Button onClick={handlePostPayment} className="bg-primary tracking-widest transition-colors duration-500 text-primary-text hover:bg-black hover:bg-opacity-10 border-2 border-transparent hover:border-2 hover:border-primary hover:text-primary">
+                                ok
+                            </Button>
+                        </div>
+                    </Backdrop>
+            }
             <div className='flex flex-col text-white h-full w-full items-center'>
                 <div className='w-[500px] bg-neutral-800 flex flex-col items-center rounded-lg'>
                     <div className='p-6 flex flex-col w-full divide divide-y-2 divide-neutral-700'>

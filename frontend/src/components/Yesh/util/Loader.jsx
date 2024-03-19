@@ -6,7 +6,7 @@ export default function Loader({ path }) {
   const Component = lazy(() => import(`../${path}`));
   return (
     <>
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <Component />
       </Suspense>
     </>

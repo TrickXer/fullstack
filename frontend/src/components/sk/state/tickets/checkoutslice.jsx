@@ -11,9 +11,12 @@ const CheckoutSlice = createSlice({
     reducers: {
         update: (state, action) => {
             state.event = {...state.event, ...action.payload}
+        },
+        clear: (state) => {
+            state.event = {}
         }
     }
 })
 
-export const { update } = CheckoutSlice.actions
+export const { update, clear } = CheckoutSlice.actions
 export default CheckoutSlice.reducer

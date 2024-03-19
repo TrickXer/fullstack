@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import DummyImg from '../../../../asserts/party.jpg'
-import Button from '../ui/button'
+import Button from '../../ui/button'
 import { useDispatch, useSelector } from 'react-redux'
-import { update } from '../../state/users/userslice'
+import { update } from '../../../state/users/userslice'
 
 
 export default function Profile(props) {

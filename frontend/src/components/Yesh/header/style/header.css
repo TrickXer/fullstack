@@ -1,17 +1,15 @@
 .header-wrapper {
-  width: 90%;
   height: 110px;
+  margin-top: 25px;
+  padding-inline: 8em;
   background-color: var(--background-black);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  flex-direction: row;
   z-index: 1;
 }
 .header-logo-box {
   background-color: var(--bg-primary);
   width: 8%;
+  padding: 3em;
   cursor: pointer;
 }
 .header-logo-box a {
@@ -31,6 +29,7 @@
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
   p {
+    padding-bottom: 1em;
     font-size: 15px;
     font-weight: bolder;
     color: var(--bg-primary-text);
@@ -39,7 +38,7 @@
 .header-inner-wrapper {
   width: calc(100% - 8%);
   height: 100%;
-  background-color: black;
+  background-color: var(--background-black);
   display: flex;
   justify-content: end;
   align-items: center;
@@ -88,5 +87,5 @@
   padding: 0 20px;
 }
 .header-this-tab-active {
-  color: var(--bg-sandle);
+  color: var(--bg-primary);
 }

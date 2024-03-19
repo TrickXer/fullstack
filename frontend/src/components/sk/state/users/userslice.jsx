@@ -11,6 +11,17 @@ const initialState = {
             password: 'sk@123',
             country: 'India',
             phone: '9342222407',
+            role: 'ADMIN'
+        },
+        {
+            fname: 'Yeshwanth',
+            lname: 'SS',
+            username: 'yesh',
+            email: 'yesh@gmail.com',
+            password: 'yesh@123',
+            country: 'India',
+            phone: '9342222407',
+            role: 'USER'
         }
     ]
 }

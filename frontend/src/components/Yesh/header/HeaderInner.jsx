@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { MyLink } from "simple-react-router-x";
+import { NavLink } from "react-router-dom";
+
 
 export default function HeaderInner() {
   const user = useSelector(state => state.users.current)
@@ -8,7 +9,7 @@ export default function HeaderInner() {
     <>
       <div className="header-inner-wrapper">
         <HeaderOptions />
-        <HeaderLoginBox user={user.username} />
+        <HeaderLoginBox user={user.username} role={user.role} />
         <HeaderAddOptions />
       </div>
     </>
@@ -20,29 +21,23 @@ function HeaderOptions() {
       <div className="header-options-wrapper">
         <ul>
           <li>
-            <MyLink to={"/service"}>Service</MyLink>
+            <NavLink>Service</NavLink>
           </li>
           <li>
-            <MyLink to={"/about"} noAction>
-              About
-            </MyLink>
+            <NavLink>About</NavLink>
           </li>
           <li>
-            <MyLink to={"/contact"} noAction>
-              Contact
-            </MyLink>
+            <NavLink>Contact</NavLink>
           </li>
           <li>
-            <MyLink to={"/events"}>Get Tickets</MyLink>
+            <NavLink className="active:bg-primary" to={"/user/events"}>Get Tickets</NavLink>
           </li>
         </ul>
       </div>
     </>
   );
 }
-function HeaderLoginBox({ user }) {
-
-  console.log(user)
+function HeaderLoginBox({ user, role }) {
 
   return (
     <>
@@ -50,15 +45,15 @@ function HeaderLoginBox({ user }) {
         <button className="header-login-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="35"
-            width="35"
+            height="28"
+            width="28"
             viewBox="0 -960 960 960"
-            fill="white"
+            fill="var(--bg-primary)"
           >
             <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
           </svg>
           <p>
-            <MyLink to={user ? "/user/events" : "/auth/login"}>{user ? user : "Log In"}</MyLink>
+            <NavLink to={role ? `/${role.toLowerCase()}/dashboard/events` : '/auth/login'}>{user ? user : "Log In"}</NavLink>
           </p>
         </button>
       </div>

@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
-import DefaultAvatar from '../../../../asserts/party.jpg'
 import { Form, TextInput } from '../ui/form'
-import { MyLink, useMyNavigate } from 'simple-react-router-x'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import DefaultAvatar from '../../../../asserts/party.jpg'
 import { login, register } from '../../state/users/userslice'
 
 
@@ -13,7 +13,7 @@ export default function Register(props) {
     const users = useSelector(state => state.users.users)
     const user = useSelector(state => state.users.current)
     const dispatch = useDispatch()
-    const navigate = useMyNavigate()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -61,12 +61,12 @@ export default function Register(props) {
             </div>
 
             <div className='flex flex-col space-y-6 items-center'> 
-                <button className='w-[280px] p-1 text-center bg-primary hover:bg-primary-hover py-2 px-6 text-primary-text capitalize rounded-md' type='submit'>
-                    <span className='text-lg'>Register</span>
+                <button className='w-[280px] p-1 text-center bg-primary transition-colors duration-300 tracking-widest hover:bg-transparent border-2 border-transparent hover:border-2 hover:border-primary hover:text-primary text-primary-text py-2 px-6 capitalize rounded-md' type='submit'>
+                    <span className='text-lg'>register</span>
                 </button>
-                <MyLink to={'/auth/login'}>
+                <Link to={'/auth/login'}>
                     <span className='no-underline text-white hover:text-primary-hover hover:underline text-sm'>Already have an account?</span>
-                </MyLink>
+                </Link>
             </div>
         </Form>
     )

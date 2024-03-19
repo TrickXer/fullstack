@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import DefaultAvatar from '../../../../asserts/party.jpg'
+import { Link } from 'react-router-dom'
 import { Form, TextInput } from '../ui/form'
-import { MyLink } from 'simple-react-router-x'
+import DefaultAvatar from '../../../../asserts/party.jpg'
 
 
 export default function ForgotPassword(props) {
@@ -41,12 +41,12 @@ export default function ForgotPassword(props) {
             </div> */}
 
             <div className='flex flex-col space-y-6 items-center'> 
-                <button className='w-[280px] p-1 text-center bg-primary hover:bg-primary-hover text-primary-text py-2 px-6 capitalize rounded-md' type='submit'>
+                <button className='w-[280px] p-1 text-center bg-primary transition-colors duration-300 tracking-widest hover:bg-transparent border-2 border-transparent hover:border-2 hover:border-primary hover:text-primary text-primary-text py-2 px-6 capitalize rounded-md' type='submit'>
                     <span className='text-lg'>send link</span>
                 </button>
-                <MyLink to={'/auth/login'}>
+                <Link to={'/auth/login'}>
                     <span className='no-underline text-white hover:underline hover:text-primary-hover text-sm text-center'>back to login</span>
-                </MyLink>
+                </Link>
             </div>
         </Form>
     )

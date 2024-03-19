@@ -1,6 +1,6 @@
-import HeaderInner from "./HeaderInner";
-import { MyLink } from "simple-react-router-x";
 import "./style/header.css";
+import HeaderInner from "./HeaderInner";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -17,10 +17,12 @@ function LogoBox() {
   return (
     <>
       <div className="header-logo-box">
-        <MyLink to={"/"}>
-          <span>Q</span>
-          <p>productions</p>
-        </MyLink>
+        <Link to={"/"}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <span>Q</span>
+            <p>productions</p>
+          </div>
+        </Link>
       </div>
     </>
   );

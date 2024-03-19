@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React from 'react'
 import { Select } from './ui/select'
 
 export default function Ticket({id, ticket, tickets, setTickets}) {

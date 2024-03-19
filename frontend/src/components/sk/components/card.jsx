@@ -4,16 +4,17 @@
 import React from 'react'
 import Button from './ui/button'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { update } from '../state/tickets/ticketslice'
-import { useMyNavigate } from 'simple-react-router-x'
+
 
 export default function Card({ event }) {
-    const navigate = useMyNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const navigateToTicket = () => {
         dispatch(update(event))
-        navigate("/events/ticket")
+        navigate("/user/events/ticket")
     }
     
 
@@ -29,7 +30,9 @@ export default function Card({ event }) {
                     <span className='invisible transition-all delay-0 group-hover:delay-200 group-hover:visible'>{event?.description}</span>
                 </div>
                 <div className='absolute py-8 bottom-0'>
-                    <Button className="bg-primary hover:bg-primary-hover text-primary-text" onClick={navigateToTicket}>buy tickets</Button>
+                    <Button className="bg-primary tracking-widest transition-colors duration-500 text-primary-text hover:bg-black hover:bg-opacity-10 border-2 border-transparent hover:border-2 hover:border-primary hover:text-primary" onClick={navigateToTicket}>
+                        buy tickets
+                    </Button>
                 </div>
             </div>
         </div>

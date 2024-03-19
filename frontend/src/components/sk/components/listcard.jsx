@@ -2,16 +2,17 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useMyNavigate } from 'simple-react-router-x'
+import { useNavigate } from 'react-router-dom'
 import { update } from '../state/tickets/ticketslice'
 
+
 export default function ListCard({event, button}) {
-    const navigate = useMyNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const navigateToTicket = () => {
         dispatch(update(event))
-        navigate("/events/ticket")
+        navigate("/user/events/ticket")
     }
     
 
@@ -27,7 +28,7 @@ export default function ListCard({event, button}) {
                         <span>{`${event?.time_short} | ${event?.loc_short}`}</span>
                     </div>
                 </div>
-                <button className="py-2 px-6 capitalize text-xl rounded-lg bg-primary hover:bg-primary-hover text-primary-text flex space-x-3 items-center justify-center" onClick={navigateToTicket}>
+                <button className=" py-2 px-6 capitalize text-xl rounded-lg bg-primary hover:bg-primary-hover text-primary-text flex space-x-3 items-center justify-center" onClick={navigateToTicket}>
                     {
                         button.toLowerCase() === 'view' &&
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mt-1">

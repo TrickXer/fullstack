@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
-import DefaultAvatar from '../../../../asserts/party.jpg'
 import { Form, TextInput } from '../ui/form'
-import { MyLink, useMyNavigate } from 'simple-react-router-x'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { login } from '../../state/users/userslice'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import DefaultAvatar from '../../../../asserts/party.jpg'
 
 
 export default function Login(props) {
@@ -13,7 +13,7 @@ export default function Login(props) {
     const users = useSelector(state => state.users.users)
     const user = useSelector(state => state.users.current)
     const dispatch = useDispatch()
-    const navigate = useMyNavigate()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -45,18 +45,18 @@ export default function Login(props) {
                     <input type="checkbox" name="show-pwd" id="show-pwd" onClick={() => setShowpwd(prev => !prev)} />
                     <label htmlFor="show-pwd" className='capitalize text-neutral-400 text-sm'>show password</label>
                 </div>
-                <MyLink to={'/auth/forgot-password'}>
+                <Link to={'/auth/forgot-password'}>
                     <span className='no-underline text-white hover:underline hover:text-primary-hover text-sm text-nowrap text-center'>Forgot Password?</span>
-                </MyLink>
+                </Link>
             </div>
 
             <div className='flex flex-col space-y-6 items-center'> 
-                <button className='w-[280px] p-1 text-center bg-primary hover:bg-primary-hover text-primary-text py-2 px-6 capitalize rounded-md' type='submit'>
+                <button className='w-[280px] p-1 text-center bg-primary transition-colors duration-300 tracking-widest hover:bg-transparent border-2 border-transparent hover:border-2 hover:border-primary hover:text-primary text-primary-text py-2 px-6 capitalize rounded-md' type='submit'>
                     <span className='text-lg'>login</span>
                 </button>
-                <MyLink to={'/auth/sign-up'}>
+                <Link to={'/auth/sign-up'}>
                     <span className='no-underline text-white hover:underline hover:text-primary-hover text-sm'>Don't have an account? Create a new one</span>
-                </MyLink>
+                </Link>
             </div>
         </Form>
     )
