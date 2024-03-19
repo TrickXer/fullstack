@@ -29,13 +29,13 @@ export function Select({title, defaultValue, type, range, children, ...attribute
             <div className='flex space-x-3 items-center'>
                 
                 <Icon />
-                <select {...attributes} className='w-full p-2 px-4 rounded-lg bg-[#FFF76A] border border-black' name="cat" id="cat" title={title}>
+                <select {...attributes} className='w-full p-2 px-4 rounded-lg bg-primary border border-black' name="cat" id="cat" title={title}>
                     <option value="none" selected hidden>{title}</option>
                     {
                         type === 'tag' ? children
                             : (
                                 count.filter(num => num>0).map(num => (
-                                    <option className='w-full bg-[#FFF76A] hover:bg-[#D4D056]' key={num}>{num}</option>
+                                    <option className='w-full bg-primary hover:bg-primary-hover' key={num}>{num}</option>
                                 ))
                             )
                     }

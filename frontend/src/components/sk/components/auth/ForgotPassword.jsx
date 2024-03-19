@@ -41,11 +41,11 @@ export default function ForgotPassword(props) {
             </div> */}
 
             <div className='flex flex-col space-y-6 items-center'> 
-                <button className='w-[280px] p-1 text-center bg-primary hover:bg-[#D4D056] text-black py-2 px-6 capitalize rounded-md' type='submit'>
+                <button className='w-[280px] p-1 text-center bg-primary hover:bg-primary-hover text-primary-text py-2 px-6 capitalize rounded-md' type='submit'>
                     <span className='text-lg'>send link</span>
                 </button>
                 <MyLink to={'/auth/login'}>
-                    <span className='no-underline text-white hover:underline hover:text-[#D4D056] text-sm text-center'>back to login</span>
+                    <span className='no-underline text-white hover:underline hover:text-primary-hover text-sm text-center'>back to login</span>
                 </MyLink>
             </div>
         </Form>

@@ -43,7 +43,7 @@ export default function Search({...attributes}) {
                     <option value="business">Business</option>
                 </select>
             </div>
-            <Button className='w-36 text-black bg-[#FFF76A] hover:bg-[#D4D056] rounded-lg' type='submit'>Search</Button>
+            <Button className='w-36 text-black bg-primary hover:bg-primary-hover rounded-lg' type='submit'>Search</Button>
         </form>
     )
 }

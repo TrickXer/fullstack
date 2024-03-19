@@ -15,7 +15,7 @@ export default function Ticket({id, ticket, tickets, setTickets}) {
     
 
     return (
-        <div className='flex py-8 w-full text-black bg-[#FFF76A] justify-between divide-black divide-x-2'>
+        <div className='flex py-8 w-full text-primary-text bg-primary justify-between divide-primary-text divide-x-2'>
             <div className='px-8 py-4 flex flex-col justify-center space-y-1 w-1/2'>
                 <span>Ticket type</span>
                 <span className='uppercase text-3xl font-semibold tracking-wide'>{ticket?.type}</span>

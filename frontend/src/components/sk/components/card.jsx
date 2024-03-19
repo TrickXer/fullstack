@@ -29,7 +29,7 @@ export default function Card({ event }) {
                     <span className='invisible transition-all delay-0 group-hover:delay-200 group-hover:visible'>{event?.description}</span>
                 </div>
                 <div className='absolute py-8 bottom-0'>
-                    <Button className="bg-[#FFF76A] hover:bg-[#D4D056] text-black" onClick={navigateToTicket}>buy tickets</Button>
+                    <Button className="bg-primary hover:bg-primary-hover text-primary-text" onClick={navigateToTicket}>buy tickets</Button>
                 </div>
             </div>
         </div>

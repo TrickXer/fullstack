@@ -3,9 +3,6 @@ import React from "react";
 import { BRouter, MyRoute } from "simple-react-router-x";
 import Header from "./components/Yesh/header/HeaderWrapper";
 import Loader from "./components/Yesh/util/Loader";
-import { Provider } from "react-redux";
-import { persistor, store } from "./components/sk/state/store";
-import { PersistGate } from "redux-persist/integration/react";
 
 export default function App() {
   return (
@@ -13,7 +10,7 @@ export default function App() {
       <BRouter>
         <div className="app-wrapper">
           <div className="app-wrapper-over">
-            <Header />
+            <Header  />
 
             <MyRoute
               path={"/"}
@@ -47,14 +44,14 @@ export default function App() {
                 </SkWrapper>
               }
             />
-            <MyRoute
+            {/* <MyRoute
               path={"/user/profile"}
               component={
                 <SkWrapper>
                   <Loader path={"../sk/pages/userdb.jsx"} />
                 </SkWrapper>
               }
-            />
+            /> */}
             <MyRoute
               path={"/user/events"}
               component={
@@ -99,12 +96,8 @@ export default function App() {
 }
 function SkWrapper({ children }) {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <div style={{ padding: "150px 100px 0 100px", paddingTop: "110px" }}>
-          {children}
-        </div>
-      </PersistGate>
-    </Provider>
+    <div style={{ padding: "150px 100px 0 100px", paddingTop: "110px" }}>
+      {children}
+    </div>
   );
 }

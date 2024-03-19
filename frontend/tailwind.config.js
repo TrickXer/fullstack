@@ -7,7 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary": "var(--bg-sandle)",
+        "primary": "var(--bg-primary)",
+        "primary-hover": "var(--bg-primary-hover)",
+        "primary-disabled": "var(--bg-primary-disabled)",
+        "primary-text": "var(--bg-primary-text)",
       },
     },
   },

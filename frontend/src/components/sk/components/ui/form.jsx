@@ -3,7 +3,7 @@ export function Form({children, ...attributes}) {
     
 
     return (
-        <form className="w-[450px] py-6 px-12 flex flex-col space-y-8 justify-center items-center bg-black bg-opacity-75 rounded-xl drop-shadow-xl"
+        <form className="w-[450px] py-6 px-12 flex flex-col space-y-8 justify-center items-center bg-black bg-opacity-50 rounded-xl drop-shadow-xl"
             {...attributes}
         >
             {children}

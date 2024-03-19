@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DefaultAvatar from '../../../../asserts/party.jpg'
 import { Form, TextInput } from '../ui/form'
 import { MyLink, useMyNavigate } from 'simple-react-router-x'
@@ -11,8 +11,14 @@ import { login, register } from '../../state/users/userslice'
 export default function Register(props) {
     const [showpwd, setShowpwd] = useState(false)
     const users = useSelector(state => state.users.users)
+    const user = useSelector(state => state.users.current)
     const dispatch = useDispatch()
     const navigate = useMyNavigate()
+
+
+    useEffect(() => {
+        if (Object.keys(user).length !== 0) navigate("/user/events")
+    }, [])
 
     
     const handleSubmit = (e) => {
@@ -37,7 +43,7 @@ export default function Register(props) {
             dispatch(register({ ...user, fname: user.username }))
             dispatch(login({ ...user, fname: user.username }))
             
-            navigate('/user/profile')
+            navigate('/')
         }
     }
     
@@ -55,11 +61,11 @@ export default function Register(props) {
             </div>
 
             <div className='flex flex-col space-y-6 items-center'> 
-                <button className='w-[280px] p-1 text-center bg-primary hover:bg-[#D4D056] py-2 px-6 text-black capitalize rounded-md' type='submit'>
+                <button className='w-[280px] p-1 text-center bg-primary hover:bg-primary-hover py-2 px-6 text-primary-text capitalize rounded-md' type='submit'>
                     <span className='text-lg'>Register</span>
                 </button>
                 <MyLink to={'/auth/login'}>
-                    <span className='no-underline text-white hover:text-[#D4D056] hover:underline text-sm'>Already have an account?</span>
+                    <span className='no-underline text-white hover:text-primary-hover hover:underline text-sm'>Already have an account?</span>
                 </MyLink>
             </div>
         </Form>

@@ -69,7 +69,7 @@ export default function Profile(props) {
                         <input className='bg-transparent w-full outline-none placeholder:text-neutral-400 border border-neutral-700 py-2 px-4 rounded-md focus:border-sky-500'
                             placeholder="Confirm Password" name='confirm-password' id='password' />
                     </div>
-                    <Button className="bg-[#FFF76A] hover:bg-[#D4D056] text-black disabled:text-neutral-500 disabled:bg-[#FFFDAE]">Update</Button>
+                    <Button className="bg-primary hover:bg-primary-hover text-black disabled:text-neutral-500 disabled:bg-primary-disabled">Update</Button>
                 </form>
             </div>
         </div>

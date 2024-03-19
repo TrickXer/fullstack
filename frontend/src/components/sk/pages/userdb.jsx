@@ -13,7 +13,7 @@ export default function Userdb(props) {
 
     return (
         <Dashboard>
-            <MyRoute path={"/user/profile"} component={<LazyLoad component={<LazyUProfile />} />} />
+            {/* <MyRoute path={"/user/profile"} component={<LazyLoad component={<LazyUProfile />} />} /> */}
             <MyRoute path={"/user/events"} component={<LazyLoad component={<LazyUEvents />} />} />
         </Dashboard>
     )

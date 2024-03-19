@@ -13,10 +13,14 @@ export default function BuyTickets(props) {
     const navigate = useMyNavigate()
     const dispatch = useDispatch()
 
+
+    const user = useSelector(state => state.users.current)
     const event = useSelector(state => state.tickets.event)
     const [tickets, setTickets] = useState(event?.tickets)
 
     useEffect(() => {
+        if (Object.keys(user).length === 0) navigate("/auth/login")
+
         if (eventRef.current) {
             eventRef.current.scrollIntoView({ behavior: "smooth" })
         }
@@ -39,12 +43,12 @@ export default function BuyTickets(props) {
         <div ref={eventRef} className='h-full w-full flex flex-col bg-black bg-opacity-60 text-white justify-center items-center'>
             <h1 className='flex flex-col space-y-4 mt-16 text-center text-xl'>
                 <p>{`${event?.time_short} | ${event?.loc_short}`}</p>
-                <p className='font-semibold text-7xl text-[#FFF76A]'>{event?.title}</p>
+                <p className='font-semibold text-7xl text-primary'>{event?.title}</p>
             </h1>
             <p className='mt-16 w-1/3 text-center'>{event?.description}</p>
 
             <div className='mt-12'>
-                <Button className="bg-[#FFF76A] hover:bg-[#D4D056] text-black" onClick={scrollToTickets}>buy tickets</Button>
+                <Button className="bg-primary hover:bg-primary-hover text-black" onClick={scrollToTickets}>buy tickets</Button>
             </div>
 
             <div className='w-2/3 mb-8 mt-16 flex justify-center items-center'>
@@ -99,7 +103,7 @@ export default function BuyTickets(props) {
                                 <span>Total</span>
                                 <span>{`₹ ${Number(calculateBill(tickets)).toFixed(2)}`}</span>
                             </div>
-                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} className="bg-[#FFF76A] hover:bg-[#D4D056] text-black disabled:text-neutral-500 disabled:bg-[#FFFDAE]">checkout</Button>
+                            <Button onClick={navigateToCheckout} disabled={calculateBill(tickets) === 0} className="bg-primary hover:bg-primary-hover text-primary-text disabled:text-neutral-500 disabled:bg-primary-disabled">checkout</Button>
                         </div>
                     </div>
                 </div>
