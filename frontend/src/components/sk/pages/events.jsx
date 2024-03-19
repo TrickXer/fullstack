@@ -39,7 +39,7 @@ export default function Events(props) {
                                 }
                                 <div className='absolute h-96 rounded-3xl top-1/2 left-0 right-0 bg-black bg-opacity-60 -z-10' />
                             </div>
-                            <div className='py-12 mb-6 z-10'>
+                            <div className='py-[1.5em] mb-[1.em] z-10'>
                                 <Button className='bg-white hover:bg-neutral-200 text-black' onClick={() => setShowList(prev => !prev)}>Load more</Button>
                             </div>
                         </div>

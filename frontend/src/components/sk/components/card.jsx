@@ -18,9 +18,9 @@ export default function Card({ event }) {
     
 
     return (
-        <div className='group relative h-[536px] w-[290px] bg-slate-500 rounded-xl flex flex-col overflow-hidden'>
+        <div className='group relative h-[35em] w-[20em] bg-slate-500 rounded-xl flex flex-col overflow-hidden'>
             <img className='h-3/5 hover:h-0 object-cover object-top' src={event?.img} />
-            <div className='absolute bottom-0 py-8 transition-all duration-300 h-[240px] group-hover:h-[536px] w-full flex flex-col items-center bg-black'>
+            <div className='absolute bottom-0 py-8 transition-all duration-300 h-[240px] group-hover:h-[35em] w-full flex flex-col items-center bg-black'>
                 <div className='flex flex-col space-y-16 items-center px-8 py-6 text-justify'>
                     <p className='flex flex-col space-y-4 items-center'>
                         <span className='text-xl text-nowrap'>{event?.title}</span>
