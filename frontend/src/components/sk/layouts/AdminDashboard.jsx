@@ -19,11 +19,11 @@ export default function AdminDashboard({ children, ...attributes }) {
 
     return (
         <div className='absolute top-0 left-0 flex h-screen w-full'>
-            <aside className='w-[375px] bg-gray-900 bg-opacity-95'>
+            <aside className='w-[375px] bg-gray-800'>
                 <SidePanel>
                     <div className='flex flex-col space-y-6'>
                         <PanelItem to="/admin/dashboard/events">events</PanelItem>
-                        <PanelItem to="/admin/dashboard/venues">venue</PanelItem>
+                        <PanelItem to="/admin/dashboard/venues">venues</PanelItem>
                         <PanelItem to="/admin/dashboard/bookings">bookings</PanelItem>
                         <PanelItem to="/admin/dashboard/payments">payments</PanelItem>
                     </div>
@@ -38,7 +38,7 @@ export default function AdminDashboard({ children, ...attributes }) {
                     </div>
                 </SidePanel>
             </aside>
-            <main className='relative flex flex-auto bg-gray-800'>
+            <main className='relative flex flex-auto bg-gray-900'>
                 {children}
             </main>
         </div>

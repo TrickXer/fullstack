@@ -19,7 +19,7 @@ export default function UserDashboard({ children, ...attributes }) {
 
     return (
         <div className='absolute top-0 left-0 flex h-screen w-full'>
-            <aside className='w-[375px] bg-gray-900 bg-opacity-95'>
+            <aside className='w-[375px] bg-gray-800'>
                 <SidePanel>
                     <div className='flex flex-col space-y-2'>
                         <PanelItem to={"/user/dashboard/events"}>Events</PanelItem>
@@ -36,7 +36,7 @@ export default function UserDashboard({ children, ...attributes }) {
                     </div>
                 </SidePanel>
             </aside>
-            <main className='relative flex flex-auto'>
+            <main className='relative flex flex-auto bg-gray-900'>
                 {children}
             </main>
         </div>

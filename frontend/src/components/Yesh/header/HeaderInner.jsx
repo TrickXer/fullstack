@@ -23,12 +23,12 @@ function HeaderOptions() {
           <li>
             <NavLink to={"/service"}>Service</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to={"/#about"}>About</NavLink>
           </li>
           <li>
             <NavLink to={"/#contact"}>Contact</NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to={"/user/events"}>Get Tickets</NavLink>
           </li>
