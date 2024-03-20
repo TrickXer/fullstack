@@ -22,10 +22,10 @@ export default function AdminDashboard({ children, ...attributes }) {
             <aside className='w-[375px] bg-gray-900 bg-opacity-95'>
                 <SidePanel>
                     <div className='flex flex-col space-y-6'>
-                        <PanelItem to={"/admin/dashboard/events"}>events</PanelItem>
-                        <PanelItem to={"/admin/dashboard/venues"}>venue</PanelItem>
-                        <PanelItem to={"/admin/dashboard/bookings"}>bookings</PanelItem>
-                        <PanelItem to={"/admin/dashboard/payments"}>payments</PanelItem>
+                        <PanelItem to="/admin/dashboard/events">events</PanelItem>
+                        <PanelItem to="/admin/dashboard/venues">venue</PanelItem>
+                        <PanelItem to="/admin/dashboard/bookings">bookings</PanelItem>
+                        <PanelItem to="/admin/dashboard/payments">payments</PanelItem>
                     </div>
                     <div>
                         <LogoutPop open={open} handleClose={() => setOpen(false)} handleLogout={handleLogout} />
@@ -38,7 +38,7 @@ export default function AdminDashboard({ children, ...attributes }) {
                     </div>
                 </SidePanel>
             </aside>
-            <main className='relative flex flex-auto'>
+            <main className='relative flex flex-auto bg-gray-800'>
                 {children}
             </main>
         </div>

@@ -14,14 +14,17 @@ export default function Bookings({ headers, body }) {
         '&.MuiTableContainer-root': {
             padding: '6px 12px 12px 6px',
             borderRadius: '12px',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            backgroundColor: '#111827',
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: 1
         },
     }))
 
 
     return (
         <StyledTableContainer component={Paper}>
-            <Table className='max-h-screen bg-neutral-900 bg-opacity-75'>
+            <Table className='max-h-screen bg-gray-900'>
                 <TableHead>
                     <TableRow>
                         {

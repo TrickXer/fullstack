@@ -15,8 +15,8 @@ export function SidePanel({children}) {
 export function PanelItem({ to, children }) {
 
     return (
-        <div className={`cursor-pointer w-full p-3 capitalize tracking-widest hover:text-primary-hover text-white`}>
-            <NavLink className="active:text-primary" to={to}>{children}</NavLink>
+        <div className="cursor-pointer w-full p-3">
+            <NavLink activeClassName="active" className="capitalize tracking-widest text-primary-text hover:text-primary active:text-primary" to={to}>{children}</NavLink>
         </div>
     )
 }

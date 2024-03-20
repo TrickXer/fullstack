@@ -30,10 +30,9 @@ export default class ErrorBoundary extends Component {
 
                         <p className="mt-4 text-gray-500 dark:text-gray-400">We can't find that page.</p>
 
-                        <Link to={"/"}
-                            className="mt-6 inline-block rounded px-5 py-3 text-sm font-medium bg-orange-800 border-2 border-orange-800 text-primary-text hover:bg-black hover:bg-opacity-15 hover:text-primary focus:outline-none focus:ring">
+                        <button onClick={() => window.location.pathname = '/'} className="mt-6 inline-block rounded-lg px-5 py-3 text-sm font-medium bg-orange-800 border-2 border-orange-800 text-primary-text hover:bg-black hover:bg-opacity-15 hover:text-primary">
                             Go Back Home
-                        </Link>
+                        </button>
                     </div>
                 </div>
             )

@@ -50,7 +50,7 @@ export default function App() {
           </SkWrapper>
         </ErrorBoundary>
       </div>
-      <Footer />
+      { !isDashboard && <Footer /> }
     </div>
   );
 }

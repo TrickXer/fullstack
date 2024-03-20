@@ -35,7 +35,11 @@ export default function Login(props) {
             setLogined(true)
             const timeout = setTimeout(() => {
                 setLogined(false)
-                navigate('/')
+
+                user.role.toLowerCase() !== 'admin' ?
+                    navigate('/')
+                    :
+                    navigate('/admin/dashboard/events')
             }, 1.5 * 1000)
 
             return () => clearInterval(timeout)
