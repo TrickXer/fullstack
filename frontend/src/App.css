@@ -36,15 +36,14 @@ a{
   inset: 0;
   top: 0;
   overflow: scroll;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(17, 24, 39, 0.6);
 }
 .app-wrapper-over {
-  height: 100%;
   background-image: url("./asserts/party.jpg");
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: hidden;
   position: relative;
-  
 }

@@ -58,6 +58,9 @@
     a {
       text-decoration: none;
     }
+    a:hover, a.active {
+      color: var(--bg-primary);
+    }
   }
 }
 .header-login-box {
