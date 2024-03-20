@@ -29,9 +29,9 @@ export default function Home(props) {
             <section className="text-gray-400 bg-transparent body-font flex flex-col justify-center h-[calc(100vh_-_110px)]">
                 <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
                     <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold uppercase text-white">HERE TO CREATE
-                            <br className="hidden lg:inline-block" />MOMENTS THAT LAST
-                            <br className="hidden lg:inline-block" />A LIFETIME
+                        <h1 className="title-font sm:text-6xl text-3xl mb-4 font-bold uppercase text-white">HERE TO CREATE
+                            <br className="hidden lg:inline-block" /> MOMENTS THAT LAST
+                            <br className="hidden lg:inline-block" /> A <span className='text-primary'>LIFETIME</span>
                         </h1>
                         <p className="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
                         <div className="flex justify-center">
@@ -118,10 +118,10 @@ export default function Home(props) {
                         <hr className="z-10 absolute top-2/4 w-full bg-gray-200" />
                     </div>
                     <div className="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
-                        {/* <div>
+                        <div>
                             <p className="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-300 mt-6">400k User</p>
                             <p className="font-normal text-base leading-6 text-gray-600 mt-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-                        </div> */}
+                        </div>
                     </div>
 
                     <div className="flex lg:flex-row flex-col md:gap-14 gap-16 justify-between lg:mt-20 mt-16">
