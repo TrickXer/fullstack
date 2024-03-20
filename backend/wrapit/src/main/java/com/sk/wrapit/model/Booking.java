@@ -27,7 +27,6 @@ public class Booking {
     private Date eventData;
     private Integer bookingStatus;
     private Integer headCount;
-    private String eventType;
 
     @ManyToOne
     private Customer customer;
