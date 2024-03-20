@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import DummyImg from '../../../../asserts/party.jpg'
+import DummyImg from '../../../../assets/party.jpg'
 import Button from '../../ui/button'
 import { useDispatch, useSelector } from 'react-redux'
 import { update } from '../../../state/users/userslice'

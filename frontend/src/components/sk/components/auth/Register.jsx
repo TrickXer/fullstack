@@ -4,7 +4,7 @@ import { Form, TextInput } from '../ui/form'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import DefaultAvatar from '../../../../asserts/party.jpg'
+import DefaultAvatar from '../../../../assets/party.jpg'
 import { login, register } from '../../state/users/userslice'
 
 

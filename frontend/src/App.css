@@ -39,7 +39,7 @@ a{
   background-color: rgba(17, 24, 39, 0.6);
 }
 .app-wrapper-over {
-  background-image: url("./asserts/party.jpg");
+  background-image: url("./assets/party.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

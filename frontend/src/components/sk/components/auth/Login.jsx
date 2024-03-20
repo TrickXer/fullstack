@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { login } from '../../state/users/userslice'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import DefaultAvatar from '../../../../asserts/party.jpg'
+import DefaultAvatar from '../../../../assets/party.jpg'
 import Alert from '../alert'
 
 
