@@ -27,21 +27,21 @@ export default function App() {
   return (
     <div className="app-wrapper-over">
       <div className="app-wrapper">
-        { !isDashboard && <Header /> }
-        
         <ErrorBoundary>
+          { !isDashboard && <Header /> }
+        
           <SkWrapper>
             <Routes>
               {/* PUBLIC */}
-              <Route exact path="/" element={<LazyLoad component={<Home />} />} />
               <Route path="/auth" element={<LazyLoad component={<Authentication />} />}>
+                <Route index element={<LazyLoad component={<LazyLogin />} />} />
                 <Route path="login" element={<LazyLoad component={<LazyLogin />} />} />
                 <Route path="sign-up" element={<LazyLoad component={<LazyRegister />} />} />
                 <Route path="forgot-password" element={<LazyLoad component={<LazyForgotPassword />} />} />
               </Route>
 
               {/* PROTECTED */}
-              <Route path="/user/*" element={<UserRoutes />} />
+              <Route path="/*" element={<UserRoutes />} />
               <Route path="/admin/*" element={<AdminRoutes />} />
 
               {/* ERROR */}

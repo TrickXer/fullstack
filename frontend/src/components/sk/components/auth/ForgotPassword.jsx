@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, TextInput } from '../ui/form'
-import DefaultAvatar from '../../../../assert/party.jpg'
+import DefaultAvatar from '../../../../assets/party.jpg'
 
 
 export default function ForgotPassword(props) {

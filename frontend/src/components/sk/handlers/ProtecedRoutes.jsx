@@ -38,12 +38,15 @@ export function UserRoutes(props) {
             {
                 user?.role === 'USER' &&
                 <>
-                    <Route path='dashboard/*' element={ <LazyLoad component={ <Userdb /> } /> }>
-                        <Route path='events' element={ <LazyLoad component={ <UserEvents /> } /> } />
+                    <Route exact path="/" element={<LazyLoad component={<Home />} />} />
+                    <Route path='/user/*'>
+                        <Route path='dashboard/*' element={ <LazyLoad component={ <Userdb /> } /> }>
+                            <Route path='events' element={ <LazyLoad component={ <UserEvents /> } /> } />
+                        </Route>
+                        <Route path='events' element={<LazyLoad component={<Events />} />} />                    
+                        <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />                    
+                        <Route path='events/ticket/checkout' element={<LazyLoad component={<Checkout />} />} />                    
                     </Route>
-                    <Route path='events' element={<LazyLoad component={<Events />} />} />                    
-                    <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />                    
-                    <Route path='events/ticket/checkout' element={<LazyLoad component={<Checkout />} />} />                    
                 </>
             }
         </ProtectedRoutes>
