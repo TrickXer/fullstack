@@ -1,12 +1,13 @@
 package com.sk.wrapit.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,16 +18,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "wi_payment")
 public class Payment {
     @Id
+    @Column(length = 6)
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long paymentId;
+    private String paymentId;
 
     private String status;
     private Double totalAmount;
-    private Date paymentDate;
+    private LocalDateTime paymentDate;
     private String modeOfPayment;
-
-    @OneToOne
-    private Customer customer;
 }

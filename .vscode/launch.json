@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-WrapitApplication<wrapit>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.sk.wrapit.WrapitApplication",
+            "projectName": "wrapit",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
