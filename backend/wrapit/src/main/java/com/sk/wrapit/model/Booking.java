@@ -25,9 +25,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_booking")
 public class Booking {
     @Id
-    @Column(length = 6)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String bookingId;
+    @Column(length = 4)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bookingId;
 
     private LocalDateTime submissionData;
     private LocalDateTime eventData;

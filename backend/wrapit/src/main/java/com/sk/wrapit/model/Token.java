@@ -27,9 +27,9 @@ import jakarta.persistence.GenerationType;
 @Table(name = "wi_token")
 public class Token {
     @Id
-    @Column(length = 6)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String tokenId;
+    @Column(length = 4)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long tokenId;
 
     @Column(unique = true)
     private String token;

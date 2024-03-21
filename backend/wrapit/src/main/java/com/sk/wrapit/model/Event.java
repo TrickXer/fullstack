@@ -23,9 +23,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_event")
 public class Event {
     @Id
-    @Column(length = 6)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String eventId;
+    @Column(length = 4)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long eventId;
 
     private String eventType;
     private String description;

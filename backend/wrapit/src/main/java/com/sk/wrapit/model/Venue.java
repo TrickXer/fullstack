@@ -23,9 +23,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_venue")
 public class Venue {
     @Id
-    @Column(length = 6)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String venueId;
+    @Column(length = 4)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long venueId;
 
     private String venueName;
     private String venueLocation;

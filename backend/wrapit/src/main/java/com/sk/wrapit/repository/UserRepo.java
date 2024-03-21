@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.sk.wrapit.model.User;
 
 
-public interface UserRepo extends JpaRepository<User, String> {
+
+public interface UserRepo extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
+
+    User findByUserId(Long userId);
 }

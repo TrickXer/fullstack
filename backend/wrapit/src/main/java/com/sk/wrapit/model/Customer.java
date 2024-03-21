@@ -24,9 +24,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_customer")
 public class Customer {
     @Id
-    @Column(length = 6)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String customerId;
+    @Column(length = 4)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long customerId;
 
     private String customerName;
 

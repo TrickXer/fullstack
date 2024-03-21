@@ -21,9 +21,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_payment")
 public class Payment {
     @Id
-    @Column(length = 6)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String paymentId;
+    @Column(length = 4)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long paymentId;
 
     private String status;
     private Double totalAmount;
