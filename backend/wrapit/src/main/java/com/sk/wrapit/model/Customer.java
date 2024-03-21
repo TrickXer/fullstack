@@ -30,7 +30,7 @@ public class Customer {
 
     private String customerName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer")
     private List<Booking> bookings;
 
     @ManyToMany

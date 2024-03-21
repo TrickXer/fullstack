@@ -6,11 +6,12 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.sk.wrapit.model.enum.Role;
+import com.sk.wrapit.model.enumerate.Role;
 
 import lombok.Data;
 import lombok.Builder;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import jakarta.persistence.Table;
@@ -32,7 +33,7 @@ public class User implements UserDetails {
     @Id
     @Column(length = 6)
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String userID;
+    private String userId;
 
     private String email;
     private String password;
@@ -41,6 +42,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role userRole;
 
+    @OneToMany(mappedBy = "user")
     private List<Token> token;
 
     @OneToOne

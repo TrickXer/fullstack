@@ -30,7 +30,6 @@ public class Venue {
     private String venueName;
     private String venueLocation;
 
-    @OneToMany
-    @JoinColumn(name = "venue_id")
+    @OneToMany(mappedBy = "venue")
     private List<Booking> bookings;
 }

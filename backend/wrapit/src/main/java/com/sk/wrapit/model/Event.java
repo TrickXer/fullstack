@@ -36,6 +36,6 @@ public class Event {
     @ManyToMany
     private List<Customer> customers;
 
-    @OneToMany
+    @OneToMany(mappedBy = "event")
     private List<Booking> bookings;
 }

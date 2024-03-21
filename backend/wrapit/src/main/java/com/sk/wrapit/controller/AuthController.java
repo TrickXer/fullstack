@@ -19,18 +19,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/auth")
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    // @Autowired
+    // private AuthenticationManager authenticationManager;
 
-    @PostMapping("/login")    
-    public ResponseEntity<?> login(@RequestBody Login request) {
-        Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+    // @PostMapping("/login")    
+    // public ResponseEntity<?> login(@RequestBody Login request) {
+    //     Authentication authentication = authenticationManager
+    //             .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = "";
+    //     SecurityContextHolder.getContext().setAuthentication(authentication);
+    //     String token = "";
 
-        return ResponseEntity.ok().body(token);
-    }
+    //     return ResponseEntity.ok().body(token);
+    // }
 
 }

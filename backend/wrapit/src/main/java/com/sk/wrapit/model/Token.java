@@ -1,7 +1,5 @@
 package com.sk.wrapit.model;
 
-import com.sk.wrapit.model.enum.TokenType;
-
 import lombok.Data;
 import lombok.Builder;
 import jakarta.persistence.Id;
@@ -11,9 +9,13 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
+
+import com.sk.wrapit.model.enumerate.TokenType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -40,7 +42,7 @@ public class Token {
     
     public Boolean expired;
     
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "user_id")
-    // public User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    public User user;
 }
