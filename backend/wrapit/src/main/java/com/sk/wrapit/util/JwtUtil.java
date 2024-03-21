@@ -50,7 +50,6 @@ public class JwtUtil {
     }
 
     public String generateToken(User user) {
-        // User user = userRepo.findByEmail(userDetails.getUsername()).orElseThrow();
         Map<String, Object> claims = new HashMap<>();
 
         claims.put("user", Map.of(
