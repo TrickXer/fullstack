@@ -1,10 +1,12 @@
 package com.sk.wrapit.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sk.wrapit.model.User;
 
 
 public interface UserRepo extends JpaRepository<User, String> {
-    User findByEmail(String email);
+    Optional<User> findByEmail(String email);
 }

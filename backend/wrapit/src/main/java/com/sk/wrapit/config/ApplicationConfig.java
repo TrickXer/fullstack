@@ -1,27 +1,34 @@
-// package com.sk.wrapit.config;
+package com.sk.wrapit.config;
 
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.authentication.AuthenticationProvider;
-// import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-// import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-// @Configuration
-// public class ApplicationConfig {
+import com.sk.wrapit.service.UserService;
 
-//     @Bean
-//     public AuthenticationProvider authenticationProvider() {
-//         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-//         daoAuthenticationProvider.setUserDetailsPasswordService(null);
-//         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+import lombok.RequiredArgsConstructor;
 
-//         return daoAuthenticationProvider;
-//     }
+@Configuration
+@RequiredArgsConstructor
+public class ApplicationConfig {
 
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
-//         return new BCryptPasswordEncoder();
-//     }
+    private final UserService userService;
 
-// }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setUserDetailsService(userService);
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+
+        return daoAuthenticationProvider;
+    }
+
+}
