@@ -1,5 +1,7 @@
 package com.sk.wrapit.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +11,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Register {
-    private String username;
-    private String email;
-    private String password;
+public class LoginRes {
+
+    private String message;
+
+    @JsonProperty("access_token")
+    private String accessToken;
 }

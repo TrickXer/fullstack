@@ -8,8 +8,8 @@ import com.sk.wrapit.model.User;
 
 
 
-public interface UserRepo extends JpaRepository<User, Long> {
+public interface UserRepo extends JpaRepository<User, String> {
     Optional<User> findByEmail(String email);
 
-    User findByUserId(Long userId);
+    User findByUserId(String userId);
 }

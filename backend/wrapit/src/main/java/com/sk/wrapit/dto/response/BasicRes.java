@@ -1,5 +1,8 @@
 package com.sk.wrapit.dto.response;
 
+import java.util.List;
+
+import io.jsonwebtoken.lang.Collections;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,14 +12,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Login {
+public class BasicRes<T> {
+    private String message;
 
     @Builder.Default
-    private String message = "Something wenr wrong!";
-
-    @Builder.Default
-    private String accessToken = "";
-
-    private String userId;
-    private String usernmae;
+    private List<T> dataList = Collections.emptyList();
+    private T data;
 }

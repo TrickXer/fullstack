@@ -2,49 +2,55 @@ package com.sk.wrapit.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sk.wrapit.model.User;
-import com.sk.wrapit.util.JwtUtil;
-import com.sk.wrapit.dto.request.Login;
-import com.sk.wrapit.repository.UserRepo;
-import com.sk.wrapit.service.UserService;
-import com.sk.wrapit.dto.request.Register;
+import com.sk.wrapit.dto.request.LoginReq;
+import com.sk.wrapit.dto.response.BasicRes;
+import com.sk.wrapit.dto.response.LoginRes;
+import com.sk.wrapit.dto.request.RegisterReq;
+import com.sk.wrapit.service.impls.AuthServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
 
 @RestController
-@RequestMapping("/wrapit/api/v1/auth")
 @RequiredArgsConstructor
+@RequestMapping("/wrapit/api/v1/auth")
 public class AuthController {
 
-    private final JwtUtil jwtUtil;
-    private final UserRepo userRepo;
-    private final UserService userService;
-    private final AuthenticationManager authenticationManager;
+    private final AuthServiceImpl authServiceImpl;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Login request) {
-        Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+    public ResponseEntity<?> login(@RequestBody LoginReq request) {
+        LoginRes response = new LoginRes();
+        
+        try {
+            response = authServiceImpl.login(request);
+            return new ResponseEntity<>(response, HttpStatus.FOUND);
+        } catch (Exception e) {
+            response.setMessage("User not found");
+            response.setAccessToken(null);
 
-        User user = userRepo.findByEmail(request.getEmail()).orElseThrow();
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtUtil.generateToken(user);
-
-        return ResponseEntity.ok().body(token);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/sign-up")
-    public ResponseEntity<?> register(@RequestBody Register request) {
-        Boolean isSaved = userService.add(request);
-        return ResponseEntity.ok().body(isSaved);
+    public ResponseEntity<?> register(@RequestBody RegisterReq request) {
+        BasicRes<String> response = new BasicRes<>();
+
+        try {
+            response = authServiceImpl.register(request);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            response.setMessage("Oops!... Something went wrong. Please try again.");
+            response.setData("");
+            
+            return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
+        }
     }
 }

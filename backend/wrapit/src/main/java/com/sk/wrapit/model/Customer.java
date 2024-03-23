@@ -2,19 +2,18 @@ package com.sk.wrapit.model;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import lombok.Data;
+import lombok.Builder;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 @Data
 @Entity
@@ -24,9 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_customer")
 public class Customer {
     @Id
-    @Column(length = 4)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String customerId;
 
     private String customerName;
 

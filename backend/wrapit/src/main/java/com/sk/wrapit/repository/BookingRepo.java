@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sk.wrapit.model.Booking;
 
-public interface BookingRepo extends JpaRepository<Booking, Long> {
+public interface BookingRepo extends JpaRepository<Booking, String> {
     
 }

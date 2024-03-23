@@ -1,4 +1,4 @@
-package com.sk.wrapit.model.enumerate;
+package com.sk.wrapit.enumerated;
 
 import lombok.RequiredArgsConstructor;
 

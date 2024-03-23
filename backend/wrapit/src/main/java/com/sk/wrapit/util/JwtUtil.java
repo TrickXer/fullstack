@@ -3,14 +3,16 @@ package com.sk.wrapit.util;
 import java.util.Map;
 import java.util.Date;
 import java.util.HashMap;
-import java.security.Key;
 import java.util.function.Function;
+
+import javax.crypto.SecretKey;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.sk.wrapit.model.User;
+import com.sk.wrapit.repository.UserRepo;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.Claims;
@@ -20,20 +22,23 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@SuppressWarnings("deprecation")
 public class JwtUtil {
 
     @Value("${application.jwt.secret-key}")
     private String secret;
 
-    private final Long expirationDuration = (long) (24 * 60 * 60 * 1000);
+    @Value("${application.jwt.expiry-date}")
+    private long expirationDuration;
+    
+    private final UserRepo userRepo;
+    
 
-    public Key key() {
+    public SecretKey key() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
     }
 
     public String extractUserEmail(String token) {
-        return extractClaim(token, Claims::getSubject);
+        return extractClaim(token, Claims::getIssuer);
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
@@ -43,34 +48,35 @@ public class JwtUtil {
 
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
-                .setSigningKey(key())
+                .verifyWith(key())
                 .build()
-                .parseClaimsJws(token)
-                .getBody();
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
-    public String generateToken(User user) {
+    public String generateToken(UserDetails userdDetails) {
+        User user = userRepo.findByEmail(userdDetails.getUsername()).orElseThrow();
         Map<String, Object> claims = new HashMap<>();
 
         claims.put("user", Map.of(
                 "uuid", user.getUserId(),
                 "username", user.getUsername(),
-                "role", user.getUserRole()));
+                "role", user.getRole()));
 
         return createToken(claims, user);
     }
 
-    public String createToken(Map<String, Object> claims, UserDetails user) {
+    private String createToken(Map<String, Object> claims, UserDetails userDetails) {
+        User user = userRepo.findByEmail(userDetails.getUsername()).orElseThrow();
         System.out.println(user.getUsername());
-
+        
         long time = System.currentTimeMillis();
 
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(user.getUsername())
-                .setIssuer(user.getUsername())
-                .setIssuedAt(new Date(time))
-                .setExpiration(new Date(time + expirationDuration))
+                .claims(claims)
+                .issuer(user.getName())
+                .issuedAt(new Date(time))
+                .expiration(new Date(time + expirationDuration))
                 .signWith(key())
                 .compact();
     }

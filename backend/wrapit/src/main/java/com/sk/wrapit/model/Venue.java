@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
@@ -22,9 +21,8 @@ import jakarta.persistence.GenerationType;
 @Table(name = "wi_venue")
 public class Venue {
     @Id
-    @Column(length = 4)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long venueId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String venueId;
 
     private String venueName;
     private String venueLocation;

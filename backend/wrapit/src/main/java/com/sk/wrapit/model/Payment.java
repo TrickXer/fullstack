@@ -2,16 +2,15 @@ package com.sk.wrapit.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
+import lombok.Data;
+import lombok.Builder;
+import jakarta.persistence.Id;
+import lombok.NoArgsConstructor;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @Entity
@@ -21,9 +20,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "wi_payment")
 public class Payment {
     @Id
-    @Column(length = 4)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String paymentId;
 
     private String status;
     private Double totalAmount;

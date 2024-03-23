@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.sk.wrapit.model.enumerate.Role;
+import com.sk.wrapit.enumerated.Role;
 
 import lombok.Data;
 import lombok.Builder;
@@ -30,18 +30,20 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_user")
+@SuppressWarnings("unused")
 public class User implements UserDetails {
     @Id
-    @Column(length = 4)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String userId;
 
+    @Column(unique = true)
     private String email;
+    
     private String password;
-    private String username;
+    private String name;
 
     @Enumerated(EnumType.STRING)
-    private Role userRole;
+    private Role role;
 
     @OneToMany(mappedBy = "user")
     private List<Token> token;
@@ -51,9 +53,10 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(userRole.name()));
+        return role.getAuthorities();
     }
 
+    // can be used for 2 step verification if the user forgot any credential details.
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -72,5 +75,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
     }
 }
