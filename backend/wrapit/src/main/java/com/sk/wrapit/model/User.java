@@ -48,6 +48,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Token> token;
 
+    @OneToMany(mappedBy = "user")
+    private List<ResetPasswordToken> resetPasswordTokens;
+
     @OneToOne
     private Customer customer;
 

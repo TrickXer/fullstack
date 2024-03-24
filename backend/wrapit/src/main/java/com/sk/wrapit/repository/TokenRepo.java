@@ -9,7 +9,7 @@ import com.sk.wrapit.model.Token;
 
 public interface TokenRepo extends JpaRepository<Token, String> {
     
-    List<Token> findByUser_userIdAndRevokedFalseAndExpiredFalse(String id);
+    List<Token> findAllByUser_userIdAndRevokedFalseAndExpiredFalse(String id);
 
     Optional<Token> findByToken(String token);
 

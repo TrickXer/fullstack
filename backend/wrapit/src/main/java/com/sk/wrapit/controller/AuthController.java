@@ -2,38 +2,42 @@ package com.sk.wrapit.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sk.wrapit.service.AuthService;
 import com.sk.wrapit.dto.request.LoginReq;
+import com.sk.wrapit.dto.request.PasswordPatchReq;
+import com.sk.wrapit.dto.request.PasswordReq;
 import com.sk.wrapit.dto.response.BasicRes;
 import com.sk.wrapit.dto.response.LoginRes;
 import com.sk.wrapit.dto.request.RegisterReq;
-import com.sk.wrapit.service.impls.AuthServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/wrapit/api/v1/auth")
 public class AuthController {
 
-    private final AuthServiceImpl authServiceImpl;
+    private final AuthService authService;
+
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginReq request) {
         LoginRes response = new LoginRes();
-        
+
         try {
-            response = authServiceImpl.login(request);
-            return new ResponseEntity<>(response, HttpStatus.FOUND);
+            response = authService.login(request);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
         } catch (Exception e) {
-            response.setMessage("User not found");
-            response.setAccessToken(null);
+            response.setMessage("Login failed!");
+            response.setAccessToken("");
 
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
@@ -44,12 +48,42 @@ public class AuthController {
         BasicRes<String> response = new BasicRes<>();
 
         try {
-            response = authServiceImpl.register(request);
+            response = authService.register(request);
             return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
         } catch (Exception e) {
             response.setMessage("Oops!... Something went wrong. Please try again.");
             response.setData("");
-            
+
+            return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<?> forgotPassword(@RequestBody PasswordReq request) {
+        BasicRes<String> response = new BasicRes<>();
+
+        try {
+            response = authService.forgotPassword(request);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            response.setMessage("Oops!... Something went wrong. Please try again.");
+            response.setData("");
+
+            return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
+    @PatchMapping("/reset-password")
+    public ResponseEntity<?> patchPassword(@RequestParam String token, @RequestBody PasswordPatchReq request) {
+        BasicRes<String> response = new BasicRes<>();
+
+        try {
+            response = authService.patchPassword(token, request);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            response.setMessage("Oops!... Something went wrong. Please try again.");
+            response.setData("");
+
             return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
         }
     }

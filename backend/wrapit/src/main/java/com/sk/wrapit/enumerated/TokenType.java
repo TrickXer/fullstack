@@ -4,5 +4,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum TokenType {
-    BEARER
+    BEARER,
+    BEARER_RESET
 }

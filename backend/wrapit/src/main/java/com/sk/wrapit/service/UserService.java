@@ -1,9 +1,8 @@
 package com.sk.wrapit.service;
 
-import java.security.Principal;
-
-import com.sk.wrapit.dto.request.PasswordReq;
+import com.sk.wrapit.model.User;
+import com.sk.wrapit.dto.request.PasswordPatchReq;
 
 public interface UserService {
-    void forgotPassword(PasswordReq request, Principal principal);
+    void patchPassword(PasswordPatchReq request, User user) throws IllegalArgumentException, IllegalAccessException;
 }

@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/wrapit/api/v1/venue")
@@ -25,23 +23,25 @@ public class VenueController {
     private final VenueServiceImpl venueServiceImpl;
 
     @GetMapping("/all")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> all() {
         return ResponseEntity.ok().body(venueServiceImpl.all());
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> get(@PathVariable String id) {
         return ResponseEntity.ok().body(venueServiceImpl.get(id));
     }
-    
+
     @PostMapping("/add")
-    // @PreAuthorize(value = "")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> add(@RequestBody Venue request) {
         return ResponseEntity.ok().body(venueServiceImpl.add(request));
     }
-    
+
     @PatchMapping("/patch")
-    // @PreAuthorize(value = "")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> patch(@RequestBody Venue request) throws IllegalArgumentException, IllegalAccessException {
         return ResponseEntity.ok().body(venueServiceImpl.patch(request.getVenueId(), request));
     }

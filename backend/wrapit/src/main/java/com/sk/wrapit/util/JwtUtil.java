@@ -66,18 +66,28 @@ public class JwtUtil {
         return createToken(claims, user);
     }
 
+    public String generateResetToken(UserDetails userdDetails) {
+        User user = userRepo.findByEmail(userdDetails.getUsername()).orElseThrow();
+        Map<String, Object> claims = new HashMap<>();
+
+        claims.put("user", Map.of(
+                "uuid", user.getUserId(),
+                "username", user.getUsername()
+                ));
+
+        return createToken(claims, user);
+    }
+
     private String createToken(Map<String, Object> claims, UserDetails userDetails) {
         User user = userRepo.findByEmail(userDetails.getUsername()).orElseThrow();
-        System.out.println(user.getUsername());
-        
         long time = System.currentTimeMillis();
 
         return Jwts.builder()
                 .claims(claims)
-                .issuer(user.getName())
+                .issuer(user.getUsername())
                 .issuedAt(new Date(time))
                 .expiration(new Date(time + expirationDuration))
-                .signWith(key())
+                .signWith(key(), Jwts.SIG.HS256)
                 .compact();
     }
 
