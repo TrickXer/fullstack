@@ -28,10 +28,12 @@ import com.sk.wrapit.dto.request.RegisterReq;
 import com.sk.wrapit.dto.request.PasswordReq;
 import com.sk.wrapit.model.ResetPasswordToken;
 import com.sk.wrapit.dto.request.PasswordPatchReq;
+import com.sk.wrapit.model.EmailVerificationToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sk.wrapit.repository.ResetPasswordTokenRepo;
-import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
+import com.sk.wrapit.repository.EmailVerificationTokenRepo;
+import com.fasterxml.jackson.core.exc.StreamWriteException;
 
 import lombok.NonNull;
 import io.jsonwebtoken.io.IOException;
@@ -52,7 +54,7 @@ public final class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final ResetPasswordTokenRepo resetPasswordTokenRepo;
-
+    private final EmailVerificationTokenRepo emailVerificationTokenRepo;
 
     @Override
     public BasicRes<String> register(RegisterReq request) {
@@ -67,21 +69,63 @@ public final class AuthServiceImpl implements AuthService {
 
         User user = User.builder()
                 .email(request.getEmail())
+                .verified(false)
                 .name(request.getUsername())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
+
         userRepo.save(user);
+        var emailVerificationToken = jwtUtil.generateEmailVerificationToken(user);
+
+        revokeAllEmailVerificationToken(user);
+        saveEmailVerificationToken(user, emailVerificationToken);
+
+        MailBody mailBody = MailBody.builder()
+                .recipient(request.getEmail())
+                .subject("Complete Registration!")
+                .msgBody("To verify your account, please click here: http://localhost:5173/verify-account?token=" + emailVerificationToken)
+                .build();
+
+        mailService.sendSimpleMail(mailBody);
 
         return BasicRes.<String>builder()
-                .message("User registerd successfully")
+                .message("A verification mail is sent to " + request.getEmail() + ". Verify to complete the registration.")
                 .build();
     }
 
     @Override
-    public LoginRes login(LoginReq request) {
-        authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+    public BasicRes<String> verify(String token) {
+        String email = jwtUtil.extractUserEmail(token);
+
+        if (email != null) {
+            var user = userRepo.findByEmail(email).orElseThrow();
+
+            if (jwtUtil.isTokenValid(token, user)) {
+                var storedVerificationToken = emailVerificationTokenRepo.findByVerificationToken(token).orElseThrow();
+
+                if (!storedVerificationToken.expired) {
+                    storedVerificationToken.setExpired(true);
+                    emailVerificationTokenRepo.save(storedVerificationToken);
+
+                    user.setVerified(true);
+                    userRepo.save(user);
+
+                    return BasicRes.<String>builder()
+                            .message("Your account has been verified successfully.")
+                            .build();
+                }
+            }
+        }
+
+        return BasicRes.<String>builder()
+                .message("Oops!...Something went wrong")
+                .build();
+    }
+
+    @Override
+    public BasicRes<LoginRes> login(LoginReq request) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         var user = userRepo.findByEmail(request.getEmail()).orElseThrow();
 
         Map<String, Object> claims = new HashMap<>();
@@ -91,9 +135,13 @@ public final class AuthServiceImpl implements AuthService {
         revokeAllUserToken(user);
         saveUserToken(user, accessToken);
 
-        return LoginRes.builder()
+        return BasicRes.<LoginRes>builder()
                 .message("Logged in successfully")
-                .accessToken(accessToken)
+                .data(LoginRes.builder()
+                        .message("Authentication token generated successfully")
+                        .accessToken(accessToken)
+                        .build()
+                )
                 .build();
     }
 
@@ -106,6 +154,28 @@ public final class AuthServiceImpl implements AuthService {
                 .expired(false)
                 .build();
         tokenRepo.save(token);
+    }
+
+    private void saveEmailVerificationToken(User user, String verificationToken) {
+        EmailVerificationToken token = EmailVerificationToken.builder()
+                .user(user)
+                .verificationToken(verificationToken)
+                .expired(false)
+                .build();
+        emailVerificationTokenRepo.save(token);
+    }
+
+    private void revokeAllEmailVerificationToken(User user) {
+        var validTokens = emailVerificationTokenRepo.findAllByUser_userIdAndExpiredFalse(user.getUserId());
+
+        if (validTokens.isEmpty())
+            return;
+
+        validTokens.forEach(validToken -> {
+            validToken.setExpired(true);
+        });
+
+        emailVerificationTokenRepo.saveAll(validTokens);
     }
 
     private void revokeAllUserToken(User user) {
@@ -123,7 +193,7 @@ public final class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void refreshToken(@NonNull HttpServletRequest request, 
+    public void refreshToken(@NonNull HttpServletRequest request,
             @NonNull HttpServletResponse response) throws IOException {
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         final String refreshToken;
@@ -162,7 +232,6 @@ public final class AuthServiceImpl implements AuthService {
     @Override
     public BasicRes<String> forgotPassword(PasswordReq request) {
         var user = userRepo.findByEmail(request.getEmail()).orElseThrow();
-
         var resetToken = jwtUtil.generateResetToken(user);
 
         revokeAllResetToken(user);
@@ -171,16 +240,21 @@ public final class AuthServiceImpl implements AuthService {
         MailBody mailBody = MailBody.builder()
                 .recipient(request.getEmail())
                 .subject("Reset Password")
-                .msgBody("http://localhost:5173/reset-password?token=" + resetToken)
+                .msgBody("To reset your password, please click here: http://localhost:5173/reset-password?token=" + resetToken)
                 .build();
 
-        return mailService.sendSimpleMail(mailBody);
+        mailService.sendSimpleMail(mailBody);
+
+        return BasicRes.<String>builder()
+                .message("A mail has been sent to your registerd email id")
+                .build();
     }
-    
+
     @Override
-    public BasicRes<String> patchPassword(String token, PasswordPatchReq request) throws IllegalArgumentException, IllegalAccessException {
+    public BasicRes<String> patchPassword(String token, PasswordPatchReq request)
+            throws IllegalArgumentException, IllegalAccessException {
         String email = jwtUtil.extractUserEmail(token);
-        
+
         if (email != null) {
             var user = userRepo.findByEmail(email).orElseThrow();
 
@@ -189,11 +263,11 @@ public final class AuthServiceImpl implements AuthService {
 
                 if (!storedResetToken.expired && !storedResetToken.revoked) {
                     userService.patchPassword(request, user);
-                    
+
                     storedResetToken.setExpired(true);
                     storedResetToken.setRevoked(true);
                     resetPasswordTokenRepo.save(storedResetToken);
-    
+
                     return BasicRes.<String>builder()
                             .message("Updated successfully")
                             .build();

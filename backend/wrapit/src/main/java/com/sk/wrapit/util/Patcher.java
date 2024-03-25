@@ -14,6 +14,7 @@ public class Patcher {
 
             Object value = field.get(updated);
             if (value != null) {
+                System.out.println(field + " " + value);
                 field.set(existed, value);
             }
 

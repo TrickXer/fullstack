@@ -6,7 +6,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.sk.wrapit.util.MailBody;
-import com.sk.wrapit.dto.response.BasicRes;
 import com.sk.wrapit.service.MailService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +20,7 @@ public class MailServiceImpl implements MailService {
     private String sender;
 
     @Override
-    public BasicRes<String> sendSimpleMail(MailBody body) {
+    public void sendSimpleMail(MailBody body) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
         mailMessage.setFrom(sender);
@@ -30,10 +29,6 @@ public class MailServiceImpl implements MailService {
         mailMessage.setText(body.getMsgBody());
 
         javaMailSender.send(mailMessage);
-
-        return BasicRes.<String>builder()
-                .message("A mail has been sent to your registerd email id")
-                .build();
     }
 
 }

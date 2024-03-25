@@ -1,12 +1,27 @@
 {"properties": [
   {
-    "name": "application.jwt.expiry-date",
+    "name": "wrapit.jwt.secret-key",
     "type": "java.lang.String",
-    "description": "A description for 'application.jwt.expiry-date'"
+    "description": "A description for 'wrapit.jwt.secret-key'"
   },
   {
-    "name": "application.jwt.secret-key",
+    "name": "wrapit.jwt.expiry-date",
     "type": "java.lang.String",
-    "description": "A description for 'application.jwt.secret-key'"
+    "description": "A description for 'wrapit.jwt.expiry-date'"
+  },
+  {
+    "name": "wrapit.swagger.contact.url",
+    "type": "java.lang.String",
+    "description": "A description for 'wrapit.swagger.contact.url'"
+  },
+  {
+    "name": "wrapit.swagger.contact.email",
+    "type": "java.lang.String",
+    "description": "A description for 'wrapit.swagger.contact.email'"
+  },
+  {
+    "name": "wrapit.swagger.contact.name",
+    "type": "java.lang.String",
+    "description": "A description for 'wrapit.swagger.contact.name'"
   }
 ]}

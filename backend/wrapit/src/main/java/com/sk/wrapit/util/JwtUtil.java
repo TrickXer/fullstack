@@ -24,10 +24,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtUtil {
 
-    @Value("${application.jwt.secret-key}")
+    @Value("${wrapit.jwt.secret-key}")
     private String secret;
 
-    @Value("${application.jwt.expiry-date}")
+    @Value("${wrapit.jwt.expiry-date}")
     private long expirationDuration;
     
     private final UserRepo userRepo;
@@ -46,7 +46,7 @@ public class JwtUtil {
         return claimsResolver.apply(claims);
     }
 
-    private Claims extractAllClaims(String token) {
+    public Claims extractAllClaims(String token) {
         return Jwts.parser()
                 .verifyWith(key())
                 .build()
@@ -64,6 +64,21 @@ public class JwtUtil {
                 "role", user.getRole()));
 
         return createToken(claims, user);
+    }
+
+    public String generateEmailVerificationToken(User user) {
+        long time = System.currentTimeMillis();
+        
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("user", user);
+
+        return Jwts.builder()
+                .claims(claims)
+                .issuer(user.getUsername())
+                .issuedAt(new Date(time))
+                .expiration(new Date(time + expirationDuration))
+                .signWith(key(), Jwts.SIG.HS256)
+                .compact();
     }
 
     public String generateResetToken(UserDetails userdDetails) {

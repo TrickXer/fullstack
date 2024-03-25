@@ -8,6 +8,8 @@ import com.sk.wrapit.model.Venue;
 import com.sk.wrapit.util.Patcher;
 import com.sk.wrapit.repository.VenueRepo;
 import com.sk.wrapit.service.VenueService;
+import com.sk.wrapit.dto.request.VenueReq;
+import com.sk.wrapit.dto.response.BasicRes;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,26 +19,52 @@ import lombok.RequiredArgsConstructor;
 public class VenueServiceImpl implements VenueService {
     private final VenueRepo venueRepo;
 
-    // SAVE
-    public boolean add(Venue venue) {
-        return venueRepo.save(venue) != null;
+    @Override
+    public BasicRes<String> add(VenueReq request) {
+        Venue venue = Venue.builder()
+                .venueName(request.getVenueName())
+                .venueLocation(request.getVenueLocation())
+                .charges(request.getVenueCharge())
+                .maxCapacity(request.getMaxCapacity())
+                .suitableFor(request.getSuitableFor())
+                .build();
+
+        venueRepo.save(venue);
+
+        return BasicRes.<String>builder()
+                .message("Venue added successfully")
+                .build();
     }
 
-    // GET_ALL
-    public List<Venue> all() {
-        return venueRepo.findAll();
+    @Override
+    public BasicRes<List<Venue>> all() {
+        List<Venue> venues = venueRepo.findAll();
+
+        return BasicRes.<List<Venue>>builder()
+                .message("All venues data retrieved successfully")
+                .data(venues)
+                .build();
     }
 
-    // GET
-    public Venue get(String id) {
-        return venueRepo.findById(id).orElseThrow();
+    @Override
+    public BasicRes<Venue> get(String id) {
+        var venue = venueRepo.findById(id).orElse(null);
+
+        return BasicRes.<Venue>builder()
+                .message("Venue data retrieed successfully")
+                .data(venue)
+                .build();
     }
 
-    // PATCH
-    public boolean patch(String id, Venue newVenue) throws IllegalArgumentException, IllegalAccessException {
-        Venue oldVenue = venueRepo.findById(id).orElseThrow();
+    @Override
+    public BasicRes<String> patch(Venue newVenue) throws IllegalArgumentException, IllegalAccessException {
+        Venue oldVenue = venueRepo.findById(newVenue.getVenueId()).orElseThrow();
         oldVenue = Patcher.patcher(oldVenue, newVenue);
 
-        return venueRepo.save(oldVenue) != null;
+        venueRepo.save(oldVenue);
+        return BasicRes.<String>builder()
+                .message("venue details updated successfullt")
+                .data("true")
+                .build();
     }
 }

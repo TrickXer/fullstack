@@ -27,17 +27,19 @@ public class AuthController {
 
     private final AuthService authService;
 
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginReq request) {
-        LoginRes response = new LoginRes();
+        BasicRes<LoginRes> response = new BasicRes<>();
 
         try {
             response = authService.login(request);
             return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
         } catch (Exception e) {
             response.setMessage("Login failed!");
-            response.setAccessToken("");
+            response.setData(LoginRes.builder()
+                    .message("Token generation failed!")
+                    .accessToken("")
+                    .build());
 
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
@@ -51,6 +53,22 @@ public class AuthController {
             response = authService.register(request);
             return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
         } catch (Exception e) {
+            response.setMessage("Oops!... Something went wrong. Please try again.");
+            response.setData("");
+
+            return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
+    @PostMapping("/verify-account")
+    public ResponseEntity<?> confirmAccount(@RequestParam String token) {
+        BasicRes<String> response = new BasicRes<>();
+
+        try {
+            response = authService.verify(token);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             response.setMessage("Oops!... Something went wrong. Please try again.");
             response.setData("");
 

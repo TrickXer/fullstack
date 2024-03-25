@@ -25,6 +25,7 @@ public class UserCLI implements CommandLineRunner {
 
         var admin = User.builder()
                 .name("admin")
+                .verified(true)
                 .email("admin@gmail.com")
                 .password(passwordEncoder.encode("admin@123"))
                 .role(Role.ADMIN)

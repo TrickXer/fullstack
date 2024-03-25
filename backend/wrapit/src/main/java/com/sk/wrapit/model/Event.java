@@ -25,11 +25,12 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String eventId;
 
+    private String eventName;
     private String eventType;
     private String description;
-    private String suitableFor;
-    private String maxCapacity;
-    private Integer charges;
+    private String eventPackage;
+    private int participantCount;
+    private double charges;
 
     @ManyToMany
     private List<Customer> customers;

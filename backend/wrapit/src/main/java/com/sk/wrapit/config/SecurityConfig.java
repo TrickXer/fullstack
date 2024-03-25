@@ -29,50 +29,55 @@ import lombok.RequiredArgsConstructor;
 @SuppressWarnings("deprication")
 public class SecurityConfig {
 
-    private final JwtFilter jwtFilter;
-    private final LogoutHandler logoutHandler;
-    private final AuthenticationProvider authenticationProvider;
+        private final JwtFilter jwtFilter;
+        private final LogoutHandler logoutHandler;
+        private final AuthenticationProvider authenticationProvider;
 
-    private final String[] WHITELIST = {
-            "/wrapit/api/v1/auth/**"
-    };
+        private final String[] WHITELIST = {
+                        "/wrapit/api/v1/auth/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html/",
+                        "/v3/api-docs/**"
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(corsConfigurationSource -> corsConfigurationSource.configurationSource(corsConfigurationSource()))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(WHITELIST).permitAll()
-                        .anyRequest().authenticated())
-                .sessionManagement(session -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-                .logout(logout -> logout.logoutUrl("/wrapit/api/v1/auth")
-                                .addLogoutHandler(logoutHandler)
-                                .logoutSuccessHandler(
-                                        (request, response, auth) -> SecurityContextHolder.clearContext()
-                                        ))
-                // .httpBasic(Customizer.withDefaults())
-                .build();
-    }
+        };
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
+        @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                return http
+                                .csrf(AbstractHttpConfigurer::disable)
+                                .cors(corsConfigurationSource -> corsConfigurationSource
+                                                .configurationSource(corsConfigurationSource()))
+                                .authorizeHttpRequests(auth -> auth
+                                                .requestMatchers(WHITELIST).permitAll()
+                                                .anyRequest().authenticated())
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                                .authenticationProvider(authenticationProvider)
+                                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                                .logout(logout -> logout.logoutUrl("/wrapit/api/v1/auth")
+                                                .addLogoutHandler(logoutHandler)
+                                                .logoutSuccessHandler(
+                                                                (request, response, auth) -> SecurityContextHolder
+                                                                                .clearContext()))
+                                // .httpBasic(Customizer.withDefaults())
+                                .build();
+        }
 
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
-        config.setAllowedHeaders(Arrays.asList(HttpHeaders.AUTHORIZATION, HttpHeaders.CONTENT_TYPE));
-        config.setAllowedMethods(Arrays.asList(
-                HttpMethod.GET.name(), HttpMethod.DELETE.name(), HttpMethod.PATCH.name(), HttpMethod.POST.name(),
-                HttpMethod.HEAD.name(), HttpMethod.OPTIONS.name()
-            ));
-        config.setAllowCredentials(true);
+        @Bean
+        public CorsConfigurationSource corsConfigurationSource() {
+                CorsConfiguration config = new CorsConfiguration();
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
+                config.setAllowedOrigins(Arrays.asList("http://localhost:5173"));
+                config.setAllowedHeaders(Arrays.asList(HttpHeaders.AUTHORIZATION, HttpHeaders.CONTENT_TYPE));
+                config.setAllowedMethods(Arrays.asList(
+                                HttpMethod.GET.name(), HttpMethod.DELETE.name(), HttpMethod.PATCH.name(),
+                                HttpMethod.POST.name(),
+                                HttpMethod.HEAD.name(), HttpMethod.OPTIONS.name()));
+                config.setAllowCredentials(true);
 
-        return source;
-    }
+                UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                source.registerCorsConfiguration("/**", config);
+
+                return source;
+        }
 }

@@ -25,7 +25,10 @@ public class Venue {
     private String venueId;
 
     private String venueName;
+    private String suitableFor;
+    private String maxCapacity;
     private String venueLocation;
+    private double charges;
 
     @OneToMany(mappedBy = "venue")
     private List<Booking> bookings;
