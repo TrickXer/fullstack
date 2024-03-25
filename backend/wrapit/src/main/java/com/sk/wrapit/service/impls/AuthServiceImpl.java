@@ -84,7 +84,7 @@ public final class AuthServiceImpl implements AuthService {
         MailBody mailBody = MailBody.builder()
                 .recipient(request.getEmail())
                 .subject("Complete Registration!")
-                .msgBody("To verify your account, please click here: http://localhost:5173/verify-account?token=" + emailVerificationToken)
+                .msgBody("To verify your account, please click here: http://localhost:8080/verify-account?token=" + emailVerificationToken)
                 .build();
 
         mailService.sendSimpleMail(mailBody);

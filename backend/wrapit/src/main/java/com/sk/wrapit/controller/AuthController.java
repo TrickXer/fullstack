@@ -4,25 +4,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sk.wrapit.service.AuthService;
 import com.sk.wrapit.dto.request.LoginReq;
-import com.sk.wrapit.dto.request.PasswordPatchReq;
-import com.sk.wrapit.dto.request.PasswordReq;
 import com.sk.wrapit.dto.response.BasicRes;
 import com.sk.wrapit.dto.response.LoginRes;
 import com.sk.wrapit.dto.request.RegisterReq;
+import com.sk.wrapit.dto.request.PasswordReq;
+import com.sk.wrapit.dto.request.PasswordPatchReq;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/wrapit/api/v1/auth")
+@RequestMapping("/wrapit/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -60,7 +61,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/verify-account")
+    @GetMapping("/verify-account")
     public ResponseEntity<?> confirmAccount(@RequestParam String token) {
         BasicRes<String> response = new BasicRes<>();
 

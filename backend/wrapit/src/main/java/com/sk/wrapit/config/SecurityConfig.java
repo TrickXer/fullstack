@@ -34,7 +34,7 @@ public class SecurityConfig {
         private final AuthenticationProvider authenticationProvider;
 
         private final String[] WHITELIST = {
-                        "/wrapit/api/v1/auth/**",
+                        "/wrapit/auth/**",
                         "/swagger-ui/**",
                         "/swagger-ui.html/",
                         "/v3/api-docs/**"
@@ -54,7 +54,7 @@ public class SecurityConfig {
                                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                                 .authenticationProvider(authenticationProvider)
                                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-                                .logout(logout -> logout.logoutUrl("/wrapit/api/v1/auth")
+                                .logout(logout -> logout.logoutUrl("/wrapit/auth")
                                                 .addLogoutHandler(logoutHandler)
                                                 .logoutSuccessHandler(
                                                                 (request, response, auth) -> SecurityContextHolder

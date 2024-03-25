@@ -23,7 +23,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/wrapit/api/v1/venue")
+@RequestMapping("/wrapit/venue")
 public class VenueController {
     private final VenueService venueService;
 

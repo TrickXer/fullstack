@@ -22,7 +22,6 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String paymentId;
-
     private String status;
     private Double totalAmount;
     private LocalDateTime paymentDate;
