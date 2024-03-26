@@ -14,6 +14,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -40,9 +41,9 @@ public class Event {
     private int participantCount;
     private double charges;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private List<Customer> customers;
 
-    @OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private List<Booking> bookings;
 }

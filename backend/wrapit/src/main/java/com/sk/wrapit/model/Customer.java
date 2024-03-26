@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToOne;
@@ -25,22 +26,20 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_customer")
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "customerId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "customerId")
 public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String customerId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private String customerId;
 
-    private String customerName;
+  private String customerName;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-    private List<Booking> bookings;
+  @ManyToMany(mappedBy = "customers", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  private List<Event> events;
+  
+  @OneToMany(mappedBy = "customer", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  private List<Booking> bookings;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Event> events;
-
-    @OneToOne
-    private User user;
+  @OneToOne(cascade = CascadeType.MERGE)
+  private User user;
 }
