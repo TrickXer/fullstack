@@ -84,7 +84,7 @@ public final class AuthServiceImpl implements AuthService {
         MailBody mailBody = MailBody.builder()
                 .recipient(request.getEmail())
                 .subject("Complete Registration!")
-                .msgBody("To verify your account, please click here: http://localhost:8080/wrapit/verify-account?token=" + emailVerificationToken)
+                .msgBody("To verify your account, please click here: http://localhost:8080/wrapit/auth/verify-account?token=" + emailVerificationToken)
                 .build();
 
         mailService.sendSimpleMail(mailBody);
@@ -240,7 +240,7 @@ public final class AuthServiceImpl implements AuthService {
         MailBody mailBody = MailBody.builder()
                 .recipient(request.getEmail())
                 .subject("Reset Password")
-                .msgBody("To reset your password, please click here: http://localhost:8080/reset-password?token=" + resetToken)
+                .msgBody("To reset your password, please click here: http://localhost:8080/wrapit/auth/reset-password?token=" + resetToken)
                 .build();
 
         mailService.sendSimpleMail(mailBody);
