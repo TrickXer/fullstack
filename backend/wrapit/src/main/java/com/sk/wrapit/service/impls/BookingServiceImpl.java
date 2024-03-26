@@ -37,28 +37,28 @@ public class BookingServiceImpl implements BookingService {
         var user = userRepo.findByEmail(authentication.getName()).orElseThrow();
 
         Customer customer = Customer.builder()
-                        .customerName(user.getName())
-                        .user(user)
-                        .build();
+                .customerName(user.getName())
+                .user(user)
+                .build();
 
         var event = eventRepo.findById(bookingReq.getEventId()).orElseThrow();
         var venue = venueRepo.findById(bookingReq.getVenueId()).orElseThrow();
                 
         Payment payment = Payment.builder()
-                        .status("pending")
-                        .totalAmount(event.getCharges() + venue.getCharges())
-                        .build();
+                .status("pending")
+                .totalAmount(event.getCharges() + venue.getCharges())
+                .build();
         
         Booking booking = Booking.builder()
-                        .bookingStatus("pending")
-                        .headCount(bookingReq.getHeadCount())
-                        .eventDate(bookingReq.getEventDate())
-                        .submissionDate(LocalDateTime.now())
-                        .customer(customer)
-                        .event(event)
-                        .venue(venue)
-                        .payment(payment)
-                        .build();
+                .bookingStatus("pending")
+                .headCount(bookingReq.getHeadCount())
+                .eventDate(bookingReq.getEventDate())
+                .submissionDate(LocalDateTime.now())
+                .customer(customer)
+                .event(event)
+                .venue(venue)
+                .payment(payment)
+                .build();
 
         bookingRepo.save(booking);
 
