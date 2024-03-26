@@ -70,9 +70,7 @@ public class JwtUtil {
         long time = System.currentTimeMillis();
         
         Map<String, Object> claims = new HashMap<>();
-        claims.put("user", Map.of(
-                "uuid", user.getUserId(),
-                "username", user.getUsername()));
+        claims.put("user", user);
 
         return Jwts.builder()
                 .claims(claims)

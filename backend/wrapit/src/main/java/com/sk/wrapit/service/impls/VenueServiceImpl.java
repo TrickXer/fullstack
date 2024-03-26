@@ -67,4 +67,17 @@ public class VenueServiceImpl implements VenueService {
                 .data("true")
                 .build();
     }
+
+    @Override
+    public BasicRes<String> delete(String eventId) {
+
+        var isEventPresent = venueRepo.findById(eventId).orElse(null);
+
+        if (isEventPresent != null)
+            venueRepo.deleteById(eventId);
+
+        return BasicRes.<String>builder()
+                .message("Venue Deleted SuccessFully")
+                .build();
+    }
 }

@@ -4,22 +4,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sk.wrapit.service.AuthService;
 import com.sk.wrapit.dto.request.LoginReq;
+import com.sk.wrapit.dto.request.PasswordPatchReq;
+import com.sk.wrapit.dto.request.PasswordReq;
 import com.sk.wrapit.dto.response.BasicRes;
 import com.sk.wrapit.dto.response.LoginRes;
 import com.sk.wrapit.dto.request.RegisterReq;
-import com.sk.wrapit.dto.request.PasswordReq;
-import com.sk.wrapit.dto.request.PasswordPatchReq;
 
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequiredArgsConstructor
@@ -61,7 +61,7 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/verify-account")
+    @PostMapping("/verify-account")
     public ResponseEntity<?> confirmAccount(@RequestParam String token) {
         BasicRes<String> response = new BasicRes<>();
 
@@ -78,6 +78,7 @@ public class AuthController {
     }
 
     @PostMapping("/forgot-password")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> forgotPassword(@RequestBody PasswordReq request) {
         BasicRes<String> response = new BasicRes<>();
 
@@ -93,6 +94,7 @@ public class AuthController {
     }
 
     @PatchMapping("/reset-password")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> patchPassword(@RequestParam String token, @RequestBody PasswordPatchReq request) {
         BasicRes<String> response = new BasicRes<>();
 

@@ -10,6 +10,8 @@ import lombok.AllArgsConstructor;
 import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sk.wrapit.enumerated.TokenType;
 
 import jakarta.persistence.Column;
@@ -24,6 +26,9 @@ import jakarta.persistence.GenerationType;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class, 
+  property = "tokenId")
 @Table(name = "wi_token")
 public class Token {
     @Id

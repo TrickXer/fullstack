@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -85,6 +86,22 @@ public class VenueController {
             response.setMessage("Oops!... Something went wrong. Please try again.");
 
             return new ResponseEntity<>(response, HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
+    @DeleteMapping("/delete/{eventId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deleteEvent(@PathVariable String eventId ){
+        BasicRes<String> response = new BasicRes<>();
+        try {
+            response = venueService.delete(eventId);
+            return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+
+        } catch (Exception e) {
+            response.setMessage("Oops!... Something went wrong. Please try again.");
+            response.setData("");
+
+            return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
         }
     }
 }

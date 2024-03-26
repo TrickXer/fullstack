@@ -9,6 +9,8 @@ import com.sk.wrapit.dto.response.BasicRes;
 public interface VenueService {
     BasicRes<String> add(VenueReq request);
 
+    BasicRes<String> delete(String eventId);
+
     BasicRes<List<Venue>> all();
 
     BasicRes<Venue> get(String id);
