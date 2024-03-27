@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { Form, TextInput } from '../ui/form'
 import React, { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import DefaultAvatar from '../../../../assets/party.jpg'
 import { login, register } from '../../state/users/userslice'
@@ -14,6 +14,7 @@ export default function Register(props) {
     const user = useSelector(state => state.users.current)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const location = useLocation()
 
 
     useEffect(() => {
@@ -43,7 +44,7 @@ export default function Register(props) {
             dispatch(register({ ...user, fname: user.username }))
             dispatch(login({ ...user, fname: user.username }))
             
-            navigate('/')
+            navigate(location.state?.path || '/login', { replace: true })
         }
     }
     

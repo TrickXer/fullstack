@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Route, Navigate, Outlet, Routes } from 'react-router-dom'
+import { Route, Navigate, Outlet, Routes, useLocation } from 'react-router-dom'
 import LazyLoad from './lazyload'
 import Userdb from '../pages/user/userdb'
 import Admindb from '../pages/admin/admindb'
@@ -24,9 +24,10 @@ const AdminPayments = React.lazy(() => import('../components/dashboard/admin/pay
 
 
 export function ProtectedRoutes({ user, children }) {
+    const location = useLocation()
     const isAuthenticated = Object.keys(user).length !== 0
 
-    return isAuthenticated ? <Routes>{ children }</Routes> : <Navigate to="/auth/login" replace />
+    return isAuthenticated ? <Routes>{ children }</Routes> : <Navigate to="/auth/login" state={ location.pathname } replace />
 }
 
 export function UserRoutes(props) {
@@ -36,7 +37,7 @@ export function UserRoutes(props) {
     return (
         <ProtectedRoutes user={user}>
             {
-                user?.role === 'USER' &&
+                (user?.role === 'USER' || user?.role === 'ADMIN') &&
                 <>
                     <Route exact path="/" element={<LazyLoad component={<Home />} />} />
                     <Route path='/user/*'>

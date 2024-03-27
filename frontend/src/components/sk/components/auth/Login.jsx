@@ -3,7 +3,7 @@
 import { Form, TextInput } from '../ui/form'
 import React, { useEffect, useState } from 'react'
 import { login } from '../../state/users/userslice'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import DefaultAvatar from '../../../../assets/party.jpg'
 import Alert from '../alert'
@@ -15,6 +15,7 @@ export default function Login(props) {
     const user = useSelector(state => state.users.current)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const location = useLocation()
 
     const [logined, setLogined] = useState(false)
 
@@ -37,9 +38,9 @@ export default function Login(props) {
                 setLogined(false)
 
                 user.role.toLowerCase() !== 'admin' ?
-                    navigate('/')
+                    navigate(location.state?.path || '/', { replace: true })
                     :
-                    navigate('/admin/dashboard/events')
+                    navigate(location.state?.path || '/admin/dashboard/events', { replace: true })
             }, 1.5 * 1000)
 
             return () => clearInterval(timeout)
