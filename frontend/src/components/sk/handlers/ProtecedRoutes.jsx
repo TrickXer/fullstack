@@ -27,13 +27,13 @@ export function ProtectedRoutes({ user, children }) {
     const location = useLocation()
     const isAuthenticated = Object.keys(user).length !== 0
 
-    return isAuthenticated ? <Routes>{ children }</Routes> : <Navigate to="/auth/login" state={ location.pathname } replace />
+    return isAuthenticated ? <Routes>{children}</Routes> : <Navigate to="/auth/login" state={{ path: location.pathname }} replace />
 }
 
 export function UserRoutes(props) {
     const user = useSelector(state => state.users.current)
     console.log(user)
-    
+
     return (
         <ProtectedRoutes user={user}>
             {
@@ -41,12 +41,12 @@ export function UserRoutes(props) {
                 <>
                     <Route exact path="/" element={<LazyLoad component={<Home />} />} />
                     <Route path='/user/*'>
-                        <Route path='dashboard/*' element={ <LazyLoad component={ <Userdb /> } /> }>
-                            <Route path='events' element={ <LazyLoad component={ <UserEvents /> } /> } />
+                        <Route path='dashboard/*' element={<LazyLoad component={<Userdb />} />}>
+                            <Route path='events' element={<LazyLoad component={<UserEvents />} />} />
                         </Route>
-                        <Route path='events' element={<LazyLoad component={<Events />} />} />                    
-                        <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />                    
-                        <Route path='events/ticket/checkout' element={<LazyLoad component={<Checkout />} />} />                    
+                        <Route path='events' element={<LazyLoad component={<Events />} />} />
+                        <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />
+                        <Route path='events/ticket/checkout' element={<LazyLoad component={<Checkout />} />} />
                     </Route>
                 </>
             }
@@ -62,10 +62,10 @@ export function AdminRoutes(props) {
             {
                 user?.role === 'ADMIN' &&
                 <Route path='dashboard/*' element={<LazyLoad component={<Admindb />} />}>
-                    <Route path='events' element={ <LazyLoad component={ <AdminEvents /> } /> } />
-                    <Route path='venues' element={ <LazyLoad component={ <AdminVenues /> } /> } />
-                    <Route path='bookings' element={ <LazyLoad component={ <AdminBookings /> } /> } />
-                    <Route path='payments' element={ <LazyLoad component={ <AdminPayments /> } /> } />
+                    <Route path='events' element={<LazyLoad component={<AdminEvents />} />} />
+                    <Route path='venues' element={<LazyLoad component={<AdminVenues />} />} />
+                    <Route path='bookings' element={<LazyLoad component={<AdminBookings />} />} />
+                    <Route path='payments' element={<LazyLoad component={<AdminPayments />} />} />
                 </Route>
             }
         </ProtectedRoutes>
