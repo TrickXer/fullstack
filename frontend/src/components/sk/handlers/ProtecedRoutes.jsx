@@ -13,13 +13,12 @@ const Checkout = React.lazy(() => import('../pages/user/checkout'))
 const Tickets = React.lazy(() => import('../pages/user/buytickets'))
 
 // DASHBOARD
-const UserEvents = React.lazy(() => import('../components/dashboard/user/events'))
+const DbEvents = React.lazy(() => import('../components/dashboard/events'))
+const DbBookings = React.lazy(() => import('../components/dashboard/bookings'))
 
 
 // ADMIN
-const AdminEvents = React.lazy(() => import('../components/dashboard/admin/events'))
 const AdminVenues = React.lazy(() => import('../components/dashboard/admin/venues'))
-const AdminBookings = React.lazy(() => import('../components/dashboard/admin/bookings'))
 const AdminPayments = React.lazy(() => import('../components/dashboard/admin/payments'))
 
 
@@ -42,7 +41,8 @@ export function UserRoutes(props) {
                     <Route exact path="/" element={<LazyLoad component={<Home />} />} />
                     <Route path='/user/*'>
                         <Route path='dashboard/*' element={<LazyLoad component={<Userdb />} />}>
-                            <Route path='events' element={<LazyLoad component={<UserEvents />} />} />
+                            <Route path='events' element={<LazyLoad component={<DbEvents role={user?.role} />} />} />
+                            <Route path='bookings' element={<LazyLoad component={<DbBookings role={user?.role} />} />} />
                         </Route>
                         <Route path='events' element={<LazyLoad component={<Events />} />} />
                         <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />
@@ -62,9 +62,9 @@ export function AdminRoutes(props) {
             {
                 user?.role === 'ADMIN' &&
                 <Route path='dashboard/*' element={<LazyLoad component={<Admindb />} />}>
-                    <Route path='events' element={<LazyLoad component={<AdminEvents />} />} />
+                    <Route path='events' element={<LazyLoad component={<DbEvents role={user?.role} />} />} />
                     <Route path='venues' element={<LazyLoad component={<AdminVenues />} />} />
-                    <Route path='bookings' element={<LazyLoad component={<AdminBookings />} />} />
+                    <Route path='bookings' element={<LazyLoad component={<DbBookings role={user?.role} />} />} />
                     <Route path='payments' element={<LazyLoad component={<AdminPayments />} />} />
                 </Route>
             }

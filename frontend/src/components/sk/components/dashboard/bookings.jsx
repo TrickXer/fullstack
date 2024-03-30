@@ -1,5 +1,5 @@
 import React from 'react'
-import { BookingTable } from '../../table'
+import { BookingTable } from '../table'
 
 
 export default function Bookings(props) {
@@ -36,7 +36,7 @@ export default function Bookings(props) {
 
     return (
         <div className='flex flex-col flex-auto p-6'>
-            <h1 className="sm:text-3xl w-full text-left tracking-wider text-2xl font-bold title-font px-6 my-8 mb-2 text-gray-200">Bookings</h1>
+            <h1 className="sm:text-3xl w-full text-left tracking-wider text-2xl font-bold title-font px-6 my-8 mb-2 text-gray-700 dark:text-gray-300">Bookings</h1>
             <BookingTable headers={headers} body={body} />
         </div>
     )
