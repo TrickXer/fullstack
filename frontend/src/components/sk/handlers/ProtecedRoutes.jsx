@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Route, Navigate, Outlet, Routes, useLocation } from 'react-router-dom'
+import { Route, Navigate, Routes, useLocation } from 'react-router-dom'
 import LazyLoad from './lazyload'
 import Userdb from '../pages/user/userdb'
 import Admindb from '../pages/admin/admindb'
@@ -31,7 +31,6 @@ export function ProtectedRoutes({ user, children }) {
 
 export function UserRoutes(props) {
     const user = useSelector(state => state.users.current)
-    console.log(user)
 
     return (
         <ProtectedRoutes user={user}>
@@ -41,6 +40,8 @@ export function UserRoutes(props) {
                     <Route exact path="/" element={<LazyLoad component={<Home />} />} />
                     <Route path='/user/*'>
                         <Route path='dashboard/*' element={<LazyLoad component={<Userdb />} />}>
+                            <Route path='' element={<Navigate to="bookings" />} />
+
                             <Route path='events' element={<LazyLoad component={<DbEvents role={user?.role} />} />} />
                             <Route path='bookings' element={<LazyLoad component={<DbBookings role={user?.role} />} />} />
                         </Route>
@@ -62,6 +63,8 @@ export function AdminRoutes(props) {
             {
                 user?.role === 'ADMIN' &&
                 <Route path='dashboard/*' element={<LazyLoad component={<Admindb />} />}>
+                    <Route path='' element={<Navigate to="bookings" />} />
+                        
                     <Route path='events' element={<LazyLoad component={<DbEvents role={user?.role} />} />} />
                     <Route path='venues' element={<LazyLoad component={<AdminVenues />} />} />
                     <Route path='bookings' element={<LazyLoad component={<DbBookings role={user?.role} />} />} />

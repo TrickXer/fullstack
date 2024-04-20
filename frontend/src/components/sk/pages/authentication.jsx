@@ -1,9 +1,10 @@
 import React from 'react'
 import PartyBg from '../../../assets/party.jpg'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 
 
 export default function Authentication(props) {
+    const location = useLocation().pathname
     
 
     return (
@@ -38,12 +39,12 @@ export default function Authentication(props) {
                                 </svg>
                             </div>
 
-                            <p class="mt-3 text-gray-500 dark:text-gray-300">Sign in to access your account</p>
+                            <p class="mt-3 text-gray-500 dark:text-gray-300">Sign { location === '/auth/sign-up' ? 'up to access our features' : 'in to access your account' } </p>
                         </div>
 
                         <div class="mt-8">
                             <Outlet />
-                            <p class="mt-6 text-sm text-center text-gray-400">Don&#x27;t have an account yet? <a href="#" class="text-primary focus:outline-none focus:underline hover:underline">Sign up</a>.</p>
+                            <p class="mt-6 text-sm text-center text-gray-400">Don&#x27;t have an account yet? <Link to={`/auth/${ location === '/auth/sign-up' ? 'login' : 'sign-up' }`} class="text-primary focus:outline-none focus:underline hover:underline">{ location === '/auth/sign-up' ? 'Sign in' : 'Sign up' }</Link>.</p>
                         </div>
                     </div>
                 </div>

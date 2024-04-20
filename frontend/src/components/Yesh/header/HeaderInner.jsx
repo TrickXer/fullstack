@@ -9,7 +9,7 @@ export default function HeaderInner() {
     <>
       <div className="header-inner-wrapper">
         <HeaderOptions />
-        <HeaderLoginBox user={user.username} role={user.role} />
+        <HeaderLoginBox user={user.name} role={user.role} />
         <HeaderAddOptions />
       </div>
     </>

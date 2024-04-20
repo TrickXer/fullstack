@@ -1,6 +1,7 @@
 package com.sk.wrapit.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sk.wrapit.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,4 +18,6 @@ public class LoginRes {
 
     @JsonProperty("access_token")
     private String accessToken;
+
+    private User user;
 }

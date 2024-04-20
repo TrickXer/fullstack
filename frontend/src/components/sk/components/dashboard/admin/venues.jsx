@@ -1,3 +1,4 @@
+import Api from '../../../utils/api'
 import React, { useState } from 'react'
 import { VenueTable } from '../../table'
 import { FormField, FormFields, FormGroup, FormLayout, FormText, FormTextArea } from '../../FormLayout'
@@ -5,6 +6,11 @@ import { FormField, FormFields, FormGroup, FormLayout, FormText, FormTextArea } 
 
 export default function Venues(props) {
     const [open, setOpen] = useState(false)
+
+    Api.venueAll().then(res => {
+        console.log(res)
+    })
+    .catch(error => console.log(error))
 
     const handleCancel = () => setOpen(false)
 

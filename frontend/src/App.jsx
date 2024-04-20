@@ -36,6 +36,7 @@ export default function App() {
                 <Route path="login" element={<LazyLoad component={<LazyLogin />} />} />
                 <Route path="sign-up" element={<LazyLoad component={<LazyRegister />} />} />
                 <Route path="forgot-password" element={<LazyLoad component={<LazyForgotPassword />} />} />
+                <Route path="verify-account" element={<LazyLoad component={<LazyForgotPassword />} />} />
               </Route>
 
               {/* PROTECTED */}

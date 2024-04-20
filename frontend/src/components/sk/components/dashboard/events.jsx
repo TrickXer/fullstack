@@ -73,7 +73,7 @@ export default function Events({ role }) {
         <div className='flex flex-col flex-auto p-6 overflow-y-auto'>
             {
                 open ?
-                    <div className='flex flex-col divide divide-y-2 px-8 space-y-6 divide-gray-300 dark:divide-gray-700'>
+                    <div className='flex flex-col flex-auto divide divide-y-2 px-8 space-y-6 divide-gray-300 dark:divide-gray-700'>
                         <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font my-8 mb-2 text-gray-700 dark:text-gray-300">{ role === 'ADMIN' ? 'Add' : 'Book an ' } Event</h1>
                         <FormLayout handleCancel={handleCancel}>
                             <FormGroup title="Event Details">

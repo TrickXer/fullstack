@@ -43,7 +43,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Service
 @RequiredArgsConstructor
-@SuppressWarnings("null")
 public final class AuthServiceImpl implements AuthService {
 
     private final JwtUtil jwtUtil;
@@ -84,7 +83,7 @@ public final class AuthServiceImpl implements AuthService {
         MailBody mailBody = MailBody.builder()
                 .recipient(request.getEmail())
                 .subject("Complete Registration!")
-                .msgBody("To verify your account, please click here: http://localhost:8080/wrapit/auth/verify-account?token=" + emailVerificationToken)
+                .msgBody("To verify your account, please click here: http://localhost:5173/auth/verify-account?token=" + emailVerificationToken)
                 .build();
 
         mailService.sendSimpleMail(mailBody);
@@ -140,6 +139,7 @@ public final class AuthServiceImpl implements AuthService {
                 .data(LoginRes.builder()
                         .message("Authentication token generated successfully")
                         .accessToken(accessToken)
+                        .user(user)
                         .build()
                 )
                 .build();
@@ -214,6 +214,7 @@ public final class AuthServiceImpl implements AuthService {
                 var authRes = LoginRes.builder()
                         .message("New access token generated successfully")
                         .accessToken(accessToken)
+                        .user(user)
                         .build();
 
                 try {
@@ -240,7 +241,7 @@ public final class AuthServiceImpl implements AuthService {
         MailBody mailBody = MailBody.builder()
                 .recipient(request.getEmail())
                 .subject("Reset Password")
-                .msgBody("To reset your password, please click here: http://localhost:8080/wrapit/auth/reset-password?token=" + resetToken)
+                .msgBody("To reset your password, please click here: http://localhost:5173/auth/reset-password?token=" + resetToken)
                 .build();
 
         mailService.sendSimpleMail(mailBody);
