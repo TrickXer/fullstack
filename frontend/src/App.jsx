@@ -12,7 +12,8 @@ import { AdminRoutes, UserRoutes } from "./components/sk/handlers/ProtecedRoutes
 const LazyAuth = React.lazy(() => import('./components/sk/pages/authentication'))
 const LazyLogin = React.lazy(() => import('./components/sk/components/auth/Login'))
 const LazyRegister = React.lazy(() => import('./components/sk/components/auth/Register'))
-const LazyForgotPassword = React.lazy(() => import('./components/sk/components/auth/ForgotPassword'))
+const LazyForgotPassword = React.lazy(() => import('./components/sk/pages/forgotPassword'))
+const LazyVerifyAccount = React.lazy(() => import('./components/sk/pages/verifyAccount'))
 
 
 export default function App() {
@@ -35,8 +36,11 @@ export default function App() {
                 <Route index element={<LazyLoad component={<LazyLogin />} />} />
                 <Route path="login" element={<LazyLoad component={<LazyLogin />} />} />
                 <Route path="sign-up" element={<LazyLoad component={<LazyRegister />} />} />
-                <Route path="forgot-password" element={<LazyLoad component={<LazyForgotPassword />} />} />
-                <Route path="verify-account" element={<LazyLoad component={<LazyForgotPassword />} />} />
+              </Route>
+
+              <Route>
+                <Route path="/auth/forgot-password" element={<LazyLoad component={<LazyForgotPassword />} />} />
+                <Route path="/auth/verify-account" element={<LazyLoad component={<LazyVerifyAccount />} />} />
               </Route>
 
               {/* PROTECTED */}

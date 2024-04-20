@@ -58,6 +58,13 @@ export default function Venues(props) {
         { name: "Projector/Screen", description: "Venue offers audiovisual equipment such as projectors and screens for presentations." }
     ]
 
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+
+        console.log(formData)
+    }
 
 
     return (
@@ -66,7 +73,7 @@ export default function Venues(props) {
                 open ?
                     <div className='flex flex-col divide divide-y-2 px-8 space-y-6 divide-gray-100 dark:divide-gray-800'>
                         <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font my-8 mb-2 text-gray-700 dark:text-gray-200">Add Venue</h1>
-                        <FormLayout handleCancel={handleCancel}>
+                        <FormLayout onSubmit={handleSubmit} handleCancel={handleCancel}>
                             <FormGroup title="Venue Details">
                                 <div className='flex justify-between sm:w-2/5'>
                                     <FormText required id="venue-name" type="text" name="Venue Name" description="Name of the venue." />
@@ -82,7 +89,7 @@ export default function Venues(props) {
                                 </div>
                             </FormGroup>
 
-                            <FormGroup title="Venue Amenities">
+                            {/* <FormGroup title="Venue Amenities">
                                 <FormFields title='Amenities Checklist'>
                                     {
                                         amenities?.map((amenity, id) => (
@@ -106,20 +113,12 @@ export default function Venues(props) {
                                         ))
                                     }
                                 </FormFields>
-                            </FormGroup>
+                            </FormGroup> */}
 
                             <FormGroup title="Pricing and Booking Information">
-                                <FormText required id="charges" type="text" name="Pricing" description="Text fields for the contact person's name, email address, and phone number." />
-                                {/* <label for="Option1" class="flex cursor-pointer items-start gap-4">
-                                    <div class="flex items-center">
-                                        &#8203;
-                                        <input type="checkbox" class="size-4 rounded border-gray-300" id="Option1" />
-                                    </div>
-
-                                    <div>
-                                        <span class="text-sm text-gray-700 dark:text-gray-400"> I agree with the terms and conditions associated with renting the venue. </span>
-                                    </div>
-                                </label> */}
+                                <div className='sm:w-[20%]'>
+                                    <FormText required id="charges" type="number" name="Pricing" description="Text fields for the contact person's name, email address, and phone number." />
+                                </div>
                             </FormGroup>
                         </FormLayout>
                     </div>

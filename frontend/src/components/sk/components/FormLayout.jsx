@@ -7,15 +7,15 @@ export function FormLayout({children, onSubmit, handleCancel}) {
             <div className='flex flex-auto items-center justify-center'>
                 <form onSubmit={onSubmit} className='w-full flex flex-col space-y-12 divide divide-y-2 divide-gray-300 dark:divide-gray-700'>
                     {children}
+                    <div className='pt-8 w-full flex space-x-4 justify-end'>
+                        <button onClick={handleCancel} className="rounded-lg bg-gray-600 hover:bg-gray-700 px-6 py-2 text-sm font-medium text-gray-50">
+                            cancel
+                        </button>
+                        <button type='submit' className="px-6 py-1 rounded-lg border-2 transition-colors duration-300 hover:text-primary border-orange-800 bg-orange-800 hover:bg-black hover:bg-opacity-20 text-white disabled:text-neutral-500 disabled:bg-primary-disabled">
+                            Add
+                        </button>
+                    </div>
                 </form>
-            </div>
-            <div className='pt-8 w-full flex space-x-4 justify-end'>
-                <button onClick={handleCancel} className="rounded-lg bg-gray-600 hover:bg-gray-700 px-6 py-2 text-sm font-medium text-gray-50">
-                    cancel
-                </button>
-                <button className="px-6 py-1 rounded-lg border-2 transition-colors duration-300 hover:text-primary border-orange-800 bg-orange-800 hover:bg-black hover:bg-opacity-20 text-white disabled:text-neutral-500 disabled:bg-primary-disabled">
-                    Add
-                </button>
             </div>
         </div>
     )
@@ -46,19 +46,22 @@ export function FormFields({title, children}) {
     )
 }
 
-export function FormField({id, title, description}) {
+export function FormField({ id, title, description, ...rest }) {
+    const { label, ...inputProps } = rest
     
     return (
         <label
-            for={id}
+            htmlFor={id}
             className="flex cursor-pointer items-start gap-4 rounded-lg border border-gray-200 p-4 transition hover:bg-gray-50 has-[:checked]:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-900 dark:has-[:checked]:bg-gray-700/10"
         >
             <div className="flex items-center">
                 &#8203;
                 <input
-                type="checkbox"
-                className="size-4 rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:ring-offset-gray-900"
-                id={id}
+                    {...inputProps}
+                    name={title.split(' ').join('')}
+                    type="checkbox"
+                    className="size-4 rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:ring-offset-gray-900"
+                    id={id}
                 />
             </div>
 
@@ -70,23 +73,25 @@ export function FormField({id, title, description}) {
     )
 }
 
-export function FormText({required=false, name, description, className, ...rest}) {
+export function FormText({ required = false, name, description, className, ...rest }) {
+    const { label, ...inputProps } = rest
     
     return (
         <div className={className}>
-            <label className="text-gray-700 dark:text-gray-300" for="username">{name} {required && '*'}</label>
-            <input {...rest} required={required} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:outline-none" />
-            <span className='text-gray-500 text-sm text-wrap'>{description}</span>
+            <label className="text-gray-700 dark:text-gray-300" htmlFor={name}>{name} {required && '*'}</label>
+            <input {...inputProps} name={name.split(' ').join('')} required={required} id={name} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:outline-none" />
+            <span className='text-gray-500 text-sm'>{description}</span>
         </div>
     )
 }
 
-export function FormTextArea({required=false, name, description, className, ...rest}) {
+export function FormTextArea({ required = false, name, description, className, ...rest }) {
+    const { label, ...inputProps } = rest
     
     return (
         <div className={className}>
-            <label className="text-gray-700 dark:text-gray-300" for="username">{name} {required && '*'}</label>
-            <textarea {...rest} required={required}
+            <label className="text-gray-700 dark:text-gray-300" htmlFor={name}>{name} {required && '*'}</label>
+            <textarea {...inputProps} name={name.split(' ').join('')} required={required}
                 className="resize-none h-[200px] block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:outline-none"
             />
             <span className='text-gray-500 text-sm text-wrap'>{description}</span>

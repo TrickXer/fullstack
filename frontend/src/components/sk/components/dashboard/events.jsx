@@ -7,6 +7,7 @@ import { FormField, FormFields, FormGroup, FormLayout, FormText, FormTextArea } 
 export default function Events({ role }) {
     const [open, setOpen] = useState(false)
     const events = useSelector(state => state.events.events)
+    const user = useSelector(state => state.users.current)
 
     const handleCancel = () => setOpen(false)
 
@@ -67,15 +68,22 @@ export default function Events({ role }) {
         { name: 'Bus/Coach Rental', description: 'Rental of buses or coaches to transport large groups of guests to and from the event venue.' }
     ]
     
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+
+        console.log(formData)
+    }
     
 
     return (
         <div className='flex flex-col flex-auto p-6 overflow-y-auto'>
             {
-                open ?
+                (user?.role === 'ADMIN' && open) ?
                     <div className='flex flex-col flex-auto divide divide-y-2 px-8 space-y-6 divide-gray-300 dark:divide-gray-700'>
-                        <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font my-8 mb-2 text-gray-700 dark:text-gray-300">{ role === 'ADMIN' ? 'Add' : 'Book an ' } Event</h1>
-                        <FormLayout handleCancel={handleCancel}>
+                        <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font my-8 mb-2 text-gray-700 dark:text-gray-300">Add Event</h1>
+                        <FormLayout onSubmit={handleSubmit} handleCancel={handleCancel}>
                             <FormGroup title="Event Details">
                                 <div className='flex justify-between sm:w-2/5'>
                                     <FormText required id="event-name" type="text" name="Event Name" description="Name of the event." />
@@ -98,7 +106,7 @@ export default function Events({ role }) {
                                 </div>
                             </FormGroup>
 
-                            <FormGroup title="Event Requirements">
+                            {/* <FormGroup title="Event Requirements">
                                 <FormFields title='Entertainments'>
                                     {
                                         entertainments?.map((entertainment, id) => (
@@ -140,22 +148,12 @@ export default function Events({ role }) {
                                         ))
                                     }
                                 </FormFields>
-                            </FormGroup>
+                            </FormGroup> */}
 
                             <FormGroup title="Event Budget and Pricing">
                                 <div className='sm:w-[20%]'>
-                                    <FormText required id="charges" type="text" name="Pricing" description="Text fields for the contact person's name, email address, and phone number." />
+                                    <FormText required id="charges" type="number" name="Pricing" description="Text fields for the contact person's name, email address, and phone number." />
                                 </div>
-                            </FormGroup>
-
-                            <FormGroup title="Event Images">
-                                <FormText required id="image-upload" type="text" name="Image Upload"
-                                    description="Upload multiple images of the event to showcase its appearance and ambiance."
-                                />
-                            </FormGroup>
-
-                            <FormGroup title="Event Promotion and Marketing">
-                                <FormTextArea required id="event-marketing" type="text" name="Marketing Strategy" description="Outline the marketing strategy or promotional activities planned for the event." />
                             </FormGroup>
                         </FormLayout>
                     </div>
@@ -167,7 +165,7 @@ export default function Events({ role }) {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
-                                <span>{ role === 'ADMIN' ? 'Add' : 'Book' }</span>
+                                <span>Add</span>
                             </button>
                         </div>
                         <EventTable headers={headers} body={body} />

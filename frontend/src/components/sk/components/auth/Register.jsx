@@ -19,6 +19,7 @@ export default function Register(props) {
     const location = useLocation()
 
     const [pop, setPop] = useState(false)
+    const [email, setEmail] = useState(null)
 
     const googleLogin = useGoogleLogin({
         onSuccess: async (response) => {
@@ -48,6 +49,8 @@ export default function Register(props) {
         e.preventDefault()
         const formData = new FormData(e.target)
 
+        setEmail(formData.get("email"))
+
         // REGISTER
         Api.register({
             username: formData.get('username'),
@@ -56,6 +59,12 @@ export default function Register(props) {
         })
             .then(res => {
                 console.log(res)
+                setPop(true)
+                const timeout = setTimeout(() => {
+                    setPop(false)
+                }, 1.5 * 1000)
+    
+                return () => clearInterval(timeout)
             })
             .catch(error => {
                 console.log(error)
@@ -93,11 +102,11 @@ export default function Register(props) {
                 {
                     pop &&
                         <motion.div className='absolute top-0 left-0 m-16'
-                            initial={{ x: -450 }}
+                            initial={{ x: -625 }}
                             animate={{ x: 0 }}
-                            exit={{ x: -450 }}
+                            exit={{ x: -625 }}
                         >
-                            <Alert handleClick={() => setPop(false)} title={"Login sucessfull"} description={"We have found your account details."} />
+                            <Alert handleClick={() => setPop(false)} title={"Registration"} description={`We have sent a verification email to ${email}.`} />
                         </motion.div>
                 }
             </AnimatePresence>

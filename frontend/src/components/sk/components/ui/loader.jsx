@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react'
+import React from 'react'
 import Lottie from 'lottie-react'
 import loader from '../../../../assets/WrapIt Loading.json'
 
