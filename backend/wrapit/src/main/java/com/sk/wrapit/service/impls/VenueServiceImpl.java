@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@SuppressWarnings("null")
 public class VenueServiceImpl implements VenueService {
     private final VenueRepo venueRepo;
 
@@ -23,10 +22,14 @@ public class VenueServiceImpl implements VenueService {
     public BasicRes<String> add(VenueReq request) {
         Venue venue = Venue.builder()
                 .venueName(request.getVenueName())
-                .venueLocation(request.getVenueLocation())
-                .charges(request.getVenueCharge())
-                .maxCapacity(request.getMaxCapacity())
-                .suitableFor(request.getSuitableFor())
+                .venueType(request.getVenueType())
+                .venueDescription(request.getVenueDescription())
+                .venueCapacity(request.getVenueCapacity())
+                .venueAddress(request.getVenueAddress())
+                .venueEmail(request.getVenueEmail())
+                .venuePhone(request.getVenuePhone())
+                .venuePricing(request.getVenuePricing())
+                .isAvailable(true)
                 .build();
 
         venueRepo.save(venue);

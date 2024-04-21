@@ -1,5 +1,7 @@
 package com.sk.wrapit.dto.request;
 
+import com.sk.wrapit.model.Address;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class VenueReq {
     private String venueName;
-    private String maxCapacity;
-    private double venueCharge;
-    private String suitableFor;
-    private String venueLocation;
+    private String venueType;
+    private String venueDescription;
+    private String venueCapacity;
+    private Address venueAddress;
+    private String venueEmail;
+    private String venuePhone;
+    private String venuePricing;
 }

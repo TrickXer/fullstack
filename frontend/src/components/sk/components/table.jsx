@@ -41,32 +41,36 @@ export function EventTable({headers, body}) {
                                         body?.map((data, id) => (
                                             <tr key={id}>
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.id}
+                                                    {data.eventName}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.date}
+                                                    {data.eventType}
                                                 </td>
                                                 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.time}
+                                                    {data.eventLocation.venueName}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.name}
+                                                    {data.eventDate}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.type}
+                                                    {data.eventDuration}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.location}
+                                                    {data.eventOrganizer}
+                                                </td>
+
+                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {data.eventPricing}
                                                 </td>
                                                 
-                                                <td class="py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <Status title={data.status.title} type={data.status.type} />
-                                                </td>
+                                                {/* <td class="py-4 text-sm font-medium text-gray-700 text-wrap">
+                                                    <Status title={data.isAvailable ? 'Available' : 'Booked'} type={data.isAvailable ? 'success' : 'cancel'} />
+                                                </td> */}
                                             </tr>
                                         ))
                                     }
@@ -364,27 +368,35 @@ export function VenueTable({headers, body}) {
                                         body?.map((data, id) => (
                                             <tr key={id}>
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.venue_id}
+                                                    {data.venueName}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.venue_name}
+                                                    {data.venueType}
                                                 </td>
                                                 
-                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.location}
+                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 text-wrap">
+                                                    {[data.venueAddress.city, data.venueAddress.state, data.venueAddress.country].join(', ')}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.type}
+                                                    {data.venueCapacity}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.max_capacity}
+                                                    {data.venueEmail}
+                                                </td>
+
+                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {data.venuePhone}
+                                                </td>
+
+                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {data.venuePricing}
                                                 </td>
                                                 
                                                 <td class="py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <Status title={data.status.title} type={data.status.type} />
+                                                    <Status title={data.isAvailable ? 'Available' : 'Booked'} type={data.isAvailable ? 'success' : 'cancel'} />
                                                 </td>
                                             </tr>
                                         ))

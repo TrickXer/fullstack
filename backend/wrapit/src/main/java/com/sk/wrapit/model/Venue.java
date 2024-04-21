@@ -3,6 +3,8 @@ package com.sk.wrapit.model;
 import lombok.Data;
 import lombok.Builder;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
@@ -34,11 +36,18 @@ public class Venue {
     private String venueId;
 
     private String venueName;
-    private String suitableFor;
-    private String maxCapacity;
-    private String venueLocation;
-    private double charges;
+    private String venueType;
+    private String venueDescription;
+    private String venueCapacity;
+    private String venueEmail;
+    private String venuePhone;
+    private String venuePricing;
+    private Boolean isAvailable;
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private List<Booking> bookings;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    private Address venueAddress;
 }

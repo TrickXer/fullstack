@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -26,24 +27,24 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_event")
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "eventId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "eventId")
 public class Event {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String eventId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private String eventId;
 
-    private String eventName;
-    private String eventType;
-    private String description;
-    private String eventPackage;
-    private int participantCount;
-    private double charges;
+  private String eventName;
+  private String eventType;
+  private String eventDescription;
+  private String eventLocation;
+  private Date eventDate;
+  private String eventDuration;
+  private String eventOrganizer;
+  private String eventPricing;
 
-    @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    private List<Customer> customers;
+  @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  private List<Customer> customers;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    private List<Booking> bookings;
+  @OneToMany(mappedBy = "event", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  private List<Booking> bookings;
 }

@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@SuppressWarnings("null")
 public class EventServiceImpl implements EventService {
     
     private final EventRepo eventRepo;
@@ -24,13 +23,15 @@ public class EventServiceImpl implements EventService {
     public BasicRes<String> addEvent(EventReq eventReq){
 
         Event event = Event.builder()
-                        .eventName(eventReq.getEventName())
-                        .eventType(eventReq.getEventType())
-                        .description(eventReq.getDescription())
-                        .eventPackage(eventReq.getEventPackage())
-                        .participantCount(eventReq.getParticipantCount())
-                        .charges(eventReq.getCharges())
-                        .build();
+                    .eventName(eventReq.getEventName())
+                    .eventType(eventReq.getEventType())
+                    .eventDescription(eventReq.getEventDescription())
+                    .eventDate(eventReq.getEventDate())
+                    .eventDuration(eventReq.getEventDuration())
+                    .eventLocation(eventReq.getEventLocation())
+                    .eventOrganizer(eventReq.getEventOrganizer())
+                    .eventPricing(eventReq.getEventPricing())
+                    .build();
 
         eventRepo.save(event);
 

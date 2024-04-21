@@ -23,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@SuppressWarnings("null")
 public class BookingServiceImpl implements BookingService {
 
     private final UserRepo userRepo;
@@ -46,7 +45,7 @@ public class BookingServiceImpl implements BookingService {
                 
         Payment payment = Payment.builder()
                 .status("pending")
-                .totalAmount(event.getCharges() + venue.getCharges())
+                .totalAmount(Double.parseDouble(event.getEventPricing()) + Double.parseDouble(venue.getVenuePricing()))
                 .build();
         
         Booking booking = Booking.builder()
