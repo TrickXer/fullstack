@@ -1,6 +1,6 @@
 package com.sk.wrapit.dto.request;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +14,5 @@ import lombok.NoArgsConstructor;
 public class BookingReq {
     private String eventId;
     private String venueId;
-    private Integer headCount;
-    private LocalDateTime eventDate;
+    private Date eventDate;
 }

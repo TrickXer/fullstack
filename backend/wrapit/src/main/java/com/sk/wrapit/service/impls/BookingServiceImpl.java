@@ -1,6 +1,6 @@
 package com.sk.wrapit.service.impls;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -50,9 +50,8 @@ public class BookingServiceImpl implements BookingService {
         
         Booking booking = Booking.builder()
                 .bookingStatus("pending")
-                .headCount(bookingReq.getHeadCount())
                 .eventDate(bookingReq.getEventDate())
-                .submissionDate(LocalDateTime.now())
+                .submissionDate(new Date())
                 .customer(customer)
                 .event(event)
                 .venue(venue)

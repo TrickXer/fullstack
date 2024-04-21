@@ -31,7 +31,7 @@ public class EventController {
     private final EventService eventService;
 
     @PostMapping("/add")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> addEvent(@RequestBody EventReq eventReq) {
          BasicRes<String> response = new BasicRes<>();
         try {
@@ -47,7 +47,7 @@ public class EventController {
     }
 
     @PatchExchange("/patch")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> updateEvent(@RequestBody Event event ){
         BasicRes<String> response = new BasicRes<>();
         try {
@@ -63,7 +63,7 @@ public class EventController {
     }
 
     @DeleteMapping("/delete/{eventId}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> deleteEvent(@PathVariable String eventId ){
         BasicRes<String> response = new BasicRes<>();
         try {

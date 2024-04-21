@@ -76,7 +76,7 @@ public class BookingController {
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> viewAllBooking() {
         BasicRes<List<Booking>> response = new BasicRes<>();
 

@@ -37,6 +37,7 @@ public class EventServiceImpl implements EventService {
 
         return BasicRes.<String>builder()
                 .message("Event Created SuccessFully")
+                .data(event.getEventId())
                 .build();
     }
 

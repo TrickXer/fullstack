@@ -1,6 +1,7 @@
 package com.sk.wrapit.model;
 
-import java.time.LocalDateTime;
+
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -25,31 +26,28 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_booking")
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "bookingId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "bookingId")
 public class Booking {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String bookingId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private String bookingId;
 
-    private LocalDateTime submissionDate;
-    private LocalDateTime eventDate;
-    private String bookingStatus;
-    private Integer headCount;
+  private Date submissionDate;
+  private Date eventDate;
+  private String bookingStatus;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+  @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+  @JoinColumn(name = "customer_id")
+  private Customer customer;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "venue_id")
-    private Venue venue;
+  @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  @JoinColumn(name = "venue_id")
+  private Venue venue;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_id")
-    private Event event;
+  @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  @JoinColumn(name = "event_id")
+  private Event event;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    private Payment payment;
+  @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+  private Payment payment;
 }

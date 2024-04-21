@@ -1,6 +1,6 @@
 package com.sk.wrapit.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -29,8 +29,9 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String paymentId;
 
+    private String transactionId;
     private String status;
     private Double totalAmount;
-    private LocalDateTime paymentDate;
+    private Date paymentDate;
     private String modeOfPayment;
 }
