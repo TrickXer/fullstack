@@ -56,9 +56,11 @@ export default function Login(props) {
         })
             .then(res => {
                 const token = res.data.data?.access_token
-                Api.setAccessToken(token)
+                localStorage.setItem('token', token)
+                Api.refreshToken()
                 
                 const user = res.data?.data?.user
+                console.log(user.role.toLowerCase())
                 dispatch(login(user))
 
                 setPop(true)
@@ -70,7 +72,7 @@ export default function Login(props) {
                         navigate(location.state?.path || '/', { replace: true })
                         :
                         navigate(location.state?.path || '/admin/dashboard/events', { replace: true })
-                }, 1.5 * 1000)
+                }, 1.2 * 1000)
     
                 return () => clearInterval(timeout)
             })

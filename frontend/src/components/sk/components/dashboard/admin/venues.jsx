@@ -7,6 +7,7 @@ import { FormField, FormFields, FormGroup, FormLayout, FormText, FormTextArea } 
 export default function Venues(props) {
     const [open, setOpen] = useState(false)
     const [data, setData] = useState([])
+    Api.refreshToken()
 
     useEffect(() => {
         Api.venueAll().then(res => {

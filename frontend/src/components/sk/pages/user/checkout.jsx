@@ -5,12 +5,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clear } from '../../state/tickets/checkoutslice'
 import { calculateBill, calculateServicefee, calculateSubtotal } from '../../utils/ticketsutil'
+import Api from '../../utils/api'
 
 
 export default function Checkout(props) {
     const [payment, setPayment] = useState(null)
     const event = useSelector(state => state.checkout.event)
     const tickets = event?.tickets.filter(ticket => ticket.quantity > 0)
+    Api.refreshToken()
     
     const dispatch = useDispatch()
     const navigate = useNavigate()

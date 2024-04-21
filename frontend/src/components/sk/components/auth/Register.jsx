@@ -62,7 +62,7 @@ export default function Register(props) {
                 setPop(true)
                 const timeout = setTimeout(() => {
                     setPop(false)
-                }, 1.5 * 1000)
+                }, 1.2 * 1000)
     
                 return () => clearInterval(timeout)
             })

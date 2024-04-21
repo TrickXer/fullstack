@@ -34,23 +34,23 @@ export function UserRoutes(props) {
 
     return (
         <ProtectedRoutes user={user}>
-            {
-                (user?.role === 'USER' || user?.role === 'ADMIN') &&
-                <>
-                    <Route exact path="/" element={<LazyLoad component={<Home />} />} />
-                    <Route path='/user/*'>
-                        <Route path='dashboard/*' element={<LazyLoad component={<Userdb />} />}>
-                            <Route path='' element={<Navigate to="bookings" />} />
+            <>
+                <Route exact path="/" element={<LazyLoad component={<Home />} />} />
+                <Route path='/user/*'>
+                    {
+                        user?.role === 'USER' &&
+                            <Route path='dashboard/*' element={<LazyLoad component={<Userdb />} />}>
+                                <Route path='' element={<Navigate to="bookings" />} />
 
-                            <Route path='events' element={<LazyLoad component={<DbEvents role={user?.role} />} />} />
-                            <Route path='bookings' element={<LazyLoad component={<DbBookings role={user?.role} />} />} />
-                        </Route>
-                        <Route path='events' element={<LazyLoad component={<Events />} />} />
-                        <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />
-                        <Route path='events/ticket/checkout' element={<LazyLoad component={<Checkout />} />} />
-                    </Route>
-                </>
-            }
+                                <Route path='events' element={<LazyLoad component={<DbEvents role={user?.role} />} />} />
+                                <Route path='bookings' element={<LazyLoad component={<DbBookings role={user?.role} />} />} />
+                            </Route>
+                    }
+                    <Route path='events' element={<LazyLoad component={<Events />} />} />
+                    <Route path='events/ticket' element={<LazyLoad component={<Tickets />} />} />
+                    <Route path='events/ticket/checkout' element={<LazyLoad component={<Checkout />} />} />
+                </Route>
+            </>
         </ProtectedRoutes>
     )
 }

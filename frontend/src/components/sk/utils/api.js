@@ -18,14 +18,7 @@ const api = axios.create({
 
 export default class Api {
     // Set access token method
-    static setAccessToken(token) {
-        api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    }
-
-    // Clear access token method
-    static clearAccessToken() {
-        delete api.defaults.headers.common["Authorization"];
-    }
+    static refreshToken = () => api.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem('token')}`
 
     // VENUE
     static venueAll = async () => await api.get(VENUE + '/all')
@@ -46,9 +39,9 @@ export default class Api {
     static bookingAdd = async (event) => await api.post(BOOKING + '/add', event)
  
     // AUTH
-    static login = async (creds) => await api.post(AUTH + '/login', creds)
-    static register = async (creds) => await api.post(AUTH + '/sign-up', creds)
-    static verify = async (token) => await api.post(AUTH + `/verify-account?token=${token}`)
-    static forgotPassword = async(creds) => await api.post(AUTH + '/forgot-password', creds)
-    static resetPassword = async (token) => await api.post(AUTH + `/reset-password?token=${token}`)
+    static login = async (creds) => await axios.post(AUTH + '/login', creds)
+    static register = async (creds) => await axios.post(AUTH + '/sign-up', creds)
+    static verify = async (token) => await axios.post(AUTH + `/verify-account?token=${token}`)
+    static forgotPassword = async(creds) => await axios.post(AUTH + '/forgot-password', creds)
+    static resetPassword = async (token) => await axios.post(AUTH + `/reset-password?token=${token}`)
 }

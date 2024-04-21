@@ -6,6 +6,7 @@ import Header from "./components/Yesh/header/HeaderWrapper";
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ErrorBoundary from './components/sk/handlers/ErrorBoundary';
 import { AdminRoutes, UserRoutes } from "./components/sk/handlers/ProtecedRoutes";
+import Api from "./components/sk/utils/api";
 
 
 // AUTH
@@ -21,7 +22,7 @@ export default function App() {
   const regex = /\/(dashboard|auth)/
 
   const isDashboard = regex.test(location.pathname)
-
+  Api.refreshToken()
 
   return (
     <div className="app-wrapper-over">

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import Api from "../../utils/api";
 export default function Faq() {
     const [box1, setBox1] = useState(false);
     const [box2, setBox2] = useState(false);
     const [box3, setBox3] = useState(false);
     const [box4, setBox4] = useState(false);
+    Api.refreshToken()
 
     return (
         <div>

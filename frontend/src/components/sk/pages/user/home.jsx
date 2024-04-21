@@ -2,9 +2,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import Api from '../../utils/api'
 
 export default function Home(props) {
     const navigate = useNavigate()
+    Api.refreshToken()
 
     return (
         <div className='flex flex-col flex-auto w-full'>

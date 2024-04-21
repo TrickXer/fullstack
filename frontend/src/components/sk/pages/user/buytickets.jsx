@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useRef, useState } from 'react'
 import { update } from '../../state/tickets/checkoutslice'
 import { calculateBill, calculateServicefee, calculateSubtotal } from '../../utils/ticketsutil'
+import Api from '../../utils/api'
 
 
 export default function BuyTickets(props) {
     const user = useSelector(state => state.users.current)
     const event = useSelector(state => state.tickets.event)
     const [tickets, setTickets] = useState(event?.tickets)
+    Api.refreshToken()
     
     const eventRef = useRef(null)
     const ticketRef = useRef(null)

@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom'
 import LogoutPop from '../components/logoutPop'
 import { logout } from '../state/users/userslice'
 import Breadcrumbs from '../components/dashboard/breadcrumbs'
-import Api from '../utils/api'
 
 
 
@@ -17,7 +16,7 @@ export default function AdminDashboard({ aside, main, ...attributes }) {
 
     const handleLogout = () => {
         dispatch(logout())
-        Api.clearAccessToken()
+        localStorage.removeItem('token')
         window.location.pathname = '/'
     }
 

@@ -10,6 +10,7 @@ export default function Bookings(props) {
     const [open, setOpen] = useState(false)
     const [venues, setVenues] = useState([])
     const [bookings, setBookings] = useState([])
+    Api.refreshToken()
 
     useEffect(() => {
         Api.venueAll()

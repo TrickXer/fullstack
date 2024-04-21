@@ -264,27 +264,23 @@ export function PaymentTable({headers, body}) {
                                         body?.map((data, id) => (
                                             <tr key={id}>
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.id}
+                                                    {data.paymentId}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.date}
+                                                    {new Date(data.paymentDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
                                                 </td>
                                                 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.method}
+                                                    {data.transactionId}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.amount}
-                                                </td>
-
-                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.transaction_id}
+                                                    $ {data.totalAmount}
                                                 </td>
                                                 
                                                 <td class="py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <Status title={data.status.title} type={data.status.type} />
+                                                    <Status title={data.status} type={data.status === 'paid' ? 'success' : 'pending'} />
                                                 </td>
                                             </tr>
                                         ))

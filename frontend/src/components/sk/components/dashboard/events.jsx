@@ -8,6 +8,7 @@ export default function Events({ role }) {
     const [open, setOpen] = useState(false)
     const [data, setData] = useState([])
     const [venues, setVenues] = useState([])
+    Api.refreshToken()
     
     useEffect(() => {
         Api.venueAll()

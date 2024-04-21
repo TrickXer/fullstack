@@ -8,6 +8,7 @@ import Api from '../utils/api'
 export default function VerifyAccount(props) {
     const navigate = useNavigate()
     const location = useLocation()
+    Api.refreshToken()
 
     const searchParams = new URLSearchParams(location.search)
     const token = searchParams.get("token")

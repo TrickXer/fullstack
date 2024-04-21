@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, TextInput } from '../ui/form'
 import DefaultAvatar from '../../../../assets/party.jpg'
+import Api from '../utils/api'
 
 
 export default function ForgotPassword(props) {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState(new FormData())
+    Api.refreshToken()
     
     const handleSubmit = (e) => {
         e.preventDefault()

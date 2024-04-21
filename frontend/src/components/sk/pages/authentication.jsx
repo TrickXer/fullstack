@@ -1,11 +1,12 @@
 import React from 'react'
 import PartyBg from '../../../assets/party.jpg'
 import { Link, Outlet, useLocation } from 'react-router-dom'
+import Api from '../utils/api'
 
 
 export default function Authentication(props) {
     const location = useLocation().pathname
-    
+    Api.refreshToken()
 
     return (
         <div class="bg-white dark:bg-gray-900">

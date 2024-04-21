@@ -3,9 +3,11 @@ import React from 'react'
 import Dashboard from '../../layouts/Dashboard'
 import { Outlet, NavLink } from 'react-router-dom'
 import { SidePanel } from '../../components/sidepanel'
+import Api from '../../utils/api'
 
 
 export default function Admindb(props) {
+    Api.refreshToken()
 
     return (
         <Dashboard
