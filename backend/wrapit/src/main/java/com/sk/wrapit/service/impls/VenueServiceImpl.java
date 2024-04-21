@@ -66,7 +66,7 @@ public class VenueServiceImpl implements VenueService {
 
         venueRepo.save(oldVenue);
         return BasicRes.<String>builder()
-                .message("venue details updated successfullt")
+                .message("venue details updated successfully")
                 .data("true")
                 .build();
     }

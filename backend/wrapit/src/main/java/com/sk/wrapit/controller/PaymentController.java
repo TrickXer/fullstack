@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,17 +28,33 @@ public class PaymentController {
 
     @PostMapping("/add")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<?> addPayment(@RequestBody PaymentReq paymentReq){
+    public ResponseEntity<?> addPayment(@RequestBody PaymentReq paymentReq) {
 
         BasicRes<String> response = new BasicRes<>();
         try {
             response = paymentService.addPayment(paymentReq);
-            return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
-            
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+
         } catch (Exception e) {
             response.setData(null);
             response.setMessage("");
-            return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+        }
+    }
+    
+    @PatchMapping("/patch")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> updateEvent(@RequestBody Payment payment) {
+        BasicRes<String> response = new BasicRes<>();
+        try {
+            response = paymentService.updatePayment(payment);
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+
+        } catch (Exception e) {
+            response.setMessage("Oops!... Something went wrong. Please try again.");
+            response.setData("");
+
+            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
         }
     }
 

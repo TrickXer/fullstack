@@ -2,7 +2,6 @@
 import Api from '../../utils/api'
 import { EventTable } from '../table'
 import React, { useEffect, useState } from 'react'
-import { Select, Option } from "@material-tailwind/react"
 import { FormGroup, FormLayout, FormSelect, FormText, FormTextArea } from '../FormLayout'
 
 export default function Events({ role }) {

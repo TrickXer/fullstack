@@ -62,6 +62,7 @@ public class BookingServiceImpl implements BookingService {
 
         return BasicRes.<String>builder()
                 .message("Booking Created Successfully")
+                .data(payment.getPaymentId())
                 .build();
 
     }

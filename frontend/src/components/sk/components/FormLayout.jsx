@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function FormLayout({children, onSubmit, handleCancel}) {
+export function FormLayout({children, onSubmit, handleCancel, button='Add'}) {
     
     return (
         <div className='flex flex-col space-y-12'>
@@ -12,7 +12,7 @@ export function FormLayout({children, onSubmit, handleCancel}) {
                             cancel
                         </button>
                         <button type='submit' className="px-6 py-1 rounded-lg border-2 transition-colors duration-300 hover:text-primary border-orange-800 bg-orange-800 hover:bg-black hover:bg-opacity-20 text-white disabled:text-neutral-500 disabled:bg-primary-disabled">
-                            Add
+                            {button}
                         </button>
                     </div>
                 </form>

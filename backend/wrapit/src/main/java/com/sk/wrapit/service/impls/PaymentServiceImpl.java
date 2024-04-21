@@ -1,5 +1,6 @@
 package com.sk.wrapit.service.impls;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import com.sk.wrapit.dto.response.BasicRes;
 import com.sk.wrapit.model.Payment;
 import com.sk.wrapit.repository.PaymentRepo;
 import com.sk.wrapit.service.PaymentService;
+import com.sk.wrapit.util.Patcher;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,7 +29,6 @@ public class PaymentServiceImpl implements PaymentService {
                         .status(paymentReq.getStatus())
                         .totalAmount(paymentReq.getTotalAmount()) 
                         .paymentDate(paymentReq.getPaymentDate())
-                        .modeOfPayment(paymentReq.getModeOfPayment())
                         .build();
 
         paymentRepo.save(payment);
@@ -52,6 +53,20 @@ public class PaymentServiceImpl implements PaymentService {
         return BasicRes.<Payment>builder()
                 .data(paymentRepo.findById(paymentId).orElse(null))
                 .message("Single Payment is viewed successfully")
+                .build();
+    }
+
+    @Override
+    public BasicRes<String> updatePayment(Payment payment) throws IllegalArgumentException, IllegalAccessException {
+        Payment oldPayment = paymentRepo.findById(payment.getPaymentId()).orElseThrow();
+        oldPayment = Patcher.patcher(oldPayment, payment);
+
+        oldPayment.setPaymentDate(new Date());
+        oldPayment.setStatus("paid");
+
+        paymentRepo.save(oldPayment);
+        return BasicRes.<String>builder()
+                .message("Payment Updated Successfully")
                 .build();
     }
 }

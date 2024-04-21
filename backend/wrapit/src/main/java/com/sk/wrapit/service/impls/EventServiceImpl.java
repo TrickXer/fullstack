@@ -62,7 +62,7 @@ public class EventServiceImpl implements EventService {
         
 
         return BasicRes.<String>builder()
-                .message("Event Updated SuccessFully")
+                .message("Event Updated Successfully")
                 .build();
     }
 

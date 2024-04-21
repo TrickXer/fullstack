@@ -34,7 +34,7 @@ export default function Bookings(props) {
     ]
 
 
-    const handleSubmit = (e) => {
+    const initializePayment = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const data = {
@@ -48,8 +48,37 @@ export default function Bookings(props) {
             eventPricing: formData.get('Pricing')
         }
 
-        console.log(data)
+        Api.venueGet(data.eventLocation)
+            .then(res => {
+                const amount = parseInt(data.eventPricing) + parseInt(res.data?.data?.venuePricing)
+                const options = {
+                    key: "rzp_test_GTwBF1De47y31T",
+                    key_secret: "tLLvrz6XQpQgIouL8gUHdfsJ",
+                    amount: amount,
+                    currency: "INR",
+                    name: "WrapIt",
+                    description: "Test Transcations",
+                    image: "/frontend/src/assets/react.svg",
+                    handler: (response) => {
+                        console.log(response)
+                        handleSubmit(data, response.razorpay_payment_id)
+                    },
+                    prefill: {
+                        name: user.name,
+                        email: user.email,
+                    },
+                    theme: {
+                        color: "#df3311"
+                    }
+                }
+        
+                const rzp = new window.Razorpay(options)
+                rzp.open()
+            })
 
+    }
+
+    const handleSubmit = (data, transactionId) => {
         Api.eventAdd(data)
             .then(res => {
                 const booking = {
@@ -58,10 +87,20 @@ export default function Bookings(props) {
                     eventDate: data.eventDate
                 }
 
-                console.log(booking)
-
                 Api.bookingAdd(booking)
-                    .then(res => console.log(res))
+                    .then(res => {
+                        const paymentId = res.data?.data
+                        const payment = {
+                            paymentId: paymentId,
+                            transactionId: transactionId,
+                        }
+
+                        console.log(payment)
+
+                        Api.paymentPatch(payment)
+                            .then(res => console.log(res))
+                            .catch(error => console.log(error))
+                    })
                     .catch(error => console.log(error))
             })
             .catch(error => console.log(error))
@@ -74,7 +113,7 @@ export default function Bookings(props) {
                 (user?.role === 'USER' && open) ?
                     <div className='flex flex-col flex-auto divide divide-y-2 px-8 space-y-6 divide-gray-300 dark:divide-gray-700'>
                         <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font my-8 mb-2 text-gray-700 dark:text-gray-300">{ user?.role === 'ADMIN' ? '' : 'My'} Bookings</h1>
-                        <FormLayout onSubmit={handleSubmit} handleCancel={handleCancel}>
+                        <FormLayout button='Book' onSubmit={initializePayment} handleCancel={handleCancel}>
                             <FormGroup title="Event Details">
                                 <div className='flex justify-between sm:w-2/5'>
                                     <FormText required id="event-name" type="text" name="Event Name" description="Name of the event." />

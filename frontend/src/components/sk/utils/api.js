@@ -34,6 +34,8 @@ export default class Api {
     
     // PAYMENT
     static paymentAll = async () => await api.get(PAYMENT + '/all')
+    static paymentAdd = async (payment) => await api.post(PAYMENT + '/add', payment)
+    static paymentPatch = async (payment) => await api.patch(PAYMENT + '/patch', payment)
     
     // EVENT
     static eventAll = async () => await api.get(EVENT + '/all')

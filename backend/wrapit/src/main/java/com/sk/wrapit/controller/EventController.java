@@ -2,7 +2,6 @@ package com.sk.wrapit.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.service.annotation.PatchExchange;
 
 import com.sk.wrapit.dto.request.EventReq;
 import com.sk.wrapit.dto.response.BasicRes;
@@ -21,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 
 
 
@@ -46,7 +46,7 @@ public class EventController {
         }
     }
 
-    @PatchExchange("/patch")
+    @PatchMapping("/patch")
     @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> updateEvent(@RequestBody Event event ){
         BasicRes<String> response = new BasicRes<>();

@@ -15,5 +15,4 @@ public class PaymentReq {
     private String status;
     private Double totalAmount;
     private Date paymentDate;
-    private String modeOfPayment;
 }

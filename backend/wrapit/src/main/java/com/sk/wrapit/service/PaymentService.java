@@ -13,4 +13,6 @@ public interface PaymentService {
     BasicRes<List<Payment>> viewAllPayment();
 
     BasicRes<String> addPayment(PaymentReq paymentReq);
+
+    BasicRes<String> updatePayment(Payment payment) throws IllegalArgumentException, IllegalAccessException;
 }

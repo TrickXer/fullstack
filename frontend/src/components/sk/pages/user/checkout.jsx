@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Backdrop } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import Button from '../../components/ui/button'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { clear } from '../../state/tickets/checkoutslice'
