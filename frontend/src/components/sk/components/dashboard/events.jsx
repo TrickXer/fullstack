@@ -1,16 +1,20 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
-import { EventTable } from '../table'
-import { useSelector } from 'react-redux'
-import { FormGroup, FormLayout, FormText, FormTextArea } from '../FormLayout'
 import Api from '../../utils/api'
+import { EventTable } from '../table'
+import React, { useEffect, useState } from 'react'
+import { Select, Option } from "@material-tailwind/react"
+import { FormGroup, FormLayout, FormSelect, FormText, FormTextArea } from '../FormLayout'
 
 export default function Events({ role }) {
     const [open, setOpen] = useState(false)
-    const user = useSelector(state => state.users.current)
     const [data, setData] = useState([])
-
+    const [venues, setVenues] = useState([])
+    
     useEffect(() => {
+        Api.venueAll()
+            .then(res => setVenues(res.data?.data))
+            .catch(error => console.log(error))
+        
         Api.eventAll().then(res => {
             setData(res.data?.data)
         })
@@ -27,7 +31,6 @@ export default function Events({ role }) {
         'Duration',
         'Organizer',
         'Pricing',
-        'Status',
     ]
 
     // const entertainments = [
@@ -81,12 +84,11 @@ export default function Events({ role }) {
             .then(res => console.log(res))
             .catch(error => console.log(error))
     }
-    
 
     return (
         <div className='flex flex-col flex-auto p-6 overflow-y-auto'>
             {
-                (user?.role === 'ADMIN' && open) ?
+                (role === 'ADMIN' && open) ?
                     <div className='flex flex-col flex-auto divide divide-y-2 px-8 space-y-6 divide-gray-300 dark:divide-gray-700'>
                         <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font my-8 mb-2 text-gray-700 dark:text-gray-300">Add Event</h1>
                         <FormLayout onSubmit={handleSubmit} handleCancel={handleCancel}>
@@ -106,7 +108,7 @@ export default function Events({ role }) {
                                 </div>
                                 <div className='sm:w-2/5 flex flex-col space-y-8'>
                                     <div className='sm:w-1/2 space-y-8'>
-                                        <FormText required id="event-location" type="text" name="Event Location" description="Select the venue where the event will take place." />
+                                        <FormSelect required options={venues} id="event-location" name="Event Location" description="Select the venue where the event will take place." />
                                         <FormText required id="event-organizer" type="text" name="Event Organizer" description="Specify the name of the organization or individual organizing the event." />
                                     </div>
                                 </div>
@@ -167,12 +169,15 @@ export default function Events({ role }) {
                     <div className='flex flex-col flex-auto'>
                         <div className='flex justify-between items-center'>
                             <h1 className="sm:text-3xl text-left tracking-wider text-2xl font-bold title-font px-6 my-8 mb-2 text-gray-700 dark:text-gray-300">{ role === 'ADMIN' ? '' : 'My ' }Events</h1>
-                            <button onClick={() => setOpen(true)} className='flex items-center space-x-4 mx-6 px-6 py-2 transition-colors duration-300 border-2 border-orange-800 hover:bg-orange-800 bg-black bg-opacity-20 text-primary hover:text-primary-text rounded-lg'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                </svg>
-                                <span>Add</span>
-                            </button>
+                            {
+                                role === 'ADMIN' &&
+                                    <button onClick={() => setOpen(true)} className='flex items-center space-x-4 mx-6 px-6 py-2 transition-colors duration-300 border-2 border-orange-800 hover:bg-orange-800 bg-black bg-opacity-20 text-primary hover:text-primary-text rounded-lg'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                        <span>Add</span>
+                                    </button>
+                            }
                         </div>
                         <EventTable headers={headers} body={data} />
                     </div>

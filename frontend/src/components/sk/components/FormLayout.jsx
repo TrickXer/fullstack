@@ -73,6 +73,25 @@ export function FormField({ id, title, description, ...rest }) {
     )
 }
 
+export function FormSelect({ required = false, name, options, description, className, ...rest }) {
+    const { label, ...inputProps } = rest
+
+    return (
+        <div className={className}>
+            <label htmlFor={name} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+            <select {...inputProps} required id={name} name={name.split(' ').join('')} className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:outline-none">
+                <option disabled selected>Choose a Venue</option>
+                {
+                    options?.map(option => (
+                        <option value={option?.venueId}>{option?.venueName}</option>
+                    ))
+                }
+            </select>
+            <span className='text-gray-500 text-sm'>{description}</span>
+        </div>
+    )
+}
+
 export function FormText({ required = false, name, description, className, ...rest }) {
     const { label, ...inputProps } = rest
     

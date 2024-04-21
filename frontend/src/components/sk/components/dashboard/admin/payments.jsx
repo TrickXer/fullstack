@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PaymentTable } from '../../table'
+import Api from '../../../utils/api'
 
 
 export default function Payments(props) {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        Api.paymentAll().then(res => {
+            setData(res.data?.data)
+        })
+        .catch(error => console.log(error))
+    }, [])
     
     const headers = [
         'ID',

@@ -49,15 +49,15 @@ export function EventTable({headers, body}) {
                                                 </td>
                                                 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.eventLocation.venueName}
+                                                    {data.eventLocation}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.eventDate}
+                                                    {new Date(data.eventDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.eventDuration}
+                                                    {data.eventDuration} hrs
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
@@ -65,7 +65,7 @@ export function EventTable({headers, body}) {
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.eventPricing}
+                                                    $ {data.eventPricing}
                                                 </td>
                                                 
                                                 {/* <td class="py-4 text-sm font-medium text-gray-700 text-wrap">
@@ -152,37 +152,36 @@ export function BookingTable({ headers, body }) {
                                         body?.map((data, id) => (
                                             <tr key={id}>
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.id}
+                                                    {data.bookingId}
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
-                                                    {data.event_id}
+                                                    {data.event.eventName}
+                                                </td>
+
+                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                                    {data.venue.venueName}
                                                 </td>
                                                 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                                                     <div class="flex items-center gap-x-2">
-                                                        <img class="object-cover w-8 h-8 rounded-full" src={data.customer.img} alt="" />
                                                         <div>
-                                                            <h2 class="text-sm font-medium text-gray-800 dark:text-white ">{data.customer.name}</h2>
-                                                            <p class="text-xs font-normal text-gray-600 dark:text-gray-400">{data.customer.email}</p>
+                                                            <h2 class="text-sm font-medium text-gray-800 dark:text-white ">{data.customer.customerName}</h2>
+                                                            <p class="text-xs font-normal text-gray-600 dark:text-gray-400">{data.customer.user.email}</p>
                                                         </div>
                                                     </div>
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.date}
-                                                </td>
-
-                                                <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.guests}
+                                                    {new Date(data.submissionDate).toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })}
                                                 </td>
                                                 
                                                 <td class="py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                                    <Status title={data.status.title} type={data.status.type} />
+                                                    <Status title={data.bookingStatus} type={data.bookingStatus} />
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.total_price}
+                                                    $ {data.payment.totalAmount}
                                                 </td>
                                             </tr>
                                         ))
@@ -392,7 +391,7 @@ export function VenueTable({headers, body}) {
                                                 </td>
 
                                                 <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                    {data.venuePricing}
+                                                    $ {data.venuePricing}
                                                 </td>
                                                 
                                                 <td class="py-4 text-sm font-medium text-gray-700 whitespace-nowrap">

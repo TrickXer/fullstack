@@ -29,6 +29,7 @@ export default class Api {
 
     // VENUE
     static venueAll = async () => await api.get(VENUE + '/all')
+    static venueGet = async (id) => await api.get(VENUE + `/${id}`)
     static venueAdd = async (venue) => await api.post(VENUE + '/add', venue)
     
     // PAYMENT
@@ -40,6 +41,7 @@ export default class Api {
     
     // BOOKING
     static bookingAll = async () => await api.get(BOOKING + '/all')
+    static bookingAdd = async (event) => await api.post(BOOKING + '/add', event)
  
     // AUTH
     static login = async (creds) => await api.post(AUTH + '/login', creds)
