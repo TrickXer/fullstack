@@ -89,7 +89,7 @@ public class VenueController {
         }
     }
 
-    @DeleteMapping("/delete/{eventId}")
+    @DeleteMapping("/delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteEvent(@PathVariable String eventId ){
         BasicRes<String> response = new BasicRes<>();
