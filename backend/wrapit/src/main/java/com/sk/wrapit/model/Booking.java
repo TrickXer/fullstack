@@ -3,9 +3,6 @@ package com.sk.wrapit.model;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import lombok.Data;
 import lombok.Builder;
 import jakarta.persistence.Id;
@@ -26,7 +23,6 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_booking")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "bookingId")
 public class Booking {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
@@ -36,7 +32,7 @@ public class Booking {
   private Date eventDate;
   private String bookingStatus;
 
-  @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+  @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   @JoinColumn(name = "customer_id")
   private Customer customer;
 

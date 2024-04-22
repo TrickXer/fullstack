@@ -114,6 +114,7 @@ export function EventTable({headers, body}) {
 
 
 export function BookingTable({ headers, body }) {
+    
     return (
         <section className="container flex flex-col my-6 h-full px-4 mx-auto">
             <div className="flex flex-col flex-auto">

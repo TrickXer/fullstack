@@ -35,10 +35,25 @@ public class BookingServiceImpl implements BookingService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         var user = userRepo.findByEmail(authentication.getName()).orElseThrow();
 
-        Customer customer = Customer.builder()
-                .customerName(user.getName())
-                .user(user)
-                .build();
+        // Customer customer = Customer.builder()
+        //         .customerName(user.getName())
+        //         .user(user)
+        //         .build();
+                
+        Customer customer = user.getCustomer();
+
+        if (customer != null) {
+                // If a customer already exists, update its properties
+                customer.setCustomerName(user.getName()); // Update customer name or any other properties if needed
+        } else {
+                // If no customer exists, create a new one
+                customer = Customer.builder()
+                        .customerName(user.getName())
+                        .user(user)
+                        .build();
+                        
+                user.setCustomer(customer); // Set customer in the user entity
+        }
 
         var event = eventRepo.findById(bookingReq.getEventId()).orElseThrow();
         var venue = venueRepo.findById(bookingReq.getVenueId()).orElseThrow();
@@ -47,6 +62,9 @@ public class BookingServiceImpl implements BookingService {
                 .status("pending")
                 .totalAmount(Double.parseDouble(event.getEventPricing()) + Double.parseDouble(venue.getVenuePricing()))
                 .build();
+        
+        System.out.println(payment);
+        // paymentRepo.save(payment);
         
         Booking booking = Booking.builder()
                 .bookingStatus("pending")
@@ -57,8 +75,9 @@ public class BookingServiceImpl implements BookingService {
                 .venue(venue)
                 .payment(payment)
                 .build();
-
+        
         bookingRepo.save(booking);
+        userRepo.save(user);
 
         return BasicRes.<String>builder()
                 .message("Booking Created Successfully")

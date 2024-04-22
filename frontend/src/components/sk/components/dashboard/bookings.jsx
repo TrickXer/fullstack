@@ -3,11 +3,13 @@ import { BookingTable } from '../table'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { FormGroup, FormLayout, FormSelect, FormText, FormTextArea } from '../FormLayout'
+import LoadingScreen from '../loadingScreen'
 
 
 export default function Bookings(props) {
     const user = useSelector(state => state.users.current)
     const [open, setOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [venues, setVenues] = useState([])
     const [bookings, setBookings] = useState([])
     Api.refreshToken()
@@ -18,7 +20,10 @@ export default function Bookings(props) {
             .catch(error => console.log(error))
         
         Api.bookingAll()
-            .then(res => setBookings(res.data?.data))
+            .then(res => {
+                setBookings(res.data?.data)
+                console.log(res.data?.data)
+            })
             .catch(error => console.log(error))
     }, [])
 
@@ -80,8 +85,10 @@ export default function Bookings(props) {
     }
 
     const handleSubmit = (data, transactionId) => {
+        setIsLoading(true)
         Api.eventAdd(data)
             .then(res => {
+                console.log(res)
                 const booking = {
                     eventId: res.data?.data,
                     venueId: data.eventLocation,
@@ -90,6 +97,7 @@ export default function Bookings(props) {
 
                 Api.bookingAdd(booking)
                     .then(res => {
+                        console.log(res)
                         const paymentId = res.data?.data
                         const payment = {
                             paymentId: paymentId,
@@ -101,7 +109,7 @@ export default function Bookings(props) {
                         Api.paymentPatch(payment)
                             .then(res => {
                                 console.log(res)
-                                window.location.reload()
+                                setIsLoading(false)
                             })
                             .catch(error => console.log(error))
                     })
@@ -112,7 +120,8 @@ export default function Bookings(props) {
 
 
     return (
-        <div className='flex flex-col flex-auto p-6 overflow-y-auto'>
+        <div className='relative flex flex-col flex-auto p-6 overflow-y-auto'>
+            <LoadingScreen isLoading={isLoading} />
             {
                 (user?.role === 'USER' && open) ?
                     <div className='flex flex-col flex-auto divide divide-y-2 px-8 space-y-6 divide-gray-300 dark:divide-gray-700'>

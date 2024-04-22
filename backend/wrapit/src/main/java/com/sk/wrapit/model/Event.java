@@ -12,8 +12,7 @@ import lombok.AllArgsConstructor;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,7 +26,6 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_event")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "eventId")
 public class Event {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
@@ -43,8 +41,10 @@ public class Event {
   private String eventPricing;
 
   @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<Customer> customers;
 
   @OneToMany(mappedBy = "event", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<Booking> bookings;
 }

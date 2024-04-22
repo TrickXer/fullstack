@@ -84,6 +84,7 @@ public class BookingController {
             response = bookingService.viewAllBooking();
             return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
         } catch (Exception e) {
+            System.out.println(e);
             response.setMessage("Oops!... Something went wrong. Please try again.");
             response.setData(null);
             return new ResponseEntity<>(response, HttpStatus.ACCEPTED);

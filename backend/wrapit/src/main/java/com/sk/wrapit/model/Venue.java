@@ -12,8 +12,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -27,9 +26,6 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_venue")
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "venueId")
 public class Venue {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -45,6 +41,7 @@ public class Venue {
     private Boolean isAvailable;
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Booking> bookings;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

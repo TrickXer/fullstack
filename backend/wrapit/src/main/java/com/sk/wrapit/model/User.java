@@ -45,7 +45,9 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String email;
     
+    @JsonIgnore
     private String password;
+    
     private String name;
 
     private boolean verified;
@@ -61,7 +63,7 @@ public class User implements UserDetails {
     @JsonIgnore
     private List<ResetPasswordToken> resetPasswordTokens;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Customer customer;
 
     @Override
