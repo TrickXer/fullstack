@@ -7,9 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.sk.wrapit.enumerated.Role;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
 import lombok.Builder;
@@ -34,9 +32,6 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "wi_user")
-@JsonIdentityInfo(
-  generator = ObjectIdGenerators.PropertyGenerator.class, 
-  property = "userId")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -64,6 +59,7 @@ public class User implements UserDetails {
     private List<ResetPasswordToken> resetPasswordTokens;
 
     @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Customer customer;
 
     @Override
