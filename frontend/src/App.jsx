@@ -49,7 +49,7 @@ export default function App() {
               <Route path="/admin/*" element={<AdminRoutes />} />
 
               {/* ERROR */}
-              {/* <Route path="*" element={<LazyLoad component={<ErrorBoundary hasError={true} />} />} /> */}
+              <Route path="*" element={<LazyLoad component={<ErrorBoundary hasError={true} />} />} />
             </Routes>
           </SkWrapper>
           

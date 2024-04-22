@@ -23,20 +23,6 @@ export default function Payments(props) {
         'Status',
     ]
 
-    const body = [
-        {
-            id: '#3360',
-            date: 'Jan 6, 2022',
-            method: 'UPI',
-            amount: '$ 29.99',
-            transaction_id: '#3066',
-            status: {
-                title: 'Paid',
-                type: 'success'
-            }
-        }
-    ]
-
 
     return (
         <div className='flex flex-col flex-auto p-6'>

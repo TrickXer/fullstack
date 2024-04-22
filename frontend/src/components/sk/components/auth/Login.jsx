@@ -8,7 +8,7 @@ import { login } from '../../state/users/userslice'
 import { useGoogleLogin } from '@react-oauth/google'
 import { useDispatch, useSelector } from 'react-redux'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 
 export default function Login(props) {
@@ -132,7 +132,7 @@ export default function Login(props) {
                 </div>
 
                 <div className="flex w-full justify-end mt-3">
-                    <a href="#" className="text-sm text-gray-400 focus:text-primary hover:text-primary hover:underline">Forgot password?</a>
+                    <Link to={"/auth/forgot-password"} className="text-sm text-gray-400 focus:text-primary hover:text-primary hover:underline">Forgot password?</Link>
                 </div>
 
                 <div className="mt-6">
