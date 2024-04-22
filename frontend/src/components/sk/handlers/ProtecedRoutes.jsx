@@ -1,14 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Route, Navigate, Routes, useLocation } from 'react-router-dom'
 import LazyLoad from './lazyload'
 import Userdb from '../pages/user/userdb'
+import { useSelector } from 'react-redux'
 import Admindb from '../pages/admin/admindb'
+import { Route, Navigate, Routes, useLocation } from 'react-router-dom'
 
 
 // USER
 const Home = React.lazy(() => import('../pages/user/home'))
 const Events = React.lazy(() => import('../pages/user/events'))
+const Services = React.lazy(() => import('../pages/user/service'))
 const Checkout = React.lazy(() => import('../pages/user/checkout'))
 const Tickets = React.lazy(() => import('../pages/user/buytickets'))
 
@@ -36,6 +37,7 @@ export function UserRoutes(props) {
         <ProtectedRoutes user={user}>
             <>
                 <Route exact path="/" element={<LazyLoad component={<Home />} />} />
+                <Route path='service' element={<LazyLoad component={<Services />} />} />
                 <Route path='/user/*'>
                     {
                         user?.role === 'USER' &&

@@ -10,6 +10,7 @@ import Api from '../../utils/api'
 
 export default function Checkout(props) {
     const [payment, setPayment] = useState(null)
+    const user = useSelector(state => state.users.current)
     const event = useSelector(state => state.checkout.event)
     const tickets = event?.tickets.filter(ticket => ticket.quantity > 0)
     Api.refreshToken()
@@ -50,7 +51,7 @@ export default function Checkout(props) {
 
     const handlePostPayment = () => {
         setPayment(null)
-        navigate('/user/dashboard/events')
+        navigate(`/${user?.role}/dashboard/events`)
         dispatch(clear())
     }
     

@@ -2,7 +2,7 @@
 import Api from '../../utils/api'
 import { EventTable } from '../table'
 import React, { useEffect, useState } from 'react'
-import { FormGroup, FormLayout, FormSelect, FormText, FormTextArea } from '../FormLayout'
+import { FormFields, FormField, FormGroup, FormLayout, FormSelect, FormText, FormTextArea } from '../FormLayout'
 
 export default function Events({ role }) {
     const [open, setOpen] = useState(false)
@@ -33,37 +33,37 @@ export default function Events({ role }) {
         'Pricing',
     ]
 
-    // const entertainments = [
-    //     { name: 'DJ', description: 'Professional DJ services to provide music and entertainment throughout the event.' },
-    //     { name: 'Live Band', description: 'Talented live band to perform a variety of music genres and engage the audience.' },
-    //     { name: 'Performers', description: 'Entertainers such as dancers, magicians, or acrobats to provide captivating performances.' },
-    //     { name: 'Photo Booth', description: 'Interactive photo booth for guests to capture fun and memorable moments during the event.' }
-    // ]
+    const entertainments = [
+        { name: 'DJ', description: 'Professional DJ services to provide music and entertainment throughout the event.' },
+        { name: 'Live Band', description: 'Talented live band to perform a variety of music genres and engage the audience.' },
+        { name: 'Performers', description: 'Entertainers such as dancers, magicians, or acrobats to provide captivating performances.' },
+        { name: 'Photo Booth', description: 'Interactive photo booth for guests to capture fun and memorable moments during the event.' }
+    ]
 
-    // const caterings = [
-    //     { name: 'Buffet', description: 'Variety of dishes served buffet-style, allowing guests to choose their preferred items.' },
-    //     { name: 'Plated Meal', description: 'Elegant dining experience with pre-selected courses served directly to guests at their tables.' },
-    //     { name: 'Cocktail Reception', description: 'Stylish and social dining option featuring a selection of hors d\'oeuvres and beverages.' },
-    //     { name: 'Food Stations', description: 'Interactive dining experience with multiple food stations offering different cuisines or specialties.' },
-    //     { name: 'Dessert Bar', description: 'Indulgent display of sweet treats and desserts for guests to enjoy throughout the event.' }
-    // ]
+    const caterings = [
+        { name: 'Buffet', description: 'Variety of dishes served buffet-style, allowing guests to choose their preferred items.' },
+        { name: 'Plated Meal', description: 'Elegant dining experience with pre-selected courses served directly to guests at their tables.' },
+        { name: 'Cocktail Reception', description: 'Stylish and social dining option featuring a selection of hors d\'oeuvres and beverages.' },
+        { name: 'Food Stations', description: 'Interactive dining experience with multiple food stations offering different cuisines or specialties.' },
+        { name: 'Dessert Bar', description: 'Indulgent display of sweet treats and desserts for guests to enjoy throughout the event.' }
+    ]
 
-    // const photographies = [
-    //     { name: 'Photography', description: 'Professional photographers to capture still images of the event.' },
-    //     { name: 'Videography', description: 'Videographers to record videos of the event, capturing moments and highlights.' }
-    // ]
+    const photographies = [
+        { name: 'Photography', description: 'Professional photographers to capture still images of the event.' },
+        { name: 'Videography', description: 'Videographers to record videos of the event, capturing moments and highlights.' }
+    ]
     
-    // const decorations = [
-    //     { name: 'Floral Arrangements', description: 'Beautiful floral decorations to enhance the ambiance of the event venue.' },
-    //     { name: 'Lighting', description: 'Specialized lighting effects to create the desired mood and atmosphere.' },
-    //     { name: 'Decor Setup', description: 'Decorators to set up and arrange decorative elements according to the event theme.' }
-    // ]
+    const decorations = [
+        { name: 'Floral Arrangements', description: 'Beautiful floral decorations to enhance the ambiance of the event venue.' },
+        { name: 'Lighting', description: 'Specialized lighting effects to create the desired mood and atmosphere.' },
+        { name: 'Decor Setup', description: 'Decorators to set up and arrange decorative elements according to the event theme.' }
+    ]
     
-    // const transportations = [
-    //     { name: 'Shuttle Service', description: 'Transportation service to shuttle guests between venues or from designated locations.' },
-    //     { name: 'Limousine', description: 'Luxurious limousine service for VIP guests or special arrivals/departures.' },
-    //     { name: 'Bus/Coach Rental', description: 'Rental of buses or coaches to transport large groups of guests to and from the event venue.' }
-    // ]
+    const transportations = [
+        { name: 'Shuttle Service', description: 'Transportation service to shuttle guests between venues or from designated locations.' },
+        { name: 'Limousine', description: 'Luxurious limousine service for VIP guests or special arrivals/departures.' },
+        { name: 'Bus/Coach Rental', description: 'Rental of buses or coaches to transport large groups of guests to and from the event venue.' }
+    ]
     
 
     const handleSubmit = (e) => {
@@ -81,7 +81,10 @@ export default function Events({ role }) {
         }
 
         Api.eventAdd(data)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                window.location.reload()
+            })
             .catch(error => console.log(error))
     }
 
@@ -114,7 +117,7 @@ export default function Events({ role }) {
                                 </div>
                             </FormGroup>
 
-                            {/* <FormGroup title="Event Requirements">
+                            <FormGroup title="Event Requirements">
                                 <FormFields title='Entertainments'>
                                     {
                                         entertainments?.map((entertainment, id) => (
@@ -156,7 +159,7 @@ export default function Events({ role }) {
                                         ))
                                     }
                                 </FormFields>
-                            </FormGroup> */}
+                            </FormGroup>
 
                             <FormGroup title="Event Budget and Pricing">
                                 <div className='sm:w-[20%]'>
