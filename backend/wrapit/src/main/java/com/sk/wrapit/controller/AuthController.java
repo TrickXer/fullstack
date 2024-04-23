@@ -78,7 +78,6 @@ public class AuthController {
     }
 
     @PostMapping("/forgot-password")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> forgotPassword(@RequestBody PasswordReq request) {
         BasicRes<String> response = new BasicRes<>();
 
@@ -94,7 +93,6 @@ public class AuthController {
     }
 
     @PatchMapping("/reset-password")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public ResponseEntity<?> patchPassword(@RequestParam String token, @RequestBody PasswordPatchReq request) {
         BasicRes<String> response = new BasicRes<>();
 

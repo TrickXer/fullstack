@@ -62,6 +62,7 @@ public class UserCLI implements CommandLineRunner {
                 .venueName("Grand Plaza Ballroom")
                 .venueType("Banquet Hall")
                 .venueDescription("Elegant ballroom suitable for weddings, corporate events, and special occasions.")
+                .venueCapacity("175")
                 .venueAddress(venueAddress)
                 .venueEmail("info@grandplazaballroom.com")
                 .venuePhone("+123-456-7890")

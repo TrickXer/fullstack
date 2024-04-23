@@ -36,7 +36,7 @@ public class Venue {
     private String venueDescription;
     private String venueCapacity;
     private String venueEmail;
-    private String venuePhone;
+    private String venuePhone; 
     private String venuePricing;
     private Boolean isAvailable;
 
